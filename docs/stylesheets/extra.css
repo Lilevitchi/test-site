@@ -2,16 +2,46 @@
   Lilevitchi | Test - CSS
    ============================================================*/
 
-/* On définit une hauteur fixe pour le header */
-.md-header {
-  height: 3.4rem; /* C'est la hauteur standard, vous pouvez mettre 60px par ex. */
+/* ============================================================
+   VARIABLES
+   ============================================================*/
+
+:root {
+  /* Layout */
+  --header-height: 3.5rem !important;
 }
 
-/* On force le contenu interne à ne pas s'écraser */
+/* ============================================================
+   HEADER
+   ============================================================*/
+
+.md-header {
+  height: var(--md-header-height) !important;
+}
+
+/* On s'assure que les éléments internes ne flottent pas */
 .md-header__inner {
-  height: 3.4rem;
+  height: var(--md-header-height) !important;
   display: flex;
   align-items: center;
+}
+
+/* Fixer la taille du titre du site (à gauche) */
+.md-header__title {
+  font-size: 1.1rem !important; /* Taille standard du thème */
+  line-height: 1.2 !important;
+}
+
+/* Fixer la taille du titre de la page (quand il apparaît au défilement) */
+.md-header__topic {
+  font-size: 1.1rem !important;
+  font-weight: 700 !important; /* Pour garder le gras si vous voulez */
+}
+
+/* Empêcher le conteneur du titre de changer de padding */
+.md-header__title .md-ellipsis {
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 /* On empêche le titre et les icônes de changer de taille ou de padding */
@@ -20,7 +50,20 @@
   margin-top: 0;
 }
 
-/* Pour éviter que le contenu du site ne remonte sous le header fixe */
+/* ============================================================
+   STRUCTURE MAIN
+   ============================================================*/
+
+/* On empêche le contenu de la page de venir percuter le header */
 .md-main {
-  padding-top: 3.4rem;
+  margin-top: 0 !important;
+}
+
+/* ============================================================
+   SIDEBARS
+   ============================================================*/
+
+/* Important : Désactiver l'ajustement automatique du menu latéral */
+.md-sidebar {
+  top: var(--md-header-height) !important;
 }
