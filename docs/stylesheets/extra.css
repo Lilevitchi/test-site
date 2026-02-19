@@ -90,7 +90,6 @@ html {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    gap: 0 !important;
   }
   
   .md-main {
@@ -107,30 +106,25 @@ html {
   
   .md-main__inner {
     display: flex;
-    align-items: flex-start; /* Aligne les hauts de blocs à 10px du header */
+    align-items: flex-start;
     max-width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
-    gap: 0 !important;
   }
 
 /* --- CONTENT CARD --- */
   .md-content {
     background: var(--bg-card);
     border-radius: var(--radius-md);
-    
     flex: 1;
     min-width: 0;
-    position: sticky !important;
     
-    top: calc(var(--header-height) + var(--sidebar-gap)) !important;
-    height: calc(100vh - var(--header-height) - var(--sidebar-gap) - var(--sidebar-footer-offset)) !important;
+    position: relative !important;
+    height: auto !important;
     
-    margin: var(--sidebar-gap) var(--sidebar-gap) var(--sidebar-footer-offset) var(--sidebar-gap) !important;
+    margin: var(--sidebar-gap) var(--sidebar-gap) 0 var(--sidebar-gap) !important;
     padding: 0 !important;
-    
-    z-index: 1;
-    overflow: hidden;
+    padding-bottom: var(--sidebar-footer-offset) !important;
   }
 
   .md-content__inner {
@@ -170,8 +164,7 @@ html {
     border-radius: var(--radius-md);
     padding: 10px;
     height: 100%;
-    margin: 0 !important;
-    overflow-y: auto; 
+    overflow-y: auto;
     scrollbar-width: thin;
   }
 
@@ -191,16 +184,12 @@ html {
     height: var(--footer-height);
     background-color: var(--bg-surface);
     margin: 0 !important;
-    padding: 0 !important;
-    line-height: 0; 
     border: none;
-    box-shadow: none;
   }
 
   .md-footer-meta {
     background-color: transparent;
     margin-top: -3px; 
-    border: none;
   }
 
   .md-footer-meta__inner {
