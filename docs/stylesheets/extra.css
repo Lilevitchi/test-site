@@ -1,3 +1,7 @@
+/* ============================================================
+  Lilevitchi | Test - CSS
+   ============================================================*/
+
 /* On définit une hauteur fixe pour le header */
 .md-header {
   height: 3.4rem; /* C'est la hauteur standard, vous pouvez mettre 60px par ex. */
