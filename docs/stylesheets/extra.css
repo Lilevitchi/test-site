@@ -19,9 +19,24 @@ html {
   display: none !important;
 }
 
+/* 1. FORCE L'AFFICHAGE DU NOM DU SITE UNIQUEMENT */
+/* On cache le titre de la page/section dans le header */
+.md-header__topic:last-child {
+  display: none !important;
+}
+
+/* On s'assure que le nom du site (premier topic) reste toujours visible */
+.md-header__topic:first-child {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 /* 2. VERROUILLAGE DU HEADER */
 .md-header {
   height: var(--header-height) !important;
+  transform: translateY(0) !important;
+  position: fixed !important;
 }
 
 .md-header__inner {
