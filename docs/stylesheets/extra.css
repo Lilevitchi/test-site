@@ -109,6 +109,8 @@ html {
 /* 6. FIXATION DU CONTENU PRINCIPAL */
 .md-main {
   padding-top: var(--header-height) !important;
+
+    border: 2px dashed yellow; /* DEBUG */
 }
 
 .md-sidebar {
@@ -117,6 +119,8 @@ html {
 
   background: var(--bg-surface);
   border-radius: var(--radius-md);
+
+  border: 2px dashed red; /* DEBUG */
 }
 
 /* Sidebar gauche */
