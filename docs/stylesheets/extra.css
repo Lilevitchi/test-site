@@ -3,6 +3,7 @@ html {
   font-size: 18px !important; 
   -webkit-text-size-adjust: none !important;
   text-size-adjust: none !important;
+  background-color: var(--bg-page);
 }
 
 :root {
@@ -52,6 +53,7 @@ html {
   height: var(--header-height) !important;
   transform: translateY(0) !important;
   position: fixed !important;
+  background-color: var(--bg-surface) !important;
 }
 
 .md-header__inner {
@@ -81,6 +83,29 @@ html {
   margin: 0 !important;
 }
 
+/* 3. STRUCTURE PRINCIPALE (Le conteneur de page) */
+.md-main {
+  padding-top: var(--header-height) !important;
+  background-color: var(--bg-page);
+}
+
+.md-main__inner {
+  margin-top: var(--sidebar-gap) !important;
+  margin-bottom: var(--sidebar-gap) !important;
+  max-width: 100% !important; /* Utilise toute la largeur */
+  display: flex;
+}
+
+/* 4. LE CONTENU CENTRAL (L'article) */
+.md-content {
+  background: var(--bg-card) !important;
+  border-radius: var(--radius-md);
+  padding: 20px !important;
+  margin: 0 var(--sidebar-gap) !important;
+  flex: 1; /* Prend l'espace restant */
+  min-width: 0;
+}
+
 /* 4. VERROUILLAGE DU CONTENU CENTRAL (Le texte des articles) */
 .md-typeset {
   font-size: var(--text-size-content) !important;
@@ -106,31 +131,48 @@ html {
   margin: 0 !important;
 }
 
-/* 6. FIXATION DU CONTENU PRINCIPAL */
-.md-main {
-  padding-top: var(--header-height) !important;
-
-    border: 2px dashed yellow; /* DEBUG */
+/* 5. LES SIDEBARS (Blocs flottants) */
+.md-sidebar {
+  /* Positionnement vertical par rapport au header et au gap */
+  top: calc(var(--header-height) + var(--sidebar-gap)) !important;
+  height: calc(100vh - var(--header-height) - var(--footer-height) - (var(--sidebar-gap) * 2)) !important;
+  position: sticky !important;
 }
 
-.md-sidebar {
-  top: var(--sidebar-gap));
-  bottom: var(--sidebar-footer-offset);
-
-  background: var(--bg-surface);
-  border-radius: var(--radius-md);
-
-  border: 2px dashed red; /* DEBUG */
+/* On applique le style visuel au contenu interne de la sidebar */
+.md-sidebar__inner {
+  background-color: var(--bg-surface) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 10px;
+  margin: 0;
+  height: 100%;
 }
 
 /* Sidebar gauche */
-[data-md-color-scheme] .md-sidebar--primary {
-  left: var(--sidebar-gap);
-  width: var(--sidebar-width-primary);
+.md-sidebar--primary {
+  margin-left: var(--sidebar-gap) !important;
+  width: var(--sidebar-width-primary) !important;
 }
 
 /* Sidebar droite */
-[data-md-color-scheme] .md-sidebar--secondary {
-  right: var(--sidebar-gap);
-  width: var(--sidebar-width-secondary);
+.md-sidebar--secondary {
+  margin-right: var(--sidebar-gap) !important;
+  width: var(--sidebar-width-secondary) !important;
 }
+
+/* 6. FOOTER */
+.md-footer {
+  height: var(--footer-height) !important;
+  background-color: var(--bg-surface) !important;
+}
+
+.md-footer-meta, .md-footer-meta__inner, .md-footer__link, .md-footer__title {
+  font-size: var(--text-size-footer) !important;
+  line-height: var(--footer-height) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Masquer les bordures de debug si nécessaire, ou les garder : */
+.md-main { border: 2px dashed yellow; }
+.md-sidebar { border: 2px dashed red; }
