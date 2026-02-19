@@ -1,1 +1,22 @@
+/* On définit une hauteur fixe pour le header */
+.md-header {
+  height: 3.4rem; /* C'est la hauteur standard, vous pouvez mettre 60px par ex. */
+}
 
+/* On force le contenu interne à ne pas s'écraser */
+.md-header__inner {
+  height: 3.4rem;
+  display: flex;
+  align-items: center;
+}
+
+/* On empêche le titre et les icônes de changer de taille ou de padding */
+.md-header__button {
+  padding: .4rem;
+  margin-top: 0;
+}
+
+/* Pour éviter que le contenu du site ne remonte sous le header fixe */
+.md-main {
+  padding-top: 3.4rem;
+}
