@@ -12,6 +12,7 @@ theme:
     - navigation.sections
     - navigation.expand
     - navigation.top
+    - header.autohide
 
 extra_css:
   - stylesheets/extra.css
