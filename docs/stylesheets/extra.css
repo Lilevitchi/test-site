@@ -7,11 +7,11 @@ html {
 
 :root {
   /* Vos mesures de référence */
-  --header-fixed-height: 60px;
-  --footer-fixed-height: 80px;
+  --header-height: 72px;
+  --footer-height: 30px;
   --text-size-header: 18px; 
   --text-size-footer: 14px;
-  --text-size-content: 18px; /* On fixe aussi le contenu central */
+  --text-size-content: 18px;
 }
 
 /* 1. SUPPRESSION DE LA RECHERCHE */
@@ -21,11 +21,11 @@ html {
 
 /* 2. VERROUILLAGE DU HEADER */
 .md-header {
-  height: var(--header-fixed-height) !important;
+  height: var(--header-height) !important;
 }
 
 .md-header__inner {
-  height: var(--header-fixed-height) !important;
+  height: var(--header-height) !important;
   padding: 0 20px !important;
   display: flex !important;
   align-items: center !important;
@@ -35,7 +35,7 @@ html {
 .md-header__topic, 
 .md-header__ellipsis {
   font-size: var(--text-size-header) !important;
-  line-height: var(--header-fixed-height) !important;
+  line-height: var(--header-height) !important;
   white-space: nowrap !important;
 }
 
@@ -62,7 +62,7 @@ html {
 
 /* 5. VERROUILLAGE DU FOOTER */
 .md-footer {
-  height: var(--footer-fixed-height) !important;
+  height: var(--footer-height) !important;
 }
 
 .md-footer-meta,
@@ -78,5 +78,5 @@ html {
 
 /* 6. FIXATION DU CONTENU PRINCIPAL */
 .md-main {
-  padding-top: var(--header-fixed-height) !important;
+  padding-top: var(--header-height) !important;
 }
