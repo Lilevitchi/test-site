@@ -1,16 +1,17 @@
 site_name: Mon Labo de Test
+site_url: https://lilevitchi.github.io/test-site/
+
 theme:
   name: material
+  language: fr
   palette:
-    # On force le mode sombre (Slate)
     - scheme: slate
       primary: grey
       accent: cyan
   features:
     - navigation.sections
     - navigation.expand
-    - navigation.top  # Ajoute un bouton "Retour en haut"
-    - header.autohide # Masque la barre en haut quand on descend (très propre)
+    - navigation.top
 
 markdown_extensions:
   - admonition
