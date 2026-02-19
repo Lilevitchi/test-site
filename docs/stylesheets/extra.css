@@ -50,6 +50,7 @@ html {
   -webkit-text-size-adjust: none !important;
   text-size-adjust: none !important;
   background-color: var(--bg-page);
+  overflow-y: scroll;
 }
 
 /* 1. NETTOYAGE (Éléments à supprimer) */
@@ -66,7 +67,7 @@ html {
     height: var(--header-height);
     position: fixed;
     background-color: var(--bg-surface);
-    transform: translateY(0);
+    z-index: 10;
   }
 
   .md-header__inner {
@@ -81,34 +82,40 @@ html {
     opacity: 1;
     visibility: visible;
   }
-  
-  .md-header__title, 
-  .md-header__topic, 
-  .md-header__ellipsis {
-    font-size: var(--text-size-header);
-    line-height: var(--header-height);
-  }
 
 /* --- MAIN STRUCTURE --- */
   .md-main {
     padding-top: var(--header-height);
     background-color: var(--bg-page);
+    display: block;
   }
 
   .md-main__inner {
-    margin: var(--sidebar-gap) 0;
-    max-width: 100%;
+    margin: 0 !important;
+    max-width: 100% !important;
     display: flex;
+    align-items: flex-start;
+    padding: var(--sidebar-gap) 0;
   }
 
 /* --- CONTENT CARD --- */
+
   .md-content {
     background: var(--bg-card);
     border-radius: var(--radius-md);
     margin: 0 var(--sidebar-gap);
-    padding: 20px;
+    padding: 0 !important; 
     flex: 1;
     min-width: 0;
+    position: sticky;
+    top: calc(var(--header-height) + var(--sidebar-gap));
+    height: calc(100vh - var(--header-height) - var(--sidebar-gap) - var(--sidebar-footer-offset));
+    overflow: visible; 
+  }
+
+  .md-content__inner {
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   .md-typeset {
@@ -116,18 +123,20 @@ html {
   }
 
 /* --- SIDEBARS --- */
-  .md-sidebar {
+.md-sidebar {
+    position: sticky;
     top: calc(var(--header-height) + var(--sidebar-gap));
     height: calc(100vh - var(--header-height) - var(--sidebar-gap) - var(--sidebar-footer-offset));
-    position: sticky;
     transition: height var(--transition);
+    z-index: 1;
   }
 
-  .md-sidebar__inner {
+.md-sidebar__inner {
     background-color: var(--bg-surface);
     border-radius: var(--radius-md);
     padding: 10px;
     height: 100%;
+    overflow-y: auto; 
   }
 
   .md-sidebar--primary {
@@ -141,19 +150,22 @@ html {
   }
 
 /* --- FOOTER --- */
-  .md-footer {
+.md-footer {
     height: var(--footer-height);
     background-color: var(--bg-surface);
+    position: relative;
+    clear: both;
+    z-index: 5;
   }
 
-  .md-footer-meta__inner, 
-  .md-footer__link, 
-  .md-footer__title {
-    font-size: var(--text-size-footer);
-    line-height: var(--footer-height);
+  .md-footer-meta__inner {
+    display: flex;
+    align-items: center;
+    height: var(--footer-height);
+    padding: 0 20px;
   }
-}  
+}
 
-/* Masquer les bordures de debug si nécessaire, ou les garder : */
+/* Masquer les bordures de debug si nécessaire, ou les garder : 
 .md-main { border: 2px dashed yellow; }
-.md-sidebar { border: 2px dashed red; }
+.md-sidebar { border: 2px dashed red; }*/
