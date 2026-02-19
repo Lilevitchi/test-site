@@ -45,21 +45,21 @@
 }
 
 /* 0. VERROUILLAGE RACINE : Empêche tout le site de changer de taille */
-html {
-  font-size: 18px !important; 
-  -webkit-text-size-adjust: none !important;
-  text-size-adjust: none !important;
-  background-color: var(--bg-page);
-  overflow-y: scroll;
-}
+  html {
+    font-size: 18px !important; 
+    -webkit-text-size-adjust: none !important;
+    text-size-adjust: none !important;
+    background-color: var(--bg-page);
+    overflow-y: scroll;
+  }
 
 /* 1. NETTOYAGE (Éléments à supprimer) */
-.md-search, 
-.md-header__search, 
-.md-header__topic:last-child,
-.md-footer-nav {
-  display: none !important;
-}
+  .md-search, 
+  .md-header__search, 
+  .md-header__topic:last-child,
+  .md-footer-nav {
+    display: none !important;
+  }
 
 [data-md-color-scheme] {
 
@@ -94,6 +94,7 @@ html {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    gap: 0 !important;
   }
   
   .md-main {
@@ -107,7 +108,6 @@ html {
   .md-grid {
     max-width: 100% !important;
     margin: 0 !important;
-    width: 100%;
   }
   
   .md-main__inner {
@@ -116,32 +116,31 @@ html {
     max-width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
+    gap: 0 !important;
   }
 
 /* --- CONTENT CARD --- */
-
   .md-content {
     background: var(--bg-card);
     border-radius: var(--radius-md);
-    margin: var(--sidebar-gap) var(--sidebar-gap) var(--sidebar-footer-offset) var(--sidebar-gap) !important;
-    padding: 0 !important;
     flex: 1;
     min-width: 0;
-    position: relative; 
-    height: auto;
+    position: sticky !important;
+    top: calc(var(--header-height) + var(--sidebar-gap)) !important;
+    height: calc(100vh - var(--header-height) - var(--sidebar-gap) - var(--sidebar-footer-offset)) !important;
+    margin: var(--sidebar-gap) var(--sidebar-gap) var(--sidebar-footer-offset) var(--sidebar-gap) !important;
+    padding: 0 !important;
+    z-index: 1;
+    overflow-y: auto; 
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
-  .md-content__inner {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
+  .md-content::-webkit-scrollbar { display: none; } /* Cache la scrollbar Chrome/Safari */
 
   .md-content__inner { margin: 0 !important; padding: 0 !important; }
-  .md-content__inner:before { display: none; }
 
-  .md-typeset {
-    font-size: var(--text-size-content);
-  }
+  .md-content__inner:before { display: none; }
   
 /* --- CUSTOM CARD --- */
   .custom-card {
@@ -156,15 +155,12 @@ html {
   }
 
 /* --- SIDEBARS --- */
-  
   .md-sidebar {
     position: sticky !important;
     top: calc(var(--header-height) + var(--sidebar-gap)) !important;
     height: calc(100vh - var(--header-height) - var(--sidebar-gap) - var(--sidebar-footer-offset)) !important;
     margin-top: var(--sidebar-gap) !important;
     margin-bottom: var(--sidebar-footer-offset) !important;
-    z-index: 1;
-    transition: height var(--transition), margin-bottom var(--transition);
   }
 
   .md-sidebar__inner {
@@ -173,16 +169,18 @@ html {
     padding: 10px;
     height: 100%;
     overflow-y: auto; 
-    scrollbar-width: thin; /* Pour des barres de scroll plus discrètes */
+    scrollbar-width: thin;
   }
 
-  .md-sidebar--primary {
-    margin-left: var(--sidebar-gap);
-    width: var(--sidebar-width-primary);
+  .md-sidebar--primary { 
+    margin-left: var(--sidebar-gap) !important; 
+    width: var(--sidebar-width-primary) !important; 
   }
-
-  .md-sidebar--primary { margin-left: var(--sidebar-gap) !important; width: var(--sidebar-width-primary) !important; }
-  .md-sidebar--secondary { margin-right: var(--sidebar-gap) !important; width: var(--sidebar-width-secondary) !important; }
+  
+  .md-sidebar--secondary { 
+    margin-right: var(--sidebar-gap) !important; 
+    width: var(--sidebar-width-secondary) !important; 
+  }
 
 /* --- FOOTER --- */
   .md-footer {
@@ -191,6 +189,13 @@ html {
     background-color: var(--bg-surface);
     margin: 0 !important;
     padding: 0 !important;
+    display: block;
+    line-height: 0; /* Supprime l'interligne qui crée souvent les 3px de vide */
+  }
+
+  .md-footer-meta {
+    background-color: transparent;
+    border: none;
   }
 
   .md-footer-meta__inner {
@@ -198,7 +203,12 @@ html {
     display: flex;
     align-items: center;
     padding: 0 20px;
+    margin: 0 !important;
   }
+  
+  /* --- TYPO --- */
+  .md-typeset { font-size: var(--text-size-content); }
+
 }
 
 /* Masquer les bordures de debug si nécessaire, ou les garder : 
