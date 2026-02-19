@@ -1,9 +1,17 @@
+/* 0. VERROUILLAGE RACINE : Empêche tout le site de changer de taille */
+html {
+  font-size: 18px !important; 
+  -webkit-text-size-adjust: none !important;
+  text-size-adjust: none !important;
+}
+
 :root {
   /* Vos mesures de référence */
   --header-fixed-height: 60px;
   --footer-fixed-height: 80px;
   --text-size-header: 18px; 
   --text-size-footer: 14px;
+  --text-size-content: 18px; /* On fixe aussi le contenu central */
 }
 
 /* 1. SUPPRESSION DE LA RECHERCHE */
@@ -11,7 +19,7 @@
   display: none !important;
 }
 
-/* 2. VERROUILLAGE DU HEADER (Structure & Contenu) */
+/* 2. VERROUILLAGE DU HEADER */
 .md-header {
   height: var(--header-fixed-height) !important;
 }
@@ -23,7 +31,6 @@
   align-items: center !important;
 }
 
-/* On bloque ici tous les textes du header pour qu'ils gardent la même taille */
 .md-header__title, 
 .md-header__topic, 
 .md-header__ellipsis {
@@ -44,12 +51,20 @@
   margin: 0 !important;
 }
 
-/* 4. VERROUILLAGE DU FOOTER (Structure & Textes) */
+/* 4. VERROUILLAGE DU CONTENU CENTRAL (Le texte des articles) */
+.md-typeset {
+  font-size: var(--text-size-content) !important;
+}
+
+/* On force aussi les titres pour qu'ils ne bougent pas */
+.md-typeset h1 { font-size: 2em !important; }
+.md-typeset h2 { font-size: 1.6em !important; }
+
+/* 5. VERROUILLAGE DU FOOTER */
 .md-footer {
   height: var(--footer-fixed-height) !important;
 }
 
-/* On bloque ici tous les textes du footer */
 .md-footer-meta,
 .md-footer-meta__inner,
 .md-footer__link,
@@ -61,7 +76,7 @@
   margin: 0 !important;
 }
 
-/* 5. FIXATION DU CONTENU PRINCIPAL */
+/* 6. FIXATION DU CONTENU PRINCIPAL */
 .md-main {
   padding-top: var(--header-fixed-height) !important;
 }
