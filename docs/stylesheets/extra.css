@@ -84,11 +84,6 @@ html {
     visibility: visible;
   }
 
-  .md-header__title, .md-header__topic, .md-header__ellipsis {
-    font-size: var(--text-size-header);
-    line-height: var(--header-height);
-  }
-
 /* --- MAIN STRUCTURE --- */
   .md-container {
     display: flex;
@@ -98,8 +93,7 @@ html {
   
   .md-main {
     flex: 1 0 auto;
-    display: flex;
-    flex-direction: column;
+    display: block;
     padding-top: var(--header-height) !important;
     background-color: var(--bg-page);
   }
@@ -107,15 +101,14 @@ html {
   .md-grid {
     max-width: 100% !important;
     margin: 0 !important;
-    width: 100%;
   }
   
   .md-main__inner {
     display: flex;
-    align-items: stretch;
+    align-items: flex-start;
     max-width: 100% !important;
     margin: 0 !important;
-    padding: 0 !important;
+    padding: var(--sidebar-gap) 0;
   }
 
 /* --- CONTENT CARD --- */
@@ -123,7 +116,7 @@ html {
   .md-content {
     background: var(--bg-card);
     border-radius: var(--radius-md);
-    margin: var(--sidebar-gap) var(--sidebar-gap) var(--sidebar-footer-offset) var(--sidebar-gap) !important;
+    margin: 0 var(--sidebar-gap);
     padding: 0 !important;
     flex: 1;
     min-width: 0;
@@ -136,7 +129,9 @@ html {
     padding: 0 !important;
   }
 
-  .md-content__inner:before { display: none; }
+  .md-content__inner:before {
+    display: none;
+  }
 
   .md-typeset {
     font-size: var(--text-size-content);
@@ -155,15 +150,11 @@ html {
   }
 
 /* --- SIDEBARS --- */
-  
   .md-sidebar {
     position: sticky !important;
     top: calc(var(--header-height) + var(--sidebar-gap)) !important;
     height: calc(100vh - var(--header-height) - var(--sidebar-gap) - var(--sidebar-footer-offset)) !important;
-    margin-top: var(--sidebar-gap) !important;
-    margin-bottom: var(--sidebar-footer-offset) !important;
     z-index: 1;
-    transition: height var(--transition), margin-bottom var(--transition);
   }
 
   .md-sidebar__inner {
@@ -175,23 +166,34 @@ html {
     scrollbar-width: thin; /* Pour des barres de scroll plus discrètes */
   }
 
-  .md-sidebar--primary { margin-left: var(--sidebar-gap) !important; width: var(--sidebar-width-primary) !important; }
-  .md-sidebar--secondary { margin-right: var(--sidebar-gap) !important; width: var(--sidebar-width-secondary) !important; }
+  .md-sidebar--primary {
+    margin-left: var(--sidebar-gap);
+    width: var(--sidebar-width-primary);
+  }
+
+  .md-sidebar--secondary {
+    margin-right: var(--sidebar-gap);
+    width: var(--sidebar-width-secondary);
+  }
 
 /* --- FOOTER --- */
   .md-footer {
     flex-shrink: 0;
     height: var(--footer-height);
     background-color: var(--bg-surface);
-    margin: 0 !important;
-    padding: 0 !important;
+    display: block;
+    width: 100%;
   }
 
   .md-footer-meta__inner {
-    height: var(--footer-height);
     display: flex;
     align-items: center;
+    height: var(--footer-height);
     padding: 0 20px;
+  }
+
+  .md-footer-meta {
+    margin-top: -3px;
   }
 }
 
