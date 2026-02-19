@@ -7,11 +7,14 @@ theme:
   palette:
     - scheme: slate
       primary: grey
-      accent: cyan
+      accent: deep orange
   features:
     - navigation.sections
     - navigation.expand
     - navigation.top
+
+extra_css:
+  - stylesheets/extra.css
 
 markdown_extensions:
   - admonition
