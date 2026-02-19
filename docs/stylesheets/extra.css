@@ -112,8 +112,6 @@ html {
 }
 
 .md-sidebar {
-  position: fixed;
-
   top: var(--sidebar-gap));
   bottom: var(--sidebar-footer-offset);
 
