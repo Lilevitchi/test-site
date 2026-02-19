@@ -1,53 +1,67 @@
 :root {
-  /* On définit des hauteurs fixes que rien ne pourra changer */
+  /* Vos mesures de référence */
   --header-fixed-height: 60px;
   --footer-fixed-height: 80px;
-  --text-fixed-size: 16px;
+  --text-size-header: 18px; 
+  --text-size-footer: 14px;
 }
 
-/* 1. VERROUILLAGE DU HEADER */
+/* 1. SUPPRESSION DE LA RECHERCHE */
+.md-search, .md-search__button, .md-header__search {
+  display: none !important;
+}
+
+/* 2. VERROUILLAGE DU HEADER (Structure & Contenu) */
 .md-header {
   height: var(--header-fixed-height) !important;
 }
 
 .md-header__inner {
   height: var(--header-fixed-height) !important;
-  padding: 0 20px !important; /* Marges fixes sur les côtés */
+  padding: 0 20px !important;
+  display: flex !important;
+  align-items: center !important;
 }
 
-/* 2. VERROUILLAGE DU LOGO ET DES ICÔNES */
+/* On bloque ici tous les textes du header pour qu'ils gardent la même taille */
+.md-header__title, 
+.md-header__topic, 
+.md-header__ellipsis {
+  font-size: var(--text-size-header) !important;
+  line-height: var(--header-fixed-height) !important;
+  white-space: nowrap !important;
+}
+
+/* 3. VERROUILLAGE DU LOGO ET BOUTONS */
 .md-logo img, .md-logo svg {
-  height: 32px !important; /* Taille fixe du logo */
+  height: 32px !important;
   width: auto !important;
 }
 
 .md-header__button {
-  font-size: 24px !important; /* Taille fixe des icônes (loupe, burger, etc.) */
+  font-size: 24px !important;
   padding: 8px !important;
   margin: 0 !important;
 }
 
-/* 3. VERROUILLAGE DU FOOTER */
+/* 4. VERROUILLAGE DU FOOTER (Structure & Textes) */
 .md-footer {
   height: var(--footer-fixed-height) !important;
 }
 
-.md-footer-meta {
-  padding: 10px 0 !important;
-}
-
-/* 4. VERROUILLAGE DES TEXTES (Header & Footer) */
-.md-header__title, 
+/* On bloque ici tous les textes du footer */
+.md-footer-meta,
 .md-footer-meta__inner,
 .md-footer__link,
-.md-footer__title {
-  font-size: var(--text-fixed-size) !important;
+.md-footer__title,
+.md-footer__direction {
+  font-size: var(--text-size-footer) !important;
   line-height: 1.5 !important;
+  padding: 0 !important;
   margin: 0 !important;
 }
 
-/* 5. COMPENSATION POUR LE CONTENU */
-/* Empêche le contenu de la page de bouger quand on redimensionne */
+/* 5. FIXATION DU CONTENU PRINCIPAL */
 .md-main {
   padding-top: var(--header-fixed-height) !important;
 }
