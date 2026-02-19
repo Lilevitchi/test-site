@@ -13,6 +13,9 @@ theme:
     - navigation.expand
     - navigation.top
 
+extra_javascript:
+  - javascripts/sidebar-footer-offset.js
+  
 extra_css:
   - stylesheets/extra.css
 
