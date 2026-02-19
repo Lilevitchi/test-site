@@ -122,6 +122,17 @@ html {
     font-size: var(--text-size-content);
   }
 
+  .custom-card {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-md);
+  margin-bottom: 10px; /* Aligné sur ton sidebar-gap */
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Un peu plus visible */
+  box-sizing: border-box;
+  padding: 15px; /* Pour que le contenu de la carte ne colle pas à ses bords */
+  transition: transform var(--transition);
+}
+
 /* --- SIDEBARS --- */
 .md-sidebar {
     position: sticky;
