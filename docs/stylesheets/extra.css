@@ -7,17 +7,22 @@ html {
 }
 
 :root {
-  /* Vos mesures de référence */
-  --header-height: 72px;
-  --footer-height: 30px;
-  --text-size-header: 18px; 
-  --text-size-footer: 14px;
-  --text-size-content: 18px;
+  /* Brand */
+  --accent: #ff5722;
+  --accent-soft: rgba(255, 87, 34, 0.08);
 
   /* Backgrounds */
   --bg-page: #1c212a;
   --bg-surface: rgba(41, 44, 53, 1);
   --bg-card: rgba(32, 32, 32, 1);
+
+  /* Content sizing */
+  --content-max-width: 87.5rem;     /* 1400px */
+  --grid-max-width: 95%;
+  
+  /* Layout */
+  --header-height: 72px;
+  --footer-height: 30px;
 
   /* Sidebar sizing*/
   --sidebar-width-primary: 216px;
@@ -25,9 +30,26 @@ html {
   --sidebar-gap: 10px;
   --sidebar-footer-offset: 10px;
 
+  /* Typography */
+  --font-main: Arial, Helvetica, sans-serif;
+  --text-size-header: 18px; 
+  --text-size-footer: 14px;
+  --text-size-content: 18px;
+
   /* Radius */
   --radius-sm: 4px;
   --radius-md: 8px;
+
+  /* Motion */
+  --transition: 187ms cubic-bezier(0, 0, 0, 1);
+
+  /* Effects */
+  --blur-soft: blur(5px);
+  --blur-strong: blur(6px);
+
+  /* Cursor */
+  --cursor-default: url('../assets/curseur.png') 7 0, pointer;
+  --cursor-click: url('../assets/curseur-clic.png') 7 0, pointer;
 }
 
 /* 1. SUPPRESSION DE LA RECHERCHE */
