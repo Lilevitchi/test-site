@@ -12,6 +12,21 @@ html {
   --text-size-header: 18px; 
   --text-size-footer: 14px;
   --text-size-content: 18px;
+
+  /* Backgrounds */
+  --bg-page: #1c212a;
+  --bg-surface: rgba(41, 44, 53, 1);
+  --bg-card: rgba(32, 32, 32, 1);
+
+  /* Sidebar sizing*/
+  --sidebar-width-primary: 216px;
+  --sidebar-width-secondary: 226px;
+  --sidebar-gap: 10px;
+  --sidebar-footer-offset: 10px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
 }
 
 /* 1. SUPPRESSION DE LA RECHERCHE */
@@ -94,4 +109,26 @@ html {
 /* 6. FIXATION DU CONTENU PRINCIPAL */
 .md-main {
   padding-top: var(--header-height) !important;
+}
+
+.md-sidebar {
+  position: fixed;
+
+  top: var(--sidebar-gap));
+  bottom: var(--sidebar-footer-offset);
+
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+}
+
+/* Sidebar gauche */
+[data-md-color-scheme] .md-sidebar--primary {
+  left: var(--sidebar-gap);
+  width: var(--sidebar-width-primary);
+}
+
+/* Sidebar droite */
+[data-md-color-scheme] .md-sidebar--secondary {
+  right: var(--sidebar-gap);
+  width: var(--sidebar-width-secondary);
 }
