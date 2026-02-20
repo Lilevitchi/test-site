@@ -314,15 +314,20 @@ body {
 
 /* 4. Gestion de la hiérarchie et indentation */
 
-/* On s'assure que le premier chapitre (H2) n'est pas caché */
+/* On cache spécifiquement le premier item s'il contient le lien vers le haut (Home) */
 .md-sidebar--secondary .md-nav__list > .md-nav__item:first-child {
+    display: none !important;
+}
+
+/* On s'assure que les chapitres suivants (H2) sont bien visibles */
+.md-sidebar--secondary .md-nav__list > .md-nav__item {
     display: block !important;
 }
 
 /* Style spécifique pour tes H3 de cartes (nav-item-card-h3) */
 .nav-item-card-h3 .md-nav__link {
-    padding-left: 22px !important; /* Indentation pour l'effet de sous-menu */
-    opacity: 0.6 !important;       /* Plus discret pour la hiérarchie */
+    padding-left: 22px !important; 
+    opacity: 0.6 !important;       
 }
 
 /* 5. États : Actif et Hover */
