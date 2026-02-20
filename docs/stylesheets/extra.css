@@ -159,7 +159,6 @@ body {
     display: flex;
     align-items: center;
     margin-left: var(--space-xs);
-    line-height: normal;
   }
   
   .md-header__title .md-ellipsis {
