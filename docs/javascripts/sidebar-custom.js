@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const root = document.documentElement;
     const footer = document.querySelector(".md-footer");
 
-    /* --- 1. HAUTEUR DYNAMIQUE --- */
     const updateHeight = () => {
         if (!footer) return;
         const visibleHeight = Math.max(0, window.innerHeight - footer.getBoundingClientRect().top);
@@ -10,24 +9,29 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     window.addEventListener("scroll", () => window.requestAnimationFrame(updateHeight), { passive: true });
 
-    /* --- 2. RECONSTRUCTION DE LA SIDEBAR --- */
     const buildSidebar = () => {
         const tocList = document.querySelector('.md-sidebar--secondary .md-nav__list');
         const sidebarInner = document.querySelector('.md-sidebar--secondary .md-sidebar__inner');
         if (!tocList || !sidebarInner) return;
 
-        // On crée le "Faux Titre" (Nom de la page)
-        // On va chercher le premier H2 ou H1 pour le nom
+        // --- A. GESTION DU TITRE ET DU HOME ---
         const pageName = document.querySelector('h1, h2')?.innerText || "Sommaire";
         
-        const fakeTitle = document.createElement('div');
-        fakeTitle.className = "sidebar-fake-title";
-        fakeTitle.innerText = pageName;
+        // Création du faux titre
+        if (!document.querySelector('.sidebar-fake-title')) {
+            const fakeTitle = document.createElement('div');
+            fakeTitle.className = "sidebar-fake-title";
+            fakeTitle.innerText = pageName;
+            sidebarInner.prepend(fakeTitle);
+        }
 
-        // On l'insère tout en haut de la sidebar
-        sidebarInner.prepend(fakeTitle);
+        // Cacher l'élément "Home" s'il existe dans la liste
+        const firstLink = tocList.querySelector('.md-nav__link');
+        if (firstLink && (firstLink.innerText.trim().toLowerCase() === "home" || firstLink.getAttribute('href') === "#")) {
+            firstLink.parentElement.style.display = "none";
+        }
 
-        // Injection des H3 des custom-cards
+        // --- B. INJECTION DES CARTES ---
         const cards = document.querySelectorAll('.custom-card h3');
         cards.forEach(h3 => {
             const li = document.createElement('li');
@@ -39,8 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (prevH2) {
                 const links = tocList.querySelectorAll('.md-nav__link');
+                const targetText = prevH2.innerText.trim().toLowerCase();
+                
                 links.forEach(link => {
-                    if (link.innerText.trim().toLowerCase() === prevH2.innerText.trim().toLowerCase()) {
+                    // Nettoyage du texte du lien (on enlève les espaces en trop)
+                    const linkText = link.innerText.replace(/\s+/g, ' ').trim().toLowerCase();
+                    if (linkText === targetText) {
                         link.parentElement.appendChild(li);
                     }
                 });
