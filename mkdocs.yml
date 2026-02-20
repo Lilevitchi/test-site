@@ -15,6 +15,7 @@ theme:
 
 extra_javascript:
   - javascripts/sidebar-height.js
+  - javascripts/sidebar-custom.js
   
 extra_css:
   - stylesheets/extra.css
