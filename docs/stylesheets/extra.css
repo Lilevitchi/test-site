@@ -188,15 +188,12 @@ body {
     border-radius: var(--radius-md);
     flex: 1;
     min-width: 0;
-    
     position: relative !important;
     height: auto !important;
-    
-    margin: var(--sidebar-gap) var(--sidebar-gap) var(--sidebar-footer-offset) var(--sidebar-gap) !important;
+    margin: var(--sidebar-gap) !important;
     padding: 0 !important;
-    padding-bottom: var(--sidebar-gap) !important;
+    padding-bottom: 20px !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    transition: margin-bottom 0.1s linear;
   }
 
   .md-content__inner {
@@ -227,11 +224,12 @@ body {
   .md-sidebar {
     position: sticky !important;
     top: calc(var(--header-height) + var(--sidebar-gap)) !important;
-    height: calc(100vh - var(--header-height) - var(--sidebar-gap) - var(--sidebar-footer-offset)) !important;
+    bottom: var(--sidebar-gap) !important;
+    height: calc(100vh - var(--header-height) - (var(--sidebar-gap) * 2)) !important;
     padding: 0 !important;
     margin: 0 !important;
     margin-top: var(--sidebar-gap) !important;
-    transition: height 0.1s linear;
+    transition: none !important;
   }
 
   .md-sidebar__inner {
