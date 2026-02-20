@@ -33,7 +33,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!sidebarInner || !tocList) return;
 
-        /* ---------- A. FAUX TITRE ---------- */
+        /* ---------- A. SUPPRESSION DÉFINITIVE DU "HOME" ---------- */
+        tocList.querySelectorAll(".md-nav__item").forEach(item => {
+            const link = item.querySelector(".md-nav__link");
+            if (!link) return;
+
+            const text = link.innerText.trim().toUpperCase();
+            const href = link.getAttribute("href") || "";
+
+            const isHome =
+                text === "HOME" &&
+                (href === "" || href === "#" || href === "#__toc");
+
+            if (isHome) {
+                item.remove();
+            }
+        });
+
+        /* ---------- B. FAUX TITRE ---------- */
         const pageTitle =
             document.querySelector("h1")?.innerText ||
             document.querySelector("h2")?.innerText ||
@@ -47,12 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         fakeTitle.textContent = pageTitle;
 
-        /* ---------- B. NETTOYAGE DES H3 INJECTÉS ---------- */
+        /* ---------- C. NETTOYAGE DES H3 INJECTÉS ---------- */
         tocList
             .querySelectorAll(".nav-item-card-h3")
             .forEach(el => el.remove());
 
-        /* ---------- C. INJECTION DES H3 DES CARTES ---------- */
+        /* ---------- D. INJECTION DES H3 DES CARTES ---------- */
         const cards = document.querySelectorAll(".custom-card h3");
 
         cards.forEach(h3 => {
