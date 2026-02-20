@@ -281,22 +281,11 @@ body {
 /* ============================================================
    SIDEBAR DROITE — VERSION PROPRE & STABLE
    ============================================================ */
-
-/* Suppression des titres natifs MkDocs */
-.md-sidebar--secondary .md-nav__title,
-.md-sidebar--secondary label[for="__toc"] {
+  
+  .md-sidebar--secondary .md-nav__title,
+  .md-sidebar--secondary label[for="__toc"] {
     display: none !important;
-}
-
-/* Faux titre injecté 
-.sidebar-fake-title {
-    color: #ffffff !important;
-    font-size: var(--text-size-content) !important;
-    font-weight: 700 !important;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 10px 10px 15px 10px;
-}*/
+  }
 
   .md-sidebar--secondary .md-nav__list {
     padding: 0 !important;
@@ -307,10 +296,10 @@ body {
   .md-nav__item:not(.nav-item-card-h3)
   > .md-nav__link {
     display: block;
-    padding: 8px 10px !important;
-    margin-top: 10px;
+    padding: 6px 10px !important;
+    margin-top: 6px;
     font-size: var(--text-size-content);
-    font-weight: 700;
+    font-weight: 600;
     color: #ffffff !important;
     opacity: 0.95;
   }
@@ -321,44 +310,32 @@ body {
     margin-top: 0;
   }
 
-/* ------------------------------------------------------------
-   4. SOUS-CHAPITRES (H3 / CUSTOM CARDS)
-   ------------------------------------------------------------ */
-.nav-item-card-h3 .md-nav__link {
+  .nav-item-card-h3 .md-nav__link {
     padding: 4px 10px 4px 22px !important;
     font-size: calc(var(--text-size-content) - 1px);
     font-weight: 400;
-    color: var(--text-muted, #aab2c0) !important;
-    opacity: 0.85;
-}
+    color: #ffffff !important;
+    opacity: 0.75;
+  }
 
-/* ------------------------------------------------------------
-   5. ÉTAT ACTIF
-   ------------------------------------------------------------ */
-.md-sidebar--secondary .md-nav__link--active {
+  .md-sidebar--secondary .md-nav__link--active {
     opacity: 1 !important;
-    font-weight: 700 !important;
-}
+    font-weight: 600 !important;
+  }
 
-/* ------------------------------------------------------------
-   6. HOVER DISCRET
-   ------------------------------------------------------------ */
-.md-sidebar--secondary .md-nav__link:hover {
-    opacity: 1;
-}
+  .md-sidebar--secondary .md-nav__link:hover {
+    color: var(--text-muted);
+  }
 
-/* ------------------------------------------------------------
-   7. NETTOYAGE VISUEL MATERIAL
-   ------------------------------------------------------------ */
-.md-sidebar--secondary .md-nav__item {
+  .md-sidebar--secondary .md-nav__item {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-}
+  }
 
-.md-sidebar--secondary .md-nav__link::after {
+  .md-sidebar--secondary .md-nav__link::after {
     display: none !important;
-}
+  }
   
 /* ============================================================
    FOOTER
