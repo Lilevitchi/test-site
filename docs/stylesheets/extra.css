@@ -128,7 +128,6 @@ body {
     border-bottom-right-radius: var(--progress-radius, 0px);
     z-index: 11;
     transition: width 0.15s ease-out;
-    pointer-events: none;
     /*box-shadow: 0 1px 8px var(--accent);*/
 }
 
