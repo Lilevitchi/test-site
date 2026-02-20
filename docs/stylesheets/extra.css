@@ -264,6 +264,45 @@ body {
   }
 
 /* ============================================================
+   SIDEBAR DROITE
+   ============================================================*/
+
+  .md-sidebar--secondary .md-nav__title {
+    font-size: 10px !important;
+    color: #ffffff !important;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0 10px !important;
+    background: transparent !important;
+    margin-bottom: 10px;
+  }
+
+  .md-sidebar--secondary .md-nav__link {
+  font-size: 10px !important;
+  color: #ffffff !important;
+  font-weight: 400;
+  line-height: 1.4;
+  padding: 4px 10px !important;
+  transition: opacity 0.2s ease;
+  }
+
+  .md-sidebar--secondary .md-nav__link--active,
+  .md-sidebar--secondary .md-nav__link:focus,
+  .md-sidebar--secondary .md-nav__link:hover {
+    color: #ffffff !important;
+    font-weight: 400 !important;
+    background: transparent !important;
+  }
+
+  .md-sidebar--secondary .md-nav__link:hover {
+    opacity: 0.7;
+  }
+
+  .md-sidebar--secondary .md-nav__item {
+    border-left: none !important;
+  }
+  
+/* ============================================================
    FOOTER
    ============================================================*/
   
