@@ -277,59 +277,65 @@ body {
   }
 
 /* ============================================================
-   SIDEBAR DROITE (NETTOYAGE COMPLET & HARMONISATION)
-   ============================================================*/
+   SIDEBAR DROITE — VERSION PROPRE & STABLE
+   ============================================================ */
 
-/* 1. Neutralisation des éléments natifs MkDocs */
-/* On cache les titres de section et labels qui créent des cadres/fonds sombres */
-.md-sidebar--secondary .md-nav__title, 
-.md-sidebar--secondary label[for="__toc"],
-.md-sidebar--secondary .md-nav__item--active > label {
+/* ------------------------------------------------------------
+   1. SUPPRESSION DÉFINITIVE DE "HOME" (TITRE NATIF MKDOCS)
+   ------------------------------------------------------------ */
+
+/* HOME n’est PAS un lien mais un md-nav__title */
+.md-sidebar--secondary .md-nav__title,
+.md-sidebar--secondary .md-nav__title[for],
+.md-sidebar--secondary label[for="__toc"] {
     display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-/* 2. Style du "Faux Titre" (Injecté par JS) */
+/* ------------------------------------------------------------
+   2. FAUX TITRE (injecté par JS)
+   ------------------------------------------------------------ */
 .sidebar-fake-title {
     color: #ffffff !important;
     font-size: var(--text-size-content) !important;
     font-weight: 700 !important;
     text-transform: uppercase;
-    padding: 10px 10px 15px 10px;
     letter-spacing: 0.5px;
+    padding: 10px 10px 15px 10px;
     background: transparent !important;
 }
 
-/* 3. Style des Liens (H2 standards et H3 de cartes) */
+/* ------------------------------------------------------------
+   3. LIENS STANDARD (H2)
+   ------------------------------------------------------------ */
 .md-sidebar--secondary .md-nav__link {
     color: #ffffff !important;
     font-size: var(--text-size-content) !important;
     font-weight: 400 !important;
     padding: 5px 10px !important;
     background: transparent !important;
-    transition: opacity 0.2s ease;
     display: block;
     border: none !important;
-    opacity: 0.8; /* Look Midnight Ride */
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
 }
 
-/* 4. Gestion de la Visibilité et Hiérarchie */
-
-/* On force l'affichage de TOUS les items de la liste */
-/* C'est le JavaScript qui s'occupe désormais de cacher spécifiquement "Home" */
-.md-sidebar--secondary .md-nav__list > .md-nav__item {
-    display: block !important;
-}
-
-/* Indentation spécifique pour les H3 (Custom Cards) */
+/* ------------------------------------------------------------
+   4. H3 DES CARTES (Hiérarchie)
+   ------------------------------------------------------------ */
 .nav-item-card-h3 .md-nav__link {
-    padding-left: 22px !important; 
-    opacity: 0.6 !important; /* Plus discret pour marquer la hiérarchie */
+    padding-left: 22px !important;
+    opacity: 0.6 !important;
 }
 
-/* 5. États (Survol et Navigation active) */
+/* ------------------------------------------------------------
+   5. ÉTATS ACTIFS / HOVER
+   ------------------------------------------------------------ */
 .md-sidebar--secondary .md-nav__link--active {
     opacity: 1 !important;
-    font-weight: 700 !important; /* On met en gras le chapitre actuel */
+    font-weight: 700 !important;
 }
 
 .md-sidebar--secondary .md-nav__link:hover {
@@ -337,7 +343,9 @@ body {
     background: transparent !important;
 }
 
-/* 6. Nettoyage des bordures et icônes Material */
+/* ------------------------------------------------------------
+   6. NETTOYAGE VISUEL MATERIAL
+   ------------------------------------------------------------ */
 .md-sidebar--secondary .md-nav__list,
 .md-sidebar--secondary .md-nav__item {
     background: transparent !important;
@@ -345,15 +353,16 @@ body {
     box-shadow: none !important;
 }
 
-/* Supprime la flèche de navigation à droite des liens */
+/* Supprime flèche Material */
 .md-sidebar--secondary .md-nav__link::after {
     display: none !important;
 }
 
-  /* Cache tout lien dans la sidebar qui pointe vers le haut de page (#) */
+/* ------------------------------------------------------------
+   7. SÉCURITÉ : cache tout lien vide ou #
+   ------------------------------------------------------------ */
 .md-sidebar--secondary .md-nav__link[href="#"],
-.md-sidebar--secondary .md-nav__link[href=""],
-.md-sidebar--secondary .md-nav__item[data-hidden="true"] {
+.md-sidebar--secondary .md-nav__link[href=""] {
     display: none !important;
 }
   
