@@ -279,39 +279,44 @@ body {
    ============================================================*/
 
   .md-sidebar--secondary .md-nav__title, 
-  .md-sidebar--secondary .md-nav__item--active > label,
-  .md-sidebar--secondary .md-nav__link--active,
-  .md-sidebar--secondary label[for="__toc"] {
+  .md-sidebar--secondary label[for="__toc"],
+  .md-sidebar--secondary .md-nav__item--active > label {
+    display: none !important; /* On cache le titre original pour laisser le JS mettre le sien */
     background: transparent !important;
     box-shadow: none !important;
     border: none !important;
-    outline: none !important;
-    color: #ffffff !important;
-    font-size: 10px !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    padding: 0 10px !important;
-    margin-bottom: 10px !important;
   }
-
+  
   .md-sidebar--secondary .md-nav__link {
     color: #ffffff !important;
-    font-size: 10px !important;
+    font-size: var(--text-size-content) !important;
     font-weight: 400 !important;
     padding: 4px 10px !important;
     background: transparent !important;
     transition: opacity 0.2s ease;
     display: block;
+    border: none !important;
+  }
+
+  .md-sidebar--secondary .md-nav__list {
+    background: transparent !important;
+    padding: 0 !important;
+  }
+
+  .md-sidebar--secondary .md-nav__item {
+    border: none !important;
+    background: transparent !important;
   }
 
   .md-sidebar--secondary .md-nav__list > .md-nav__item:first-child {
     display: none !important;
   }
-
+  
   .md-sidebar--secondary .md-nav__link--active,
   .md-sidebar--secondary .md-nav__link:focus {
     opacity: 1;
     font-weight: 400 !important;
+    background: transparent !important;
   }
 
   .md-sidebar--secondary .md-nav__link:hover {
@@ -323,8 +328,9 @@ body {
     padding-left: 12px !important;
   }
 
-  .md-sidebar--secondary .md-nav__item {
-    border: none !important;
+  .nav-item-h3 {
+    padding-left: 20px !important;
+    opacity: 0.8;
   }
 
   .md-sidebar--secondary .md-nav__link::after {
