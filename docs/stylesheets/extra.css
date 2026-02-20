@@ -74,8 +74,17 @@ html {
   scroll-behavior: smooth;
 }
 
+
+/* Rajout */
+html,
 body {
-  min-height: 100vh;
+  height: 100%;
+}
+
+
+
+body {
+  /*min-height: 100vh;*/
   margin: 0;
 }
 
@@ -164,12 +173,20 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background-color: var(--bg-page);
+
+
+    /* Rajout */
+    min-height: calc(100vh - var(--header-height));
   }
   
   .md-main {
     flex: 1 0 auto;
     display: block;
     padding-top: var(--header-height) !important;
+
+
+    /* Rajout */
+    min-height: calc(100vh - var(--header-height));
   }
 
   .md-grid {
@@ -179,14 +196,17 @@ body {
   
   .md-main__inner {
     display: flex;
-    align-items: flex-start;
+    /*align-items: flex-start;*/
     max-width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
     padding-bottom: var(--sidebar-gap) !important;
     transition: none !important;
 
+
+    /* Rajout */
     min-height: calc(100vh - var(--header-height));
+    align-items: stretch;
   }
   
 /* ============================================================
