@@ -1,3 +1,11 @@
+<div class="bot-advice">
+    <img src="assets/lile-bot.png" width="80">
+    <div>
+        <strong id="lile-bot-title">Chargement...</strong><br>
+        <span id="lile-bot-tip">Patch réfléchit à une astuce...</span>
+    </div>
+</div>
+
 ## Test des Cartes Personnalisées
 
 <div class="custom-card">
