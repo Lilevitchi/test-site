@@ -286,12 +286,12 @@ body {
   }
 
   .md-sidebar--primary { 
-    margin-left: var(--sidebar-gap) !important; 
+    left: var(--sidebar-gap) !important; 
     width: var(--sidebar-width-primary) !important; 
   }
   
   .md-sidebar--secondary { 
-    margin-right: var(--sidebar-gap) !important; 
+    right: var(--sidebar-gap) !important; 
     width: var(--sidebar-width-secondary) !important; 
   }
 
