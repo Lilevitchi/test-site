@@ -185,6 +185,8 @@ body {
     padding: 0 !important;
     padding-bottom: var(--sidebar-gap) !important;
     transition: none !important;
+
+    min-height: calc(100vh - var(--header-height));
   }
   
 /* ============================================================
