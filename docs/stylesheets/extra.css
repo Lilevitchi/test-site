@@ -258,6 +258,8 @@ body {
     padding: 10px;
     height: 100%;
     overflow-y: auto;
+    transition: none !important;
+    will-change: height;
   }
 
   .md-sidebar--primary { 
