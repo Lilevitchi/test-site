@@ -3,6 +3,8 @@ site_url: https://lilevitchi.github.io/test-site/
 
 theme:
   name: material
+  toc:
+  permalink: false
   logo: assets/logo.png
   favicon: assets/favicon.png
   language: fr
