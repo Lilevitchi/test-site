@@ -269,25 +269,22 @@ body {
   }*/
 
   .md-sidebar {
-    display: block !important;
-  visibility: visible !important;
-    position: fixed !important;
-    height: calc(100vh - var(--header-height) - (var(--sidebar-gap) * 2))
-    top: calc(var(--header-height) + var(--sidebar-gap));
-    bottom: calc(var(--sidebar-gap) + var(--footer-visible-height, 0px));
-    margin: 0 !important;
-    padding: 0 !important;
-    z-index: 90;
-    overflow: hidden;
+      position: fixed !important;
+  top: calc(var(--header-height) + var(--sidebar-gap));
+  bottom: calc(var(--sidebar-gap) + var(--footer-visible-height, 0px));
+  z-index: 100;
+  overflow: hidden;
+
   }
 
   .md-sidebar__inner {
-    position: absolute;
-    padding: 10px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background-color: var(--bg-surface);
-    border-radius: var(--radius-md);
+  position: absolute;
+  inset: 0;
+  padding: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-md);
   }
 
   .md-sidebar--primary { 
@@ -304,6 +301,20 @@ body {
     position: absolute;
     inset: 0;
   }
+
+  /* Sidebar droite */
+.md-sidebar--secondary {
+  transform: none !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* Sidebar gauche (au cas où) */
+.md-sidebar--primary {
+  transform: none !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
   
  /* .md-sidebar__scrollwrap {
     margin: 0 !important;
