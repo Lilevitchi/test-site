@@ -28,7 +28,7 @@
   --text-size-header: 21px; 
   --text-size-footer: 10px;
   --text-size-content: 15px;
-  --text-primary: #e5e9f0;
+  --text-primary: #fff;
   --text-muted: #aab2c0;
 
   /* Radius & Motion */
@@ -64,7 +64,7 @@
 }
 
 html {
-  font-size: 18px !important; 
+  font-size: 16px !important; 
   -webkit-text-size-adjust: none !important;
   text-size-adjust: none !important;
   background-color: var(--bg-page);
@@ -126,7 +126,8 @@ body {
     width: var(--scroll-progress, 0%); /* Utilise la variable du JS */
     border-bottom-left-radius: var(--radius-md);
     border-bottom-right-radius: var(--progress-radius, 0px);
-    border-top-right-radius: var(--progress-radius, 0px);
+    display: block;
+    pointer-events: none;
     z-index: 11;
     transition: width 0.15s ease-out;
     /*box-shadow: 0 1px 8px var(--accent);*/
@@ -394,11 +395,11 @@ body {
   .md-nav__item:not(.nav-item-card-h3)
   > .md-nav__link {
     display: block;
-    padding: 6px 10px !important;
-    margin-top: 6px;
+    padding: 4px 10px !important;
+    margin-top: 4px;
     font-size: var(--text-size-content);
-    font-weight: 600;
-    color: #ffffff !important;
+    font-weight: 400;
+    color: var(--text-primary) !important;
     opacity: 0.95;
   }
 
@@ -412,13 +413,7 @@ body {
     padding: 4px 10px 4px 22px !important;
     font-size: calc(var(--text-size-content) - 1px);
     font-weight: 400;
-    color: #ffffff !important;
-    opacity: 0.75;
-  }
-
-  .md-sidebar--secondary .md-nav__link--active {
-    opacity: 1 !important;
-    font-weight: 600 !important;
+    color: var(--text-primary) !important;
   }
 
   .md-sidebar--secondary .md-nav__link:hover {
