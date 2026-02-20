@@ -1,3 +1,12 @@
+/**
+ * Layout Controller
+ * - Footer-aware sidebars
+ * - Stable viewport height
+ * - Custom TOC enrichment (custom cards)
+ * 
+ * Single source of truth for layout behavior
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.documentElement;
   const footer = document.querySelector(".md-footer");
