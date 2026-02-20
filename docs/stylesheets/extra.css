@@ -107,6 +107,9 @@ body {
   .md-header {
     height: var(--header-height);
     position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     background-color: var(--bg-surface);
     border-bottom-left-radius: var(--radius-md);
     border-bottom-right-radius: var(--radius-md);
@@ -274,7 +277,7 @@ body {
     bottom: calc(var(--sidebar-gap) + var(--footer-visible-height, 0px));
     margin: 0 !important;
     padding: 0 !important;
-    z-index: 100;
+    z-index: 5;
     overflow: hidden;
   }
 
@@ -466,18 +469,6 @@ body {
   .game-card:active, .md-logo:active, .md-header__button:active, .md-tabs__link:active, .md-nav__link:active, .md-typeset a:active  {
     cursor: url('../assets/curseur-clic.png') 7 0, pointer !important;
   }
-
-/* ============================================================
-   FORCE AFFICHAGE SIDEBARS (override Material)
-   ============================================================ */
-
-@media screen and (min-width: 76.25em) {
-  .md-sidebar {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-}
 
 /* Masquer les bordures de debug si nécessaire, ou les garder : 
 .md-main { border: 2px dashed yellow; }
