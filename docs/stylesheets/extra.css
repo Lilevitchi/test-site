@@ -1,10 +1,10 @@
 :root {
   /* Brand & Colors */
-  --accent: #ff6e40;
-  --accent-soft: rgba(255, 110, 64, 0.15);
+  --accent: #ff5722;
+  --accent-soft: rgba(255, 87, 34, 0.08);
   --bg-page: #1a1d23;
-  --bg-surface: #242933;
-  --bg-card: #2e3440;
+  --bg-surface: #2e3440;
+  --bg-card: #242933;
 
   /* Layout Sizing */
   --header-height: 72px;
@@ -40,7 +40,11 @@
   
 }
 
-/* 0. VERROUILLAGE RACINE */
+/* --- CONFIGURATION GLOBALE & RESETS --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 18px !important; 
   -webkit-text-size-adjust: none !important;
@@ -48,9 +52,26 @@ html {
   background-color: var(--bg-page);
   color: var(--text-primary);
   overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
-/* 1. NETTOYAGE DES ÉLÉMENTS MATERIAL */
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* --- SCROLLBARS GLOBALES --- */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+/* --- SECURITE POUR LE STICKY --- */
+.md-container, .md-main, .md-main__inner {
+  overflow: visible !important;
+}
+
+/* --- NETTOYAGE DES ÉLÉMENTS MATERIAL --- */
 .md-search, 
 .md-header__search, 
 .md-header__topic:last-child,
@@ -188,7 +209,6 @@ html {
     padding: 10px;
     height: 100%;
     overflow-y: auto;
-    scrollbar-width: thin;
   }
 
   .md-sidebar--primary { 
