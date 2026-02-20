@@ -111,9 +111,9 @@ body {
     background-color: var(--bg-surface);
     border-bottom-left-radius: var(--radius-md);
     border-bottom-right-radius: var(--radius-md);
-    border-bottom: 3px solid #6e6e6e !important;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.1) !important;
     z-index: 10;
-    overflow: hidden !important;
+    overflow: visible !important;
   }
   
   .md-header::after {
@@ -128,7 +128,7 @@ body {
     border-bottom-right-radius: var(--progress-radius, 0px);
     z-index: 11;
     transition: width 0.15s ease-out;
-    /*box-shadow: 0 1px 8px var(--accent);*/
+    box-shadow: 0 1px 8px var(--accent);
 }
 
   .md-header * {
