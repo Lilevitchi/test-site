@@ -290,7 +290,7 @@ body {
 /* 2. Style du "Faux Titre" créé par ton JS (sidebar-fake-title) */
 .sidebar-fake-title {
     color: #ffffff !important;
-    font-size: 10px !important;
+    font-size: var(--text-size-content) !important;
     font-weight: 700 !important;
     text-transform: uppercase;
     padding: 10px 10px 15px 10px; /* Espace pour aérer sous le titre */
@@ -302,7 +302,7 @@ body {
 /* 3. Style des liens de navigation (H2 et H3 injectés) */
 .md-sidebar--secondary .md-nav__link {
     color: #ffffff !important;
-    font-size: 10px !important; /* Taille Midnight Ride */
+    font-size: var(--text-size-content) !important; /* Taille Midnight Ride */
     font-weight: 400 !important;
     padding: 5px 10px !important;
     background: transparent !important;
