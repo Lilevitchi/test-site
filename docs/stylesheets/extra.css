@@ -299,6 +299,10 @@ body {
   transition: none !important;
   overflow: hidden !important;
   contain: layout paint;
+
+
+  /* Rajout */
+  align-self: stretch;
 }
 
   .md-sidebar__inner {
