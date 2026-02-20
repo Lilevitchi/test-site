@@ -193,7 +193,7 @@ body {
     position: relative !important;
     height: auto !important;
     margin: var(--sidebar-gap) var(--sidebar-gap) 0 var(--sidebar-gap) !important;
-    margin-bottom: var(--footer-visible-offset) !important;
+    margin-bottom: var(--footer-visible-height) !important;
     padding: 0 !important;
     padding-bottom: 20px !important;
     transition: none !important;
