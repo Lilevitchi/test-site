@@ -68,7 +68,6 @@ html {
   -webkit-text-size-adjust: none !important;
   text-size-adjust: none !important;
   background-color: var(--bg-page);
-  color: var(--text-primary);
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
@@ -76,12 +75,15 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
+  color: #fff;
+  font-family: var(--font-main);
+  font-size: var(--text-size-content);
+  font-weight: 400;
 }
 
-/* --- SCROLLBARS GLOBALES --- */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+  scrollbar-color: rgba(255, 255, 255, 0.63) transparent;
 }
 
 /* --- SECURITE POUR LE STICKY --- */
@@ -266,6 +268,7 @@ body {
     overflow: hidden !important;
     display: flex;
     flex-direction: column;
+    transition: all 333ms cubic-bezier(0, 0, 0, 1);
   }
   
   .md-sidebar__inner {
