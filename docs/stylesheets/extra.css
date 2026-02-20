@@ -170,9 +170,9 @@ body {
     flex: 1 0 auto;
     display: block;
     padding-top: var(--header-height) !important;
-
+/*
     padding-left: calc(var(--sidebar-width-primary) + var(--sidebar-gap));
-    padding-right: calc(var(--sidebar-width-secondary) + var(--sidebar-gap));
+    padding-right: calc(var(--sidebar-width-secondary) + var(--sidebar-gap));*/
   }
 
   .md-grid {
@@ -244,7 +244,7 @@ body {
    SIDEBARS
    ============================================================*/
   
-  /*.md-sidebar {
+  .md-sidebar {
     position: sticky !important;
     top: calc(var(--header-height) + var(--sidebar-gap)) !important;
     height: calc(100vh - var(--header-height) - (var(--sidebar-gap) * 2) - var(--footer-visible-height, 0px)) !important;
@@ -266,9 +266,9 @@ body {
     overflow-y: auto;
     transition: none !important;
     will-change: height;
-  }*/
+  }
 
-  .md-sidebar {
+ /* .md-sidebar {
     position: fixed !important;
     top: calc(var(--header-height) + var(--sidebar-gap));
     bottom: calc(var(--sidebar-gap) + var(--footer-visible-height, 0px));
@@ -306,13 +306,13 @@ body {
     flex: 1 1 auto;
     overflow-y: auto;
     min-height: 0;
-  }
+  }*/
   
- /* .md-sidebar__scrollwrap {
+  .md-sidebar__scrollwrap {
     margin: 0 !important;
     padding: 0 !important;
     height: 100% !important; 
-  }*/
+  }
 
 /* ============================================================
    SIDEBAR DROITE — VERSION PROPRE & STABLE
