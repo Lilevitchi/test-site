@@ -82,7 +82,7 @@ body {
 /* --- SCROLLBARS GLOBALES --- */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
 }
 
 /* --- SECURITE POUR LE STICKY --- */
@@ -278,50 +278,57 @@ body {
    SIDEBAR DROITE
    ============================================================*/
 
-  .md-sidebar--secondary .md-nav__link {
-    color: #ffffff !important;
-    font-size: var(--text-size-content) !important;
-    font-weight: 400 !important;
-    padding: 4px 10px !important;
-    transition: opacity 0.2s ease;
-  }
-
-  .md-sidebar--secondary .md-nav__item .md-nav__item {
-    padding-left: 12px !important; 
-  }
-
-  .md-sidebar--secondary .md-nav__link--active,
-  .md-sidebar--secondary .md-nav__link:focus {
-    color: #ffffff !important;
-    font-weight: 400 !important;
-    opacity: 1;
-  }
-
-  .md-sidebar--secondary .md-nav__link:hover {
-    color: #ffffff !important;
-    opacity: 0.7;
-    background: transparent !important;
-  }
-
-  .md-sidebar--secondary .md-nav__item {
-    border-left: none !important;
-  }
-  
-  .md-sidebar--secondary .md-nav__link::after {
-    display: none !important;
-  }
-
-  .md-sidebar--secondary .md-nav__list > .md-nav__item:first-child {
-    display: none !important;
-  }
-
   .md-sidebar--secondary .md-nav__title, 
+  .md-sidebar--secondary .md-nav__item--active > label,
   .md-sidebar--secondary .md-nav__link--active,
   .md-sidebar--secondary label[for="__toc"] {
     background: transparent !important;
     box-shadow: none !important;
     border: none !important;
     outline: none !important;
+    color: #ffffff !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    padding: 0 10px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .md-sidebar--secondary .md-nav__link {
+    color: #ffffff !important;
+    font-size: 10px !important;
+    font-weight: 400 !important;
+    padding: 4px 10px !important;
+    background: transparent !important;
+    transition: opacity 0.2s ease;
+    display: block;
+  }
+
+  .md-sidebar--secondary .md-nav__list > .md-nav__item:first-child {
+    display: none !important;
+  }
+
+  .md-sidebar--secondary .md-nav__link--active,
+  .md-sidebar--secondary .md-nav__link:focus {
+    opacity: 1;
+    font-weight: 400 !important;
+  }
+
+  .md-sidebar--secondary .md-nav__link:hover {
+    opacity: 0.7;
+    background: transparent !important;
+  }
+
+  .md-sidebar--secondary .md-nav__item .md-nav__item {
+    padding-left: 12px !important;
+  }
+
+  .md-sidebar--secondary .md-nav__item {
+    border: none !important;
+  }
+
+  .md-sidebar--secondary .md-nav__link::after {
+    display: none !important;
   }
   
 /* ============================================================
