@@ -263,12 +263,10 @@ body {
     background-color: var(--bg-surface);
     border-radius: var(--radius-md);
     padding: 10px;
-    height: 100%;
+    height: calc(100% - var(--footer-visible-height, 0px));
     overflow-y: auto;
     transition: none !important;
     will-change: height;
-
-    padding-bottom: calc(10px + var(--footer-visible-height));
   }
 
   .md-sidebar--primary { 
