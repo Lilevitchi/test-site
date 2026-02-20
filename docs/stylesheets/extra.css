@@ -276,18 +276,13 @@ body {
     padding: 0 !important;
     z-index: 100;
     overflow: hidden;
-
-    display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
   }
 
   .md-sidebar__inner {
-    position: relative !important;
+    position: absolute;
     padding: 10px;
     overflow-y: auto;
     overflow-x: hidden;
-    height: 100%;
     background-color: var(--bg-surface);
     border-radius: var(--radius-md);
   }
@@ -303,8 +298,8 @@ body {
   }
   
   .md-sidebar__scrollwrap {
-    height: 100%;
-  margin: 0 !important;
+    position: absolute;
+    inset: 0;
   }
   
  /* .md-sidebar__scrollwrap {
@@ -477,3 +472,4 @@ body {
 .md-container { border: 2px dashed green; }
 .md-header { border: 2px dashed blue; }
 .md-sidebar { border: 2px dashed red; }*/
+.md-sidebar { background: red !important; }
