@@ -248,6 +248,8 @@ body {
     will-change: height;    
     backface-visibility: hidden;
     transform: translateZ(0);
+    overflow-y: auto !important; /* Active le scroll vertical si besoin */
+    overflow-x: hidden !important; /* Empêche le scroll horizontal */
   }
 
   .md-sidebar__inner {
