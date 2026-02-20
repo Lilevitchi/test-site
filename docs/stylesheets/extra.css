@@ -170,6 +170,9 @@ body {
     flex: 1 0 auto;
     display: block;
     padding-top: var(--header-height) !important;
+
+    padding-left: calc(var(--sidebar-width-primary) + var(--sidebar-gap));
+    padding-right: calc(var(--sidebar-width-secondary) + var(--sidebar-gap));
   }
 
   .md-grid {
@@ -271,9 +274,8 @@ body {
     bottom: calc(var(--sidebar-gap) + var(--footer-visible-height, 0px));
     margin: 0 !important;
     padding: 0 !important;
-    z-index: 1;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
+    z-index: 20;
+    overflow: hidden;
   }
 
   .md-sidebar__inner {
