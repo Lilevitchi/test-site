@@ -250,7 +250,6 @@ body {
     margin-top: var(--sidebar-gap) !important; 
     z-index: 1;
     transition: none !important;
-    overflow-y: auto !important;
     overflow-x: hidden !important;
   }
 
@@ -261,8 +260,11 @@ body {
     padding: 10px;
     height: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
+    will-change: auto !important; 
     transition: none !important;
-    will-change: height;
+    -webkit-font-smoothing: antialiased;
+    transform: translateZ(0);
   }
   
   .md-sidebar--primary {
@@ -279,6 +281,7 @@ body {
     margin: 0 !important;
     padding: 0 !important;
     height: 100% !important; 
+    overflow: visible !important;
   }
 
 /* ============================================================
@@ -339,6 +342,11 @@ body {
   .md-sidebar--secondary .md-nav__link::after {
     display: none !important;
   }
+
+  .md-sidebar--secondary .md-nav__link {
+    line-height: 1.5 !important;
+    display: block;
+  }  
   
 /* ============================================================
    FOOTER
