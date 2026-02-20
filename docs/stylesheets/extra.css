@@ -107,14 +107,11 @@ body {
   .md-header {
     height: var(--header-height);
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     background-color: var(--bg-surface);
     border-bottom-left-radius: var(--radius-md);
     border-bottom-right-radius: var(--radius-md);
     border-bottom: 3px solid var(--accent);
-    z-index: 100;
+    z-index: 10;
   }
 
   .md-header * {
@@ -274,7 +271,6 @@ body {
   .md-sidebar {
     display: block !important;
   visibility: visible !important;
-  position: fixed !important;
     position: fixed !important;
     height: calc(100vh - var(--header-height) - (var(--sidebar-gap) * 2))
     top: calc(var(--header-height) + var(--sidebar-gap));
