@@ -290,19 +290,19 @@ body {
     border-radius: var(--radius-md);
     display: flex;
     flex-direction: column;
-  }
+  }*/
   
   .md-sidebar--primary {
-    left: var(--sidebar-gap);
+    margin-left: var(--sidebar-gap);
     width: var(--sidebar-width-primary);
   }
   
   .md-sidebar--secondary {
-    right: var(--sidebar-gap);
+    margin-right: var(--sidebar-gap);
     width: var(--sidebar-width-secondary);
   }
   
-  .md-sidebar__scrollwrap {
+  /*.md-sidebar__scrollwrap {
     flex: 1 1 auto;
     overflow-y: auto;
     min-height: 0;
