@@ -1,10 +1,10 @@
 :root {
   /* Brand & Colors */
-  --accent: #ff5722;
-  --accent-soft: rgba(255, 87, 34, 0.08);
-  --bg-page: #1c212a;
-  --bg-surface: rgba(41, 44, 53, 1);
-  --bg-card: rgba(32, 32, 32, 1);
+  --accent: #ff6e40;
+  --accent-soft: rgba(255, 110, 64, 0.15);
+  --bg-page: #1a1d23;
+  --bg-surface: #242933;
+  --bg-card: #2e3440;
 
   /* Layout Sizing */
   --header-height: 72px;
@@ -20,6 +20,8 @@
   --text-size-header: 18px; 
   --text-size-footer: 14px;
   --text-size-content: 18px;
+  --text-primary: #e5e9f0;
+  --text-muted: #aab2c0;
 
   /* Radius & Motion */
   --radius-sm: 4px;
@@ -44,6 +46,7 @@ html {
   -webkit-text-size-adjust: none !important;
   text-size-adjust: none !important;
   background-color: var(--bg-page);
+  color: var(--text-primary);
   overflow-y: scroll;
 }
 
@@ -62,7 +65,14 @@ html {
     height: var(--header-height);
     position: fixed;
     background-color: var(--bg-surface);
+    border-bottom-left-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     z-index: 10;
+  }
+
+  .md-header * {
+    font-size: inherit;
   }
 
   .md-header__inner {
@@ -82,7 +92,18 @@ html {
   .md-header__topic, 
   .md-header__ellipsis {
     font-size: var(--text-size-header);
+    color: var(--text-primary) !important;
+    font-weight: 700;
     line-height: var(--header-height);
+  }
+
+  .md-logo img {
+    height: 60px;
+    transition: transform 187ms ease;
+  }
+
+  .md-logo img:hover {
+    transform: translateY(-2px);
   }
 
 /* --- MAIN STRUCTURE --- */
@@ -90,13 +111,13 @@ html {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: var(--bg-page);
   }
   
   .md-main {
     flex: 1 0 auto;
     display: block;
     padding-top: var(--header-height) !important;
-    background-color: var(--bg-page);
   }
 
   .md-grid {
@@ -114,7 +135,8 @@ html {
 
 /* --- CONTENT CARD --- */
   .md-content {
-    background: var(--bg-card);
+    background: var(--bg-card) !important;
+    color: var(--text-primary);
     border-radius: var(--radius-md);
     flex: 1;
     min-width: 0;
@@ -125,6 +147,7 @@ html {
     margin: var(--sidebar-gap) var(--sidebar-gap) 0 var(--sidebar-gap) !important;
     padding: 0 !important;
     padding-bottom: var(--sidebar-footer-offset) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   }
 
   .md-content__inner {
@@ -183,6 +206,7 @@ html {
     flex-shrink: 0;
     height: var(--footer-height);
     background-color: var(--bg-surface);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     margin: 0 !important;
     border: none;
   }
@@ -199,11 +223,23 @@ html {
     padding: 0 20px;
     margin: 0 !important;
     font-size: var(--text-size-footer);
+    color: var(--text-muted);
   }
 
 /* --- TYPO & CARDS (Rappel) --- */
   .md-typeset {
     font-size: var(--text-size-content);
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+
+  .md-typeset h1, .md-typeset h2, .md-typeset h3 {
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .md-typeset p {
+    color: var(--text-primary);
   }
 
 }
