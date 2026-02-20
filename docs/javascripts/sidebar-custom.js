@@ -24,55 +24,49 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     /* =====================================================
-       2. RECONSTRUCTION SIDEBAR DROITE
+       2. ENRICHISSEMENT DU TOC (CUSTOM CARDS)
        ===================================================== */
     const buildSidebar = () => {
-        const sidebar = document.querySelector(".md-sidebar--secondary");
-        const sidebarInner = sidebar?.querySelector(".md-sidebar__inner");
-        const tocList = sidebar?.querySelector(".md-nav__list");
+        const tocList = document.querySelector(
+            ".md-sidebar--secondary .md-nav__list"
+        );
+        if (!tocList) return;
 
-        if (!sidebarInner || !tocList) return;
-
-        /* ---------- A. SUPPRESSION DÉFINITIVE DU "HOME" ---------- */
-        tocList.querySelectorAll(".md-nav__item").forEach(item => {
-            const link = item.querySelector(".md-nav__link");
-            if (!link) return;
-
-            const text = link.innerText.trim().toUpperCase();
-            const href = link.getAttribute("href") || "";
-
-            const isHome =
-                text === "HOME" &&
-                (href === "" || href === "#" || href === "#__toc");
-
-            if (isHome) {
-                item.remove();
-            }
-        });
-
-        /* ---------- B. FAUX TITRE ---------- */
-        const pageTitle =
-            document.querySelector("h1")?.innerText ||
-            document.querySelector("h2")?.innerText ||
-            "Sommaire";
-
-        let fakeTitle = sidebarInner.querySelector(".sidebar-fake-title");
-        if (!fakeTitle) {
-            fakeTitle = document.createElement("div");
-            fakeTitle.className = "sidebar-fake-title";
-            sidebarInner.prepend(fakeTitle);
-        }
-        fakeTitle.textContent = pageTitle;
-
-        /* ---------- C. NETTOYAGE DES H3 INJECTÉS ---------- */
+        /* --- Nettoyage des anciennes injections --- */
         tocList
             .querySelectorAll(".nav-item-card-h3")
             .forEach(el => el.remove());
 
-        /* ---------- D. INJECTION DES H3 DES CARTES ---------- */
+        /* --- Injection des H3 des custom cards --- */
         const cards = document.querySelectorAll(".custom-card h3");
 
         cards.forEach(h3 => {
+            const card = h3.closest(".custom-card");
+
+            /* Trouver le H2 parent logique */
+            let prev = card.previousElementSibling;
+            while (prev && prev.tagName !== "H2") {
+                prev = prev.previousElementSibling;
+            }
+            if (!prev) return;
+
+            const parentTitle = prev.innerText
+                .replace(/\s+/g, " ")
+                .trim()
+                .toLowerCase();
+
+            /* Trouver l’item TOC correspondant */
+            const parentLink = [...tocList.querySelectorAll(".md-nav__link")]
+                .find(link =>
+                    link.innerText
+                        .replace(/\s+/g, " ")
+                        .trim()
+                        .toLowerCase() === parentTitle
+                );
+
+            if (!parentLink) return;
+
+            /* Créer l’entrée H3 */
             const li = document.createElement("li");
             li.className = "md-nav__item nav-item-card-h3";
 
@@ -82,30 +76,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 </a>
             `;
 
-            let prevH2 = h3.closest(".custom-card")?.previousElementSibling;
-            while (prevH2 && prevH2.tagName !== "H2") {
-                prevH2 = prevH2.previousElementSibling;
-            }
-
-            if (!prevH2) return;
-
-            const target = prevH2.innerText.trim().toLowerCase();
-
-            tocList.querySelectorAll(".md-nav__link").forEach(link => {
-                const linkText = link.innerText
-                    .replace(/\s+/g, " ")
-                    .trim()
-                    .toLowerCase();
-
-                if (linkText === target) {
-                    link.parentElement.appendChild(li);
-                }
-            });
+            parentLink.parentElement.appendChild(li);
         });
     };
 
     /* =====================================================
-       3. OBSERVER (MkDocs reconstruit la sidebar)
+       3. OBSERVER (MkDocs reconstruit le TOC)
        ===================================================== */
     const sidebar = document.querySelector(".md-sidebar--secondary");
     if (sidebar) {
