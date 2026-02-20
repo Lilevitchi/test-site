@@ -185,7 +185,7 @@ body {
    ============================================================*/
   
   .md-content {
-    background: var(--bg-card) !important;
+    background: var(--bg-page) !important;
     color: var(--text-primary);
     border-radius: var(--radius-md);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
