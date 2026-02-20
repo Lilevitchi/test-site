@@ -281,7 +281,7 @@ body {
 
   .md-sidebar__inner {
     height: 100%;
-    padding: 0;
+    padding: 10px;
     overflow-y: auto;
     overflow-x: hidden;
     background-color: var(--bg-surface);
@@ -472,4 +472,6 @@ body {
 .md-main { border: 2px dashed yellow; }
 .md-container { border: 2px dashed green; }
 .md-header { border: 2px dashed blue; }
-.md-sidebar { border: 2px dashed red; }*/
+*/
+.md-sidebar__inner { border: 2px dashed blue; }
+.md-sidebar { border: 2px dashed red; }
