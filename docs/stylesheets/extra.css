@@ -270,7 +270,7 @@ body {
     overflow: hidden !important;
     display: flex;
     flex-direction: column;
-    transition: bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition: bottom 0.25s cubic-bezier(0.4, 0, 0.2, 1), height 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
   
   .md-sidebar__inner {
@@ -431,6 +431,7 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     margin: 0 !important;
     border: none;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease !important;
   }
 
   .md-footer-meta {
