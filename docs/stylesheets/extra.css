@@ -270,7 +270,7 @@ body {
 
   .md-sidebar {
     position: fixed !important;
-    top: calc(var(--header-height) + var(--sidebar-gap));
+    top: var(--header-height)
     left: auto;
     right: auto;
     height: calc(100vh - var(--header-height) - var(--footer-visible-height, 0px)) !important;
