@@ -231,7 +231,7 @@ body {
     padding: 0 !important;
     margin: 0 !important;
     margin-top: var(--sidebar-gap) !important;
-    transition: height 0.2s ease-out !important;
+    transition: none;
     z-index: 1;
   }
 
