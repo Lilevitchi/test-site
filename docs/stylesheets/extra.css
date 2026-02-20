@@ -467,6 +467,18 @@ body {
     cursor: url('../assets/curseur-clic.png') 7 0, pointer !important;
   }
 
+/* ============================================================
+   FORCE AFFICHAGE SIDEBARS (override Material)
+   ============================================================ */
+
+@media screen and (min-width: 76.25em) {
+  .md-sidebar {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
 /* Masquer les bordures de debug si nécessaire, ou les garder : 
 .md-main { border: 2px dashed yellow; }
 .md-container { border: 2px dashed green; }
