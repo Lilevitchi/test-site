@@ -164,7 +164,7 @@ body {
   
   .md-header__title .md-ellipsis {
     color: var(--accent) !important;
-    font-size: var(--font-h1-size);
+    font-size: var(--text-size-header);
     font-weight: 700;
   }
 
