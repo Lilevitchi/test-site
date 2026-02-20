@@ -277,39 +277,16 @@ body {
   }
 
 /* ============================================================
-   SIDEBAR DROITE — VERSION PROPRE, STABLE & CORRIGÉE
+   SIDEBAR DROITE — VERSION PROPRE & STABLE
    ============================================================ */
 
-/* ------------------------------------------------------------
-   1. SUPPRESSION DU "HOME" DU TOC (FIX RÉEL)
-   ------------------------------------------------------------ */
-/* Home = item dont le lien pointe EXACTEMENT vers "#" */
-.md-sidebar--secondary
-.md-nav__item
-> .md-nav__link[href="#"] {
-    display: none !important;
-}
-
-/* Sécurité : cache aussi le <li> parent */
-.md-sidebar--secondary
-.md-nav__item:has(> .md-nav__link[href="#"]) {
-    display: none !important;
-}
-
-/* ------------------------------------------------------------
-   2. SUPPRESSION DES TITRES NATIFS MKDOCS
-   ------------------------------------------------------------ */
+/* Suppression des titres natifs MkDocs */
 .md-sidebar--secondary .md-nav__title,
 .md-sidebar--secondary label[for="__toc"] {
     display: none !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
 }
 
-/* ------------------------------------------------------------
-   3. FAUX TITRE (injecté par JS)
-   ------------------------------------------------------------ */
+/* Faux titre injecté */
 .sidebar-fake-title {
     color: #ffffff !important;
     font-size: var(--text-size-content) !important;
@@ -317,58 +294,25 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     padding: 10px 10px 15px 10px;
-    background: transparent !important;
 }
 
-/* ------------------------------------------------------------
-   4. LIENS STANDARD (H2)
-   ------------------------------------------------------------ */
+/* Liens */
 .md-sidebar--secondary .md-nav__link {
     color: #ffffff !important;
     font-size: var(--text-size-content) !important;
-    font-weight: 400 !important;
     padding: 5px 10px !important;
-    background: transparent !important;
-    display: block;
-    border: none !important;
     opacity: 0.8;
-    transition: opacity 0.2s ease;
 }
 
-/* ------------------------------------------------------------
-   5. H3 DES CARTES (HIÉRARCHIE)
-   ------------------------------------------------------------ */
-.nav-item-card-h3 .md-nav__link {
-    padding-left: 22px !important;
-    opacity: 0.6 !important;
-}
-
-/* ------------------------------------------------------------
-   6. ÉTATS ACTIFS / HOVER
-   ------------------------------------------------------------ */
 .md-sidebar--secondary .md-nav__link--active {
     opacity: 1 !important;
     font-weight: 700 !important;
 }
 
-.md-sidebar--secondary .md-nav__link:hover {
-    opacity: 1 !important;
-    background: transparent !important;
-}
-
-/* ------------------------------------------------------------
-   7. NETTOYAGE VISUEL MATERIAL
-   ------------------------------------------------------------ */
-.md-sidebar--secondary .md-nav__list,
-.md-sidebar--secondary .md-nav__item {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-/* Supprime flèche Material */
-.md-sidebar--secondary .md-nav__link::after {
-    display: none !important;
+/* H3 cartes */
+.nav-item-card-h3 .md-nav__link {
+    padding-left: 22px !important;
+    opacity: 0.6 !important;
 }
   
 /* ============================================================
