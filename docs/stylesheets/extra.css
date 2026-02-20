@@ -208,6 +208,10 @@ body {
   .md-content__inner:before {
     display: none;
   }
+
+  .md-content h1 {
+    display: none !important;
+  }
   
 /* --- CUSTOM CARD --- */
   .custom-card {
@@ -299,6 +303,10 @@ body {
   }
   
   .md-sidebar--secondary .md-nav__link::after {
+    display: none !important;
+  }
+
+  .md-sidebar--secondary .md-nav__list > .md-nav__item:first-child {
     display: none !important;
   }
   
