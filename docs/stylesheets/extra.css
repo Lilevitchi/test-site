@@ -154,13 +154,21 @@ body {
     visibility: visible;
   }
 
-  .md-header__title, 
-  .md-header__topic, 
-  .md-header__ellipsis {
-    font-size: var(--text-size-header);
-    color: var(--text-primary) !important;
+  .md-header__title {
+    display: flex;
+    align-items: center;
+    margin-left: var(--space-xs);
+    line-height: normal;
+  }
+  
+  .md-header__title .md-ellipsis {
+    color: var(--accent) !important;
+    font-size: var(--font-h1-size);
     font-weight: 700;
-    line-height: var(--header-height);
+  }
+
+  .md-header__topic + .md-header__topic {
+    display: none !important;
   }
 
   .md-logo img {
