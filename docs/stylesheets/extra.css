@@ -277,63 +277,59 @@ body {
   }
 
 /* ============================================================
-   SIDEBAR DROITE (ADAPTÉE AU SCRIPT BUILD-SIDEBAR)
+   SIDEBAR DROITE (NETTOYAGE COMPLET & HARMONISATION)
    ============================================================*/
 
-/* 1. Suppression des titres et encadrés natifs de MkDocs */
+/* 1. Neutralisation des éléments natifs MkDocs */
+/* On cache les titres de section et labels qui créent des cadres/fonds sombres */
 .md-sidebar--secondary .md-nav__title, 
 .md-sidebar--secondary label[for="__toc"],
 .md-sidebar--secondary .md-nav__item--active > label {
-    display: none !important; 
+    display: none !important;
 }
 
-/* 2. Style du "Faux Titre" créé par ton JS (sidebar-fake-title) */
+/* 2. Style du "Faux Titre" (Injecté par JS) */
 .sidebar-fake-title {
     color: #ffffff !important;
     font-size: var(--text-size-content) !important;
     font-weight: 700 !important;
     text-transform: uppercase;
-    padding: 10px 10px 15px 10px; /* Espace pour aérer sous le titre */
+    padding: 10px 10px 15px 10px;
     letter-spacing: 0.5px;
     background: transparent !important;
-    cursor: default;
 }
 
-/* 3. Style des liens de navigation (H2 et H3 injectés) */
+/* 3. Style des Liens (H2 standards et H3 de cartes) */
 .md-sidebar--secondary .md-nav__link {
     color: #ffffff !important;
-    font-size: var(--text-size-content) !important; /* Taille Midnight Ride */
+    font-size: var(--text-size-content) !important;
     font-weight: 400 !important;
     padding: 5px 10px !important;
     background: transparent !important;
     transition: opacity 0.2s ease;
     display: block;
     border: none !important;
-    opacity: 0.8;
+    opacity: 0.8; /* Look Midnight Ride */
 }
 
-/* 4. Gestion de la hiérarchie et indentation */
+/* 4. Gestion de la Visibilité et Hiérarchie */
 
-/* On cache spécifiquement le premier item s'il contient le lien vers le haut (Home) */
-.md-sidebar--secondary .md-nav__list > .md-nav__item:first-child {
-    display: none !important;
-}
-
-/* On s'assure que les chapitres suivants (H2) sont bien visibles */
+/* On force l'affichage de TOUS les items de la liste */
+/* C'est le JavaScript qui s'occupe désormais de cacher spécifiquement "Home" */
 .md-sidebar--secondary .md-nav__list > .md-nav__item {
     display: block !important;
 }
 
-/* Style spécifique pour tes H3 de cartes (nav-item-card-h3) */
+/* Indentation spécifique pour les H3 (Custom Cards) */
 .nav-item-card-h3 .md-nav__link {
     padding-left: 22px !important; 
-    opacity: 0.6 !important;       
+    opacity: 0.6 !important; /* Plus discret pour marquer la hiérarchie */
 }
 
-/* 5. États : Actif et Hover */
+/* 5. États (Survol et Navigation active) */
 .md-sidebar--secondary .md-nav__link--active {
     opacity: 1 !important;
-    font-weight: 700 !important; /* Gras pour la position actuelle */
+    font-weight: 700 !important; /* On met en gras le chapitre actuel */
 }
 
 .md-sidebar--secondary .md-nav__link:hover {
@@ -341,19 +337,17 @@ body {
     background: transparent !important;
 }
 
-/* 6. Nettoyage structurel */
-.md-sidebar--secondary .md-nav__list {
-    background: transparent !important;
-    padding: 0 !important;
-}
-
+/* 6. Nettoyage des bordures et icônes Material */
+.md-sidebar--secondary .md-nav__list,
 .md-sidebar--secondary .md-nav__item {
-    border: none !important;
     background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
+/* Supprime la flèche de navigation à droite des liens */
 .md-sidebar--secondary .md-nav__link::after {
-    display: none !important; /* Pas d'icônes/flèches */
+    display: none !important;
 }
   
 /* ============================================================
