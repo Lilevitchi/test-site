@@ -41,9 +41,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const cards = document.querySelectorAll(".custom-card h3");
 
         cards.forEach(h3 => {
+            /* ---------- A. CRÉATION D’UNE ANCRE ---------- */
+            if (!h3.id) {
+                h3.id = h3.innerText
+                    .toLowerCase()
+                    .replace(/[^\w]+/g, "-")
+                    .replace(/(^-|-$)/g, "");
+            }
+
             const card = h3.closest(".custom-card");
 
-            /* Trouver le H2 parent logique */
+            /* ---------- B. TROUVER LE H2 PARENT ---------- */
             let prev = card.previousElementSibling;
             while (prev && prev.tagName !== "H2") {
                 prev = prev.previousElementSibling;
@@ -55,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 .trim()
                 .toLowerCase();
 
-            /* Trouver l’item TOC correspondant */
             const parentLink = [...tocList.querySelectorAll(".md-nav__link")]
                 .find(link =>
                     link.innerText
