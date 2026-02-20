@@ -191,7 +191,7 @@ body {
    CONTENU CENTRAL
    ============================================================*/
   
-  .md-content {
+  /*.md-content {
     background: var(--bg-page) !important;
     color: var(--text-primary);
     border-radius: var(--radius-md);
@@ -204,7 +204,34 @@ body {
     padding: 0 !important;
     padding-bottom: 20px !important;
     transition: none !important;
-  }
+  }*/
+
+  .md-content {
+  background: var(--bg-page) !important;
+  color: var(--text-primary);
+  border-radius: var(--radius-md);
+  flex: 1;
+  min-width: 0;
+  position: relative !important;
+  height: auto !important;
+  transition: none !important;
+
+  /* --- ADAPTATION POUR FIXED --- */
+  
+  /* Marge du haut (header + gap) */
+  margin-top: var(--sidebar-gap) !important;
+  
+  /* Marge Gauche : Largeur sidebar primaire + gap */
+  margin-left: calc(var(--sidebar-width-primary) + (var(--sidebar-gap) * 2)) !important;
+  
+  /* Marge Droite : Largeur sidebar secondaire + gap */
+  margin-right: calc(var(--sidebar-width-secondary) + (var(--sidebar-gap) * 2)) !important;
+  
+  /* Reste des réglages */
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  padding-bottom: 20px !important;
+}
 
   .md-content__inner {
     margin: 0 !important;
