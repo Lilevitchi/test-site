@@ -196,6 +196,10 @@ body {
   .md-sidebar {
     position: sticky !important;
     top: calc(var(--header-height) + var(--sidebar-gap)) !important;
+    
+    padding: 0 !important;
+    margin: 0 !important;
+    
     height: calc(100vh - var(--header-height) - var(--sidebar-gap) - var(--sidebar-footer-offset)) !important;
     
     margin-top: var(--sidebar-gap) !important;
@@ -219,6 +223,12 @@ body {
   .md-sidebar--secondary { 
     margin-right: var(--sidebar-gap) !important; 
     width: var(--sidebar-width-secondary) !important; 
+  }
+
+  .md-sidebar__scrollwrap {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important; 
   }
 
 /* --- FOOTER --- */
@@ -264,6 +274,8 @@ body {
 
 }
 
-/* Masquer les bordures de debug si nécessaire, ou les garder : 
+/* Masquer les bordures de debug si nécessaire, ou les garder : */
 .md-main { border: 2px dashed yellow; }
-.md-sidebar { border: 2px dashed red; }*/
+.md-container { border: 2px dashed green; }
+.md-header { border: 2px dashed blue; }
+.md-sidebar { border: 2px dashed red; }
