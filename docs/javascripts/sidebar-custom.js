@@ -32,16 +32,15 @@ document.addEventListener("DOMContentLoaded", () => {
         );
         if (!tocList) return;
 
-        /* --- Nettoyage des anciennes injections --- */
+        /* Nettoyage des injections précédentes */
         tocList
             .querySelectorAll(".nav-item-card-h3")
             .forEach(el => el.remove());
 
-        /* --- Injection des H3 des custom cards --- */
         const cards = document.querySelectorAll(".custom-card h3");
 
         cards.forEach(h3 => {
-            /* ---------- A. CRÉATION D’UNE ANCRE ---------- */
+            /* ---------- A. ANCRE STABLE ---------- */
             if (!h3.id) {
                 h3.id = h3.innerText
                     .toLowerCase()
@@ -73,12 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!parentLink) return;
 
-            /* Créer l’entrée H3 */
+            /* ---------- C. LIEN ANCRE NATIF ---------- */
             const li = document.createElement("li");
             li.className = "md-nav__item nav-item-card-h3";
 
             li.innerHTML = `
-                <a class="md-nav__link">
+                <a class="md-nav__link" href="#${h3.id}">
                     <span>${h3.innerText}</span>
                 </a>
             `;
@@ -88,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     /* =====================================================
-       3. OBSERVER (MkDocs reconstruit le TOC)
+       3. OBSERVER (MKDOCS RECONSTRUIT LE TOC)
        ===================================================== */
     const sidebar = document.querySelector(".md-sidebar--secondary");
     if (sidebar) {
