@@ -241,21 +241,17 @@ body {
    SIDEBARS
    ============================================================*/
   
-  .md-sidebar {
+  /*.md-sidebar {
     position: sticky !important;
     top: calc(var(--header-height) + var(--sidebar-gap)) !important;
-    height: calc(100vh - var(--header-height) - (var(--sidebar-gap) * 2)) !important;  /* - var(--footer-visible-height, 0px)*/
+    height: calc(100vh - var(--header-height) - (var(--sidebar-gap) * 2) - var(--footer-visible-height, 0px)) !important;
     padding: 0 !important;
     margin: 0 !important;
     margin-top: var(--sidebar-gap) !important; 
     z-index: 1;
     transition: none !important;
-    will-change: height;    
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    overflow-y: auto !important; /* Active le scroll vertical si besoin */
-    overflow-x: hidden !important; /* Empêche le scroll horizontal */
-
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
     contain: layout paint;
   }
 
@@ -263,11 +259,35 @@ body {
     background-color: var(--bg-surface);
     border-radius: var(--radius-md);
     padding: 10px;
-    height: calc(100% - var(--footer-visible-height, 0px));
+    height: 100%;
     overflow-y: auto;
     transition: none !important;
     will-change: height;
-  }
+  }*/
+
+  .md-sidebar {
+  position: sticky !important;
+  top: calc(var(--header-height) + var(--sidebar-gap)) !important;
+  bottom: calc(var(--sidebar-gap) + var(--footer-visible-height, 0px)) !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  margin-top: var(--sidebar-gap) !important;
+  z-index: 1;
+  transition: none !important;
+  overflow: hidden !important;
+  contain: layout paint;
+}
+
+  .md-sidebar__inner {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-md);
+  padding: 10px;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: none !important;
+}
 
   .md-sidebar--primary { 
     margin-left: var(--sidebar-gap) !important; 
