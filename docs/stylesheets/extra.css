@@ -27,7 +27,7 @@
   --font-main: Arial, Helvetica, sans-serif;
   --text-size-header: 21px; 
   --text-size-footer: 10px;
-  --text-size-content: 10px;
+  --text-size-content: 15px;
   --text-primary: #e5e9f0;
   --text-muted: #aab2c0;
 
@@ -269,7 +269,7 @@ body {
 
   .md-sidebar--secondary .md-nav__link {
     color: #ffffff !important;
-    font-size: 10px !important;
+    font-size: var(--text-size-content) !important;
     font-weight: 400 !important;
     padding: 4px 10px !important;
     background: transparent !important;
