@@ -124,6 +124,8 @@ body {
     height: 3px;
     background-color: var(--accent);
     width: var(--scroll-progress, 0%); /* Utilise la variable du JS */
+    border-bottom-left-radius: var(--radius-md);
+    border-bottom-right-radius: var(--progress-radius, 0px);
     z-index: 11;
     transition: width 0.15s ease-out;
     pointer-events: none;
