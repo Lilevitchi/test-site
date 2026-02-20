@@ -111,25 +111,34 @@ body {
     background-color: var(--bg-surface);
     border-bottom-left-radius: var(--radius-md);
     border-bottom-right-radius: var(--radius-md);
-    border-bottom: 3px solid rgba(255, 255, 255, 0.1) !important;
     z-index: 10;
     overflow: visible;
+  }
+
+  .md-header::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background-color: #6e6e6e;
+    mask-image: linear-gradient(to right, transparent 0, black var(--radius-md), black calc(100% - var(--radius-md)), transparent 100%);
   }
   
   .md-header::after {
     content: "";
     position: absolute;
-    bottom: -3px;
+    bottom: 0;
     left: 0;
-    height: 10px;
+    height: 3px;
     background-color: var(--accent);
     width: var(--scroll-progress, 0%); /* Utilise la variable du JS */
-    border-bottom-left-radius: var(--radius-md);
-    border-bottom-right-radius: var(--radius-md);
-    z-index: 11;
+    mask-image: linear-gradient(to right, transparent 0, black var(--radius-md), black calc(100% - var(--radius-md)), transparent 100%);
     transition: width 0.15s ease-out;
     pointer-events: none;
     /*box-shadow: 0 1px 8px var(--accent);*/
+    
 }
 
   .md-header * {
