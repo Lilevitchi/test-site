@@ -12,12 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
     
     root.style.setProperty("--scroll-progress", `${scrolled}%`);
 
-    // On récupère la valeur du radius (ex: 8px)
-    const radiusStyle = getComputedStyle(root).getPropertyValue('--radius-md').trim();
-
-    // Condition pour l'arrondi droit
-    if (scrolled > 99.5) {
-      root.style.setProperty("--progress-radius", radiusStyle);
+    // Gestion de l'arrondi final à droite (radius-md)
+    // Si on dépasse 99%, on arrondit le coin pour épouser le header
+    if (scrolled > 99) {
+      root.style.setProperty("--progress-radius", "var(--radius-md)");
     } else {
       root.style.setProperty("--progress-radius", "0px");
     }
