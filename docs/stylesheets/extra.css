@@ -405,6 +405,9 @@ body {
    .bot-advice img {
      margin-right: var(--space-md);
      height: 100px;
+     width: auto;
+     flex-shrink: 0;
+     object-fit: contain;
    }
 
    /* Titre du conseil */
