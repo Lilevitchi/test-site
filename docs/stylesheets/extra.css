@@ -205,33 +205,22 @@ body {
     padding-bottom: 20px !important;
     transition: none !important;
   }*/
-
   .md-content {
-  background: var(--bg-page) !important;
-  color: var(--text-primary);
-  border-radius: var(--radius-md);
-  flex: 1;
-  min-width: 0;
-  position: relative !important;
-  height: auto !important;
-  transition: none !important;
-
-  /* --- ADAPTATION POUR FIXED --- */
-  
-  /* Marge du haut (header + gap) */
-  margin-top: var(--sidebar-gap) !important;
-  
-  /* Marge Gauche : Largeur sidebar primaire + gap */
-  margin-left: calc(var(--sidebar-width-primary) + (var(--sidebar-gap) * 2)) !important;
-  
-  /* Marge Droite : Largeur sidebar secondaire + gap */
-  margin-right: calc(var(--sidebar-width-secondary) + (var(--sidebar-gap) * 2)) !important;
-  
-  /* Reste des réglages */
-  margin-bottom: 0 !important;
-  padding: 0 !important;
-  padding-bottom: 20px !important;
-}
+    background: var(--bg-page) !important;
+    color: var(--text-primary);
+    border-radius: var(--radius-md);
+    flex: 1;
+    min-width: 0;
+    position: relative !important;
+    height: auto !important;
+    transition: none !important;
+    margin-top: var(--sidebar-gap) !important;
+    margin-left: calc(var(--sidebar-width-primary) + (var(--sidebar-gap) * 2)) !important;
+    margin-right: calc(var(--sidebar-width-secondary) + (var(--sidebar-gap) * 2)) !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    padding-bottom: 20px !important;
+  }
 
   .md-content__inner {
     margin: 0 !important;
@@ -267,68 +256,54 @@ body {
 /* ============================================================
    SIDEBARS — VERSION STABILISÉE
    ============================================================ */
-
-.md-sidebar {
-  /* On utilise fixed pour une stabilité totale */
-  position: fixed !important;
-  top: calc(var(--header-height) + var(--sidebar-gap)) !important;
-  bottom: calc(var(--sidebar-gap) + var(--footer-visible-height, 0px)) !important;
   
-  /* On enlève la height fixe, top et bottom font le travail */
-  height: auto !important; 
-  padding: 0 !important;
-  margin: 0 !important;
-  z-index: 100;
-  
-  /* On cache le scroll ici pour ne garder que celui de l'inner */
-  overflow: hidden !important; 
-  display: flex;
-  flex-direction: column;
-}
-
-.md-sidebar__inner {
-  background-color: var(--bg-surface);
-  border-radius: var(--radius-md);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  
-  /* Très important pour remplir le parent fixed */
-  flex: 1;
-  width: 100%;
-  
-  /* Gestion du scroll propre */
-  overflow-y: auto;
-  overflow-x: hidden;
-  
-  /* Suppression de l'instabilité */
-  will-change: auto !important; 
-  transition: none !important;
-  
-  /* Fix pour le rendu du texte */
-  transform: translateZ(0); 
-  backface-visibility: hidden;
-}
-
-/* Positionnement latéral */
-.md-sidebar--primary {
-  left: var(--sidebar-gap) !important;
-  width: var(--sidebar-width-primary) !important;
-}
-
-.md-sidebar--secondary {
-  right: var(--sidebar-gap) !important;
-  width: var(--sidebar-width-secondary) !important;
-}
-
-  .md-sidebar__scrollwrap {
-  flex: 1 !important;        /* Force le wrap à occuper tout l'espace du parent */
-  display: flex !important;   /* Devient un conteneur flex pour l'inner */
-  flex-direction: column !important;
-  height: 100% !important;
-  margin: 0 !important;
+  .md-sidebar {
+    position: fixed !important;
+    top: calc(var(--header-height) + var(--sidebar-gap)) !important;
+    height: calc(100vh - var(--header-height) - (var(--sidebar-gap) * 2) - var(--footer-visible-height, 0px)) !important;
     padding: 0 !important;
-  overflow: visible !important; 
-}
+    margin: 0 !important;
+    z-index: 100;
+    overflow: hidden !important;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .md-sidebar__inner {
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    flex: 1 1 auto !important;
+    height: 100% !important;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    will-change: auto !important;
+    transition: none !important;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+  
+  .md-sidebar--primary {
+    left: var(--sidebar-gap) !important;
+    width: var(--sidebar-width-primary) !important;
+  }
+  
+  .md-sidebar--secondary {
+    right: var(--sidebar-gap) !important;
+    width: var(--sidebar-width-secondary) !important;
+  }
+  
+  .md-sidebar__scrollwrap {
+    flex: 1 1 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
   
 /* ============================================================
    SIDEBARS
