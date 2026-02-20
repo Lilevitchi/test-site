@@ -12,6 +12,9 @@ theme:
     - navigation.sections
     - navigation.expand
     - navigation.top
+
+extra_javascript:
+  - javascripts/sidebar-height.js
   
 extra_css:
   - stylesheets/extra.css
