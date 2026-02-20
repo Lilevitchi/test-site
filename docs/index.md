@@ -1,5 +1,5 @@
 <div class="bot-advice">
-    <img src="assets/lile-bot.png" width="80">
+    <img src="assets/lile-bot.png" alt="Bot">
     <div>
         <strong id="lile-bot-title">Chargement...</strong><br>
         <span id="lile-bot-tip">Patch réfléchit à une astuce...</span>
