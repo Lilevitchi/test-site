@@ -274,16 +274,20 @@ body {
     bottom: calc(var(--sidebar-gap) + var(--footer-visible-height, 0px));
     margin: 0 !important;
     padding: 0 !important;
-    z-index: 20;
+    z-index: 100;
     overflow: hidden;
+
+    display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
   }
 
   .md-sidebar__inner {
-    position: absolute;
-    inset: 0;
+    position: relative !important;
     padding: 10px;
     overflow-y: auto;
     overflow-x: hidden;
+    height: 100%;
     background-color: var(--bg-surface);
     border-radius: var(--radius-md);
   }
@@ -299,8 +303,8 @@ body {
   }
   
   .md-sidebar__scrollwrap {
-    position: absolute;
-    inset: 0;
+    height: 100%;
+  margin: 0 !important;
   }
   
  /* .md-sidebar__scrollwrap {
