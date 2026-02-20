@@ -21,7 +21,7 @@
   --sidebar-width-secondary: 226px;
   --sidebar-gap: 10px;
   /* Piloté par le JS */
-  --sidebar-footer-offset: 10px;
+  --footer-visible-height: 0px;
 
   /* Typography */
   --font-main: Arial, Helvetica, sans-serif;
@@ -187,15 +187,15 @@ body {
     background: var(--bg-card) !important;
     color: var(--text-primary);
     border-radius: var(--radius-md);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     flex: 1;
     min-width: 0;
     position: relative !important;
     height: auto !important;
-    margin: var(--sidebar-gap) !important;
-    margin-bottom: 0 !important;
+    margin: var(--sidebar-gap) var(--sidebar-gap) 0 var(--sidebar-gap) !important;
+    margin-bottom: var(--footer-visible-offset) !important;
     padding: 0 !important;
     padding-bottom: 20px !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     transition: none !important;
   }
 
@@ -227,7 +227,7 @@ body {
   .md-sidebar {
     position: sticky !important;
     top: calc(var(--header-height) + var(--sidebar-gap)) !important;
-    height: calc(100vh - var(--header-height) - (var(--sidebar-gap) * 2)) !important;
+    height: calc(100vh - var(--header-height) - (var(--sidebar-gap) * 2) - var(--footer-visible-height, 0px)) !important;
     padding: 0 !important;
     margin: 0 !important;
     margin-top: var(--sidebar-gap) !important;
