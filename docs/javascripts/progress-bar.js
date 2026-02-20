@@ -1,3 +1,6 @@
+/* =====================================================
+   PROGRESS BAR CONTROLLER
+   ===================================================== */
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.documentElement;
   let ticking = false;
@@ -8,6 +11,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
     
     root.style.setProperty("--scroll-progress", `${scrolled}%`);
+
+    // On récupère la valeur du radius (ex: 8px)
+    const radiusStyle = getComputedStyle(root).getPropertyValue('--radius-md').trim();
+
+    // Condition pour l'arrondi droit
+    if (scrolled > 99.5) {
+      root.style.setProperty("--progress-radius", radiusStyle);
+    } else {
+      root.style.setProperty("--progress-radius", "0px");
+    }
   };
 
   window.addEventListener("scroll", () => {
