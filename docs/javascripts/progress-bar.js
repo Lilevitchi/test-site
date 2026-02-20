@@ -8,16 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
     
     root.style.setProperty("--scroll-progress", `${scrolled}%`);
-
-    // On récupère la valeur de ton radius proprement (ex: "8px")
-    const radiusValue = getComputedStyle(root).getPropertyValue('--radius-md').trim();
-
-    if (scrolled > 99) {
-      // On injecte la valeur récupérée (ex: 8px)
-      root.style.setProperty("--progress-radius", radiusValue);
-    } else {
-      root.style.setProperty("--progress-radius", "0px");
-    }
   };
 
   window.addEventListener("scroll", () => {
