@@ -279,7 +279,8 @@ body {
   }
 
   .md-sidebar__inner {
-    height: 100%;
+    position: absolute;
+    inset: 0;
     padding: 10px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -296,12 +297,17 @@ body {
     right: var(--sidebar-gap) !important; 
     width: var(--sidebar-width-secondary) !important; 
   }
-
+  
   .md-sidebar__scrollwrap {
+    position: absolute;
+    inset: 0;
+  }
+  
+ /* .md-sidebar__scrollwrap {
     margin: 0 !important;
     padding: 0 !important;
     height: 100% !important; 
-  }
+  }*/
 
 /* ============================================================
    SIDEBAR DROITE — VERSION PROPRE & STABLE
