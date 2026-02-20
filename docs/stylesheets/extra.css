@@ -288,7 +288,7 @@ body {
     display: none !important;
 }
 
-/* Faux titre injecté */
+/* Faux titre injecté 
 .sidebar-fake-title {
     color: #ffffff !important;
     font-size: var(--text-size-content) !important;
@@ -296,25 +296,68 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     padding: 10px 10px 15px 10px;
-}
+}*/
 
-/* Liens */
-.md-sidebar--secondary .md-nav__link {
+  .md-sidebar--secondary .md-nav__list {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .md-sidebar--secondary
+  .md-nav__item:not(.nav-item-card-h3)
+  > .md-nav__link {
+    display: block;
+    padding: 8px 10px !important;
+    margin-top: 10px;
+    font-size: var(--text-size-content);
+    font-weight: 700;
     color: #ffffff !important;
-    font-size: var(--text-size-content) !important;
-    padding: 5px 10px !important;
-    opacity: 0.8;
+    opacity: 0.95;
+  }
+
+  .md-sidebar--secondary
+  .md-nav__item:first-child
+  > .md-nav__link {
+    margin-top: 0;
+  }
+
+/* ------------------------------------------------------------
+   4. SOUS-CHAPITRES (H3 / CUSTOM CARDS)
+   ------------------------------------------------------------ */
+.nav-item-card-h3 .md-nav__link {
+    padding: 4px 10px 4px 22px !important;
+    font-size: calc(var(--text-size-content) - 1px);
+    font-weight: 400;
+    color: var(--text-muted, #aab2c0) !important;
+    opacity: 0.85;
 }
 
+/* ------------------------------------------------------------
+   5. ÉTAT ACTIF
+   ------------------------------------------------------------ */
 .md-sidebar--secondary .md-nav__link--active {
     opacity: 1 !important;
     font-weight: 700 !important;
 }
 
-/* H3 cartes */
-.nav-item-card-h3 .md-nav__link {
-    padding-left: 22px !important;
-    opacity: 0.6 !important;
+/* ------------------------------------------------------------
+   6. HOVER DISCRET
+   ------------------------------------------------------------ */
+.md-sidebar--secondary .md-nav__link:hover {
+    opacity: 1;
+}
+
+/* ------------------------------------------------------------
+   7. NETTOYAGE VISUEL MATERIAL
+   ------------------------------------------------------------ */
+.md-sidebar--secondary .md-nav__item {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.md-sidebar--secondary .md-nav__link::after {
+    display: none !important;
 }
   
 /* ============================================================
