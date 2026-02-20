@@ -277,24 +277,29 @@ body {
   }
 
 /* ============================================================
-   SIDEBAR DROITE — VERSION PROPRE, STABLE & DÉFINITIVE
+   SIDEBAR DROITE — VERSION PROPRE, STABLE & CORRIGÉE
    ============================================================ */
 
 /* ------------------------------------------------------------
-   1. SUPPRESSION DÉFINITIVE DU "HOME" (VRAI FIX MATERIAL)
+   1. SUPPRESSION DU "HOME" DU TOC (FIX RÉEL)
    ------------------------------------------------------------ */
-/* Le "Home" du TOC est TOUJOURS le premier item */
+/* Home = item dont le lien pointe EXACTEMENT vers "#" */
 .md-sidebar--secondary
-.md-nav__list
-> .md-nav__item:first-child {
+.md-nav__item
+> .md-nav__link[href="#"] {
+    display: none !important;
+}
+
+/* Sécurité : cache aussi le <li> parent */
+.md-sidebar--secondary
+.md-nav__item:has(> .md-nav__link[href="#"]) {
     display: none !important;
 }
 
 /* ------------------------------------------------------------
-   2. SUPPRESSION DES TITRES NATIFS MKDOCS (TOC / LABELS)
+   2. SUPPRESSION DES TITRES NATIFS MKDOCS
    ------------------------------------------------------------ */
 .md-sidebar--secondary .md-nav__title,
-.md-sidebar--secondary .md-nav__title[for],
 .md-sidebar--secondary label[for="__toc"] {
     display: none !important;
     height: 0 !important;
@@ -363,14 +368,6 @@ body {
 
 /* Supprime flèche Material */
 .md-sidebar--secondary .md-nav__link::after {
-    display: none !important;
-}
-
-/* ------------------------------------------------------------
-   8. SÉCURITÉ : cache liens vides / #
-   ------------------------------------------------------------ */
-.md-sidebar--secondary .md-nav__link[href="#"],
-.md-sidebar--secondary .md-nav__link[href=""] {
     display: none !important;
 }
   
