@@ -45,6 +45,13 @@
   --blur-strong: blur(6px);
   --cursor-default: url('../assets/curseur.png') 7 0, pointer;
   --cursor-click: url('../assets/curseur-clic.png') 7 0, pointer;
+
+  /* Spacing */
+  --space-xs: 0.36rem;  /* ~6px */
+  --space-sm: 0.54rem;  /* ~9px */
+  --space-md: 0.9rem;   /* ~14px */
+  --space-lg: 1.12rem;  /* ~18px */
+  --space-xl: 1.44rem;  /* ~23px */
   
 }
 
@@ -358,6 +365,40 @@ body {
   }
 
 }
+
+/* ============================================================
+   BOT ASTUCES
+   ============================================================*/
+
+   /* Bloc conseil du bot */
+   .bot-advice {
+     display: flex;
+     align-items: center;
+     background-color: #3d2b26;
+     padding: var(--space-xs);
+     border-radius: var(--radius-md);
+     max-width: 720px;
+     margin: 2rem auto;
+   }
+
+   /* Image du bot */
+   .bot-advice img {
+     margin-right: var(--space-md);
+     height: 100px;
+   }
+
+   /* Titre du conseil */
+   #lile-bot-title {
+     color: var(--accent);
+     font-weight: 700;
+     text-transform: uppercase;
+   }
+
+   /* Texte du conseil */
+   #lile-bot-tip {
+     font-style: italic;
+     color: #fff;
+   }
 
 /* ============================================================
    CURSEURS
