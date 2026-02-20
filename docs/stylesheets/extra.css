@@ -283,7 +283,6 @@ body {
     font-size: var(--text-size-content) !important;
     font-weight: 400 !important;
     padding: 4px 10px !important;
-    background: transparent !important;
     transition: opacity 0.2s ease;
   }
 
@@ -295,7 +294,6 @@ body {
   .md-sidebar--secondary .md-nav__link:focus {
     color: #ffffff !important;
     font-weight: 400 !important;
-    background: transparent !important;
     opacity: 1;
   }
 
@@ -315,6 +313,15 @@ body {
 
   .md-sidebar--secondary .md-nav__list > .md-nav__item:first-child {
     display: none !important;
+  }
+
+  .md-sidebar--secondary .md-nav__title, 
+  .md-sidebar--secondary .md-nav__link--active,
+  .md-sidebar--secondary label[for="__toc"] {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
   }
   
 /* ============================================================
