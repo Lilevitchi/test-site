@@ -113,23 +113,20 @@ body {
     border-bottom-right-radius: var(--radius-md);
     border-bottom: 3px solid #6e6e6e !important;
     z-index: 10;
-    overflow: visible !important;
+    overflow: hidden !important;
   }
   
   .md-header::after {
     content: "";
     position: absolute;
-    bottom: -3px;
+    bottom: 0;
     left: 0;
     height: 3px;
     background-color: var(--accent);
     width: var(--scroll-progress, 0%); /* Utilise la variable du JS */
-    border-bottom-left-radius: var(--radius-md);
-    border-bottom-right-radius: var(--progress-radius, 0px);
-    display: block;
-    pointer-events: none;
     z-index: 11;
     transition: width 0.15s ease-out;
+    pointer-events: none;
     /*box-shadow: 0 1px 8px var(--accent);*/
 }
 
