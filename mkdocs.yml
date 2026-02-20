@@ -17,8 +17,7 @@ theme:
 
 extra_javascript:
   - javascripts/random_tips.js
-  - javascripts/sidebar-height.js
-  - javascripts/sidebar-custom.js
+  - javascripts/dynamic-sidebar-layout.js
   
 extra_css:
   - stylesheets/extra.css
