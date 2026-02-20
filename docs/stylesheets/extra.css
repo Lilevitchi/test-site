@@ -177,6 +177,7 @@ body {
     margin: 0 !important;
     padding: 0 !important;
     padding-bottom: var(--sidebar-gap) !important;
+    transition: none !important;
   }
   
 /* ============================================================
@@ -196,7 +197,7 @@ body {
     margin-bottom: 0 !important;
     padding: 0 !important;
     padding-bottom: 20px !important;
-    transition: margin-bottom 0.2s ease-out !important;
+    transition: none !important;
   }
 
   .md-content__inner {
@@ -231,8 +232,12 @@ body {
     padding: 0 !important;
     margin: 0 !important;
     margin-top: var(--sidebar-gap) !important;
-    transition: none;
+    transition: none !important;
     z-index: 1;
+    
+    /*will-change: height;
+    backface-visibility: hidden;
+    transform: translateZ(0);*/
   }
 
   .md-sidebar__inner {
