@@ -1,32 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.documentElement;
-  const baseOffset = 10; // Ta marge de 10px
+  const baseOffset = 10;
 
   const updateOffset = () => {
     const footer = document.querySelector(".md-footer");
-    const vh = window.innerHeight;
-    let offsetValue = baseOffset;
+    if (!footer) return;
 
-    if (footer) {
-      const rect = footer.getBoundingClientRect();
-      // Si le haut du footer entre dans l'écran (rect.top est la distance entre le haut du footer et le haut de la fenêtre)
-      if (rect.top < vh) {
-        const visibleFooterHeight = vh - rect.top;
-        offsetValue = visibleFooterHeight + baseOffset;
-      }
-    }
-    // On met à jour la variable CSS
-    root.style.setProperty("--sidebar-footer-offset", offsetValue + "px");
+    // On calcule la position du footer par rapport à la zone d'affichage
+    const footerRect = footer.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+
+    // L'offset est soit 10px, soit (si le footer est visible) 
+    // la hauteur visible du footer + 10px
+    const visibleFooterHeight = Math.max(0, viewportHeight - footerRect.top);
+    const offsetValue = baseOffset + visibleFooterHeight;
+
+    // On applique la variable sans changer la structure de la page
+    root.style.setProperty("--sidebar-footer-offset", `${offsetValue}px`);
   };
 
-  // 1. Surveillance du scroll et du redimensionnement
-  window.addEventListener("scroll", updateOffset, { passive: true });
-  window.addEventListener("resize", updateOffset);
+  // Utilisation de requestAnimationFrame pour une fluidité totale au scroll
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateOffset();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
 
-  // 2. Surveillance des changements dans la page (pour MkDocs Material)
+  window.addEventListener("resize", updateOffset);
+  
+  // Surveillance des changements de page MkDocs
   const observer = new MutationObserver(updateOffset);
   observer.observe(document.body, { childList: true, subtree: true });
 
-  // 3. Premier calcul immédiat
   updateOffset();
 });
