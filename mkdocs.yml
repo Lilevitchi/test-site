@@ -16,6 +16,7 @@ theme:
     - navigation.top
 
 extra_javascript:
+  - javascripts/random_tips.js
   - javascripts/sidebar-height.js
   - javascripts/sidebar-custom.js
   
