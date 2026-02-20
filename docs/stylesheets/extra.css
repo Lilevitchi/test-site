@@ -103,7 +103,7 @@ body {
     background-color: var(--bg-surface);
     border-bottom-left-radius: var(--radius-md);
     border-bottom-right-radius: var(--radius-md);
-    border-bottom: 3px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 3px solid var(--accent);
     z-index: 10;
   }
 
