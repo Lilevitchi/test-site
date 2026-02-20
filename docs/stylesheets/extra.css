@@ -25,9 +25,9 @@
 
   /* Typography */
   --font-main: Arial, Helvetica, sans-serif;
-  --text-size-header: 18px; 
-  --text-size-footer: 14px;
-  --text-size-content: 18px;
+  --text-size-header: 21px; 
+  --text-size-footer: 10px;
+  --text-size-content: 10px;
   --text-primary: #e5e9f0;
   --text-muted: #aab2c0;
 
