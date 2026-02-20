@@ -277,14 +277,22 @@ body {
   }
 
 /* ============================================================
-   SIDEBAR DROITE — VERSION PROPRE & STABLE
+   SIDEBAR DROITE — VERSION PROPRE, STABLE & DÉFINITIVE
    ============================================================ */
 
 /* ------------------------------------------------------------
-   1. SUPPRESSION DÉFINITIVE DE "HOME" (TITRE NATIF MKDOCS)
+   1. SUPPRESSION DÉFINITIVE DU "HOME" (VRAI FIX MATERIAL)
    ------------------------------------------------------------ */
+/* Le "Home" du TOC est TOUJOURS le premier item */
+.md-sidebar--secondary
+.md-nav__list
+> .md-nav__item:first-child {
+    display: none !important;
+}
 
-/* HOME n’est PAS un lien mais un md-nav__title */
+/* ------------------------------------------------------------
+   2. SUPPRESSION DES TITRES NATIFS MKDOCS (TOC / LABELS)
+   ------------------------------------------------------------ */
 .md-sidebar--secondary .md-nav__title,
 .md-sidebar--secondary .md-nav__title[for],
 .md-sidebar--secondary label[for="__toc"] {
@@ -295,7 +303,7 @@ body {
 }
 
 /* ------------------------------------------------------------
-   2. FAUX TITRE (injecté par JS)
+   3. FAUX TITRE (injecté par JS)
    ------------------------------------------------------------ */
 .sidebar-fake-title {
     color: #ffffff !important;
@@ -308,7 +316,7 @@ body {
 }
 
 /* ------------------------------------------------------------
-   3. LIENS STANDARD (H2)
+   4. LIENS STANDARD (H2)
    ------------------------------------------------------------ */
 .md-sidebar--secondary .md-nav__link {
     color: #ffffff !important;
@@ -323,7 +331,7 @@ body {
 }
 
 /* ------------------------------------------------------------
-   4. H3 DES CARTES (Hiérarchie)
+   5. H3 DES CARTES (HIÉRARCHIE)
    ------------------------------------------------------------ */
 .nav-item-card-h3 .md-nav__link {
     padding-left: 22px !important;
@@ -331,7 +339,7 @@ body {
 }
 
 /* ------------------------------------------------------------
-   5. ÉTATS ACTIFS / HOVER
+   6. ÉTATS ACTIFS / HOVER
    ------------------------------------------------------------ */
 .md-sidebar--secondary .md-nav__link--active {
     opacity: 1 !important;
@@ -344,7 +352,7 @@ body {
 }
 
 /* ------------------------------------------------------------
-   6. NETTOYAGE VISUEL MATERIAL
+   7. NETTOYAGE VISUEL MATERIAL
    ------------------------------------------------------------ */
 .md-sidebar--secondary .md-nav__list,
 .md-sidebar--secondary .md-nav__item {
@@ -359,7 +367,7 @@ body {
 }
 
 /* ------------------------------------------------------------
-   7. SÉCURITÉ : cache tout lien vide ou #
+   8. SÉCURITÉ : cache liens vides / #
    ------------------------------------------------------------ */
 .md-sidebar--secondary .md-nav__link[href="#"],
 .md-sidebar--secondary .md-nav__link[href=""] {
