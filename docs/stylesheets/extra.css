@@ -268,58 +268,34 @@ body {
     will-change: height;
   }*/
 
-  .md-sidebar {
+.md-sidebar {
   position: fixed !important;
-
   top: calc(var(--header-height) + var(--sidebar-gap));
   bottom: calc(var(--sidebar-gap) + var(--footer-visible-height, 0px));
-
   z-index: 100;
-  padding: 0;
-  margin: 0;
-
   overflow: hidden;
-  }
-
-  .md-sidebar__inner {
-  height: 100%;
-
-  padding: 10px;
-
-  overflow-y: auto;
-  overflow-x: hidden;
-
-  background-color: var(--bg-surface);
-  border-radius: var(--radius-md);
-  }
-
-  .md-sidebar--primary { 
-    left: var(--sidebar-gap) !important; 
-    width: var(--sidebar-width-primary) !important; 
-  }
-  
-  .md-sidebar--secondary { 
-    right: var(--sidebar-gap) !important; 
-    width: var(--sidebar-width-secondary) !important; 
-  }
-  
-  .md-sidebar__scrollwrap {
-  height: 100%;
-  display: block;
-  }
-
-  /* Sidebar droite */
-.md-sidebar--secondary {
-  transform: none !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
 }
 
-/* Sidebar gauche (au cas où) */
 .md-sidebar--primary {
-  transform: none !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
+  left: var(--sidebar-gap);
+  width: var(--sidebar-width-primary);
+}
+
+.md-sidebar--secondary {
+  right: var(--sidebar-gap);
+  width: var(--sidebar-width-secondary);
+}
+
+.md-sidebar__scrollwrap,
+.md-sidebar__inner {
+  height: 100%;
+}
+
+.md-sidebar__inner {
+  padding: 10px;
+  overflow-y: auto;
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-md);
 }
   
  /* .md-sidebar__scrollwrap {
@@ -487,9 +463,21 @@ body {
     cursor: url('../assets/curseur-clic.png') 7 0, pointer !important;
   }
 
+/* ============================================================
+   DISABLE MKDOCS MATERIAL SIDEBAR TOGGLES
+   ============================================================ */
+
+#__drawer,
+#__toc {
+  display: none !important;
+}
+
 /* Masquer les bordures de debug si nécessaire, ou les garder : 
 .md-main { border: 2px dashed yellow; }
 .md-container { border: 2px dashed green; }
 .md-header { border: 2px dashed blue; }
 .md-sidebar { border: 2px dashed red; }*/
 .md-sidebar { background: red !important; }
+.md-sidebar {
+  background: red !important;
+}
