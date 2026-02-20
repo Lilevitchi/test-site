@@ -6,15 +6,19 @@ document.addEventListener("DOMContentLoaded", () => {
   let ticking = false;
 
   const updateProgressBar = () => {
-    // Calcule la hauteur totale scrollable
     const winScroll = window.pageYOffset || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    
-    // Calcule le pourcentage (entre 0 et 100)
     const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
     
-    // On envoie la valeur brute à la racine CSS
     root.style.setProperty("--scroll-progress", `${scrolled}%`);
+
+    // Gestion de l'arrondi final à droite (radius-md)
+    // Si on dépasse 99%, on arrondit le coin pour épouser le header
+    if (scrolled > 99) {
+      root.style.setProperty("--progress-radius", "var(--radius-md)");
+    } else {
+      root.style.setProperty("--progress-radius", "0px");
+    }
   };
 
   window.addEventListener("scroll", () => {
@@ -27,6 +31,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, { passive: true });
 
-  // Init au chargement
   updateProgressBar();
 });
