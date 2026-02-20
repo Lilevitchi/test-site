@@ -1,6 +1,3 @@
-/* =====================================================
-   PROGRESS BAR CONTROLLER
-   ===================================================== */
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.documentElement;
   let ticking = false;
@@ -12,10 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
     
     root.style.setProperty("--scroll-progress", `${scrolled}%`);
 
-    // Gestion de l'arrondi final à droite (radius-md)
-    // Si on dépasse 99%, on arrondit le coin pour épouser le header
+    // On récupère la valeur de ton radius proprement (ex: "8px")
+    const radiusValue = getComputedStyle(root).getPropertyValue('--radius-md').trim();
+
     if (scrolled > 99) {
-      root.style.setProperty("--progress-radius", "var(--radius-md)");
+      // On injecte la valeur récupérée (ex: 8px)
+      root.style.setProperty("--progress-radius", radiusValue);
     } else {
       root.style.setProperty("--progress-radius", "0px");
     }
