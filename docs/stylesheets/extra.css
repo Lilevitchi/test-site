@@ -293,7 +293,7 @@ body {
   padding: 10px;
   
   /* Très important pour remplir le parent fixed */
-  flex: 1; 
+  flex: 1 1 100%;
   width: 100%;
   
   /* Gestion du scroll propre */
