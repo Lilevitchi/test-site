@@ -190,7 +190,8 @@ body {
 /* ============================================================
    CONTENU CENTRAL
    ============================================================*/
-  
+
+  /* --- CONTENT — STICKY--- */
   /*.md-content {
     background: var(--bg-page) !important;
     color: var(--text-primary);
@@ -205,6 +206,8 @@ body {
     padding-bottom: 20px !important;
     transition: none !important;
   }*/
+
+/* --- CONTENT — FIXED--- */
   .md-content {
     background: var(--bg-page) !important;
     color: var(--text-primary);
@@ -254,7 +257,7 @@ body {
   }
 
 /* ============================================================
-   SIDEBARS — VERSION STABILISÉE
+   SIDEBARS — FIXED
    ============================================================ */
   
   .md-sidebar {
@@ -267,6 +270,7 @@ body {
     overflow: hidden !important;
     display: flex;
     flex-direction: column;
+    transition: bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
   
   .md-sidebar__inner {
@@ -280,7 +284,7 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     will-change: auto !important;
-    transition: none !important;
+    transition: background-color 0.2s ease !important;
     transform: translateZ(0);
     backface-visibility: hidden;
   }
@@ -306,7 +310,7 @@ body {
   }
   
 /* ============================================================
-   SIDEBARS
+   SIDEBARS — STICKY
    ============================================================
   
   .md-sidebar {
@@ -353,7 +357,7 @@ body {
   }*/
 
 /* ============================================================
-   SIDEBAR DROITE — VERSION PROPRE & STABLE
+   SIDEBAR DROITE
    ============================================================ */
   
   .md-sidebar--secondary .md-nav__title,
