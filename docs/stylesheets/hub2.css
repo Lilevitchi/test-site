@@ -1,0 +1,42 @@
+.hub-curtain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Quand un jeu est sélectionné, on fait monter tout le bloc de 30% vers le haut */
+.master-hub.is-selected .hub-curtain {
+    transform: translateY(-25vh); /* Le rideau remonte */
+}
+
+/* On cache les options par défaut */
+.game-options-area {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(50px);
+    transition: all 0.5s ease 0.3s; /* Petit délai pour attendre que ça monte */
+    margin-top: 10vh;
+}
+
+.master-hub.is-selected .game-options-area {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Style des mini-cartes en mode "Rideau" */
+.game-selection-bar {
+    display: flex;
+    gap: 15px;
+    z-index: 10;
+}
+
+.game-card-mini {
+    cursor: pointer;
+    width: 180px;
+    transition: all 0.3s ease;
+    /* ... ajouter tes styles de bordure orange ici ... */
+}
