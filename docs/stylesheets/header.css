@@ -1,4 +1,4 @@
-.md-header {
+[data-md-color-scheme] .md-header {
     height: var(--header-height);
     position: fixed;
     background-color: var(--bg-surface);
@@ -41,7 +41,7 @@
     font-size: inherit;
   }
 
-  .md-header__inner {
+  [data-md-color-scheme] .md-header__inner {
     height: var(--header-height);
     display: flex;
     align-items: center;
