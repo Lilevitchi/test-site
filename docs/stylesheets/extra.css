@@ -429,9 +429,8 @@ body {
     color: var(--text-primary);
     opacity: 0.75;
     position: relative;
-    transform: translateX(-4px);
-    opacity: 0;
-    animation: sidebarSubFade 220ms ease-out forwards;
+    transform: none;
+    animation: sidebarSubFade 180ms ease-out;
   }
   
   .nav-item-card-h3:nth-child(n) .md-nav__link {
@@ -470,6 +469,17 @@ body {
   .md-sidebar--secondary .md-nav__link::after {
     display: none !important;
   }
+
+  @keyframes sidebarSubFade {
+  from {
+    opacity: 0;
+    transform: translateX(-3px);
+  }
+  to {
+    opacity: 0.75;
+    transform: translateX(0);
+  }
+}
   
 /* ============================================================
    FOOTER
