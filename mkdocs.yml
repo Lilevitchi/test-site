@@ -25,8 +25,7 @@ extra_css:
   - stylesheets/style.css
   - stylesheets/header.css
   - stylesheets/sidebar.css
-  - stylesheets/game-grid.css
-  - stylesheets/game-hub.css
+  - stylesheets/hub.css
   
 markdown_extensions:
   - admonition
