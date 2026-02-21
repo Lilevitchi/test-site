@@ -113,7 +113,7 @@
   .md-sidebar--primary {
     position: fixed !important;
     top: calc(var(--header-height) + 10px);
-    left: 10px;
+    left: var(--sidebar-gap);
     width: 240px;
     height: calc(100vh - var(--header-height) - 20px);
     background: var(--bg-surface);
@@ -136,8 +136,8 @@
     padding: 0 14px;
     font-size: 0.95rem;
     font-weight: 400;
-    color: #fff !important;
-    border-radius: 4px;
+    color: var(--text-primary) !important;
+    border-radius: var(--radius-sm);
     transition: background 0.18s ease;
   }
 
