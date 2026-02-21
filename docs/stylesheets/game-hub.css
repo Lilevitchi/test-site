@@ -1,31 +1,30 @@
 .hub-wrapper {
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100vw;
-   height: 100vh;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: var(--header-height);
+  overflow: visible;
 }
 
 .hub-bg { 
-   position: absolute;
-   inset: 0;
-   background-size: cover; 
-   background-position: center; 
-   filter: var(--blur-strong) brightness(0.7); 
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  filter: var(--blur-strong) brightness(0.7);
 }
 
 .hub-main-container {
-   position: relative;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   text-align: center;
-   width: 100%;
-   margin-top: -25vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 0;
 }
 
 .hub-bot { width: 600px; max-width: 80vw; height: auto; margin-bottom: -100px; }
