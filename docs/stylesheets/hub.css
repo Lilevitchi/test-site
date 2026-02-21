@@ -197,7 +197,6 @@ body:has(.hub-wrapper) .md-header__topic:last-child {
 
 body:has(.hub-wrapper) .md-sidebar,
 body:has(.hub-wrapper) .md-footer,
-body:has(.hub-wrapper) .md-header,
 body:has(.hub-wrapper) .md-page__nav {
     display: none !important;
 }
