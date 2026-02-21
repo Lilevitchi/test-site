@@ -9,7 +9,7 @@
   overflow: visible;
 }
 
-.hub-bg { 
+.hub-bg {
   position: fixed;
   inset: 0;
   z-index: -1;
@@ -23,11 +23,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   width: 100%;
-  margin-top: 0;
 }
 
-.hub-bot { width: 600px; max-width: 80vw; height: auto; margin-bottom: -100px; }
+.hub-bot {
+  width: 500px;
+  max-width: 80vw;
+  height: auto;
+  margin-bottom: 30px;
+}
+
 .hub-content { position: relative; }
 
 .hub-buttons-gap {
