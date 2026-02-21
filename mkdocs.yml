@@ -22,8 +22,12 @@ extra_javascript:
   - javascripts/progress-bar.js
   
 extra_css:
-  - stylesheets/extra.css
-
+  - stylesheets/style.css
+  - stylesheets/header.css
+  - stylesheets/sidebar.css
+  - stylesheets/game-grid.css
+  - stylesheets/game-hub.css
+  
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -31,25 +35,15 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Introduction: intro.md
-  - Setup: setup.md
-  - Mod Organizer 2: mo2.md
-  - Utilities: utilities.md
-  - Bug Fixes: bugfix.md
-  - Base Finish: basefinish.md
-
-  - User Interface: hud.md
-  - Tweaks: tweaks.md
-  - Gameplay: gameplay.md
-  - Content: content.md
-  - Visuals: visuals.md
-  - Extended Finish: finish.md
-
-  - Changelog: changelog.md
-  - Resources: resources.md
-  - FAQ: faq.md
-  - Safe Modding: safe-modding.md
-  - Wabbajack: wabbajack.md
+  - Fallout 4:
+      - Home: fallout4/index.md
+      - Introduction: fallout4/intro.md
+      - Setup: fallout4/setup.md
+      - Bug Fixes: fallout4/bugfix.md
+  - Fallout London: fallout-london/index.md
+  - Fallout New Vegas: fnv/index.md
+  - Tale of Two Wastelands: ttw/index.md
+  - Cyberpunk 2077: cyberpunk/index.md
 
 extra:
   social:
