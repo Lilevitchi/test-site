@@ -44,9 +44,8 @@
   <div class="game-panel-content">
     <h1 id="game-title"></h1>
     <div class="hub-buttons-gap">
-      <a id="guide-video" class="btn-hub-large btn-orange" target="_blank">Guide Vidéo</a>
-      <a id="guide-text" class="btn-hub-large btn-red">Guide Écrit</a>
+      <a id="guide-text" class="btn-hub-large btn-orange">Guide Écrit</a>
+      <a id="guide-video" class=""btn-hub-large btn-red" target="_blank">Guide Vidéo</a>
     </div>
-    <button class="btn-back" onclick="closeGame()">Retour</button>
   </div>
 </div>
