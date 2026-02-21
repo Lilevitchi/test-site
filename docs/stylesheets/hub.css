@@ -99,10 +99,33 @@
     text-align: center;
 }
 
-.btn-orange { background: #ff5722; color: white !important; box-shadow: 0 0 15px rgba(255, 87, 34, 0.3); }
-.btn-red { background: #d32f2f; color: white !important; box-shadow: 0 0 15px rgba(211, 47, 47, 0.3); }
+.btn-orange {
+    background: #2c2c2c !important;
+    border: 2px solid rgba(255, 87, 34, 0.5) !important;
+}
 
-.btn-orange:hover, .btn-red:hover { transform: scale(1.05); filter: brightness(1.2); }
+.btn-orange:hover {
+    border-color: #ff5722 !important;
+    box-shadow: 0 0 25px 2px rgba(255, 87, 34, 0.7);
+    transform: scale(1.03);
+}
+
+.btn-red {
+    background: #5e0000 !important;
+    border: 2px solid rgba(255, 0, 0, 0.5) !important;
+}
+
+.btn-red:hover {
+    border-color: #ff0000 !important;
+    box-shadow: 0 0 25px 2px rgba(255, 0, 0, 0.7);
+    transform: scale(1.03);
+}
+
+.md-typeset a.btn-orange:hover, 
+.md-typeset a.btn-red:hover {
+    color: #ffffff !important; 
+    text-decoration: none !important;
+}
 
 /* Etats de visibilité */
 .hidden-action { opacity: 0; transform: translateY(20px); pointer-events: none; transition: 0.5s; }
