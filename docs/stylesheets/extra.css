@@ -424,7 +424,7 @@ body {
   
 /* ---SOUS-CHAPITRES (H3 – Custom cards) --- */
   .nav-item-card-h3 .md-nav__link {
-    padding: 2px 10px 2px 24px !important;
+    padding: 2px 10px 2px 30px !important;
     font-size: calc(var(--text-size-content) - 1.25px);
     font-weight: 400;
     line-height: 1.3;
