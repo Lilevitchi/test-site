@@ -10,14 +10,14 @@ hide:
     <!-- Fond plein écran -->
     <div class="hub-bg" style="background-image: url('assets/fond.jpg');"></div>
 
-    <div class="hub-main-container">
+  <div class="hub-main-container">
         <img src="../assets/lile-bot-fo4.png" class="hub-bot">
 
-        <div class="hub-content">
+  <div class="hub-content">
             <h1 class="hub-title">Bienvenue dans le Commonwealth</h1>
 
             <!-- Grid des jeux -->
-            <div class="game-grid">
+  <div class="game-grid">
                 <a href="fallout4/" class="game-card">
                     <div class="game-card-bg" style="background-image: url('assets/fo4.jpg');"></div>
                     <div class="game-card-overlay"><h2>Fallout 4</h2></div>
