@@ -392,10 +392,21 @@ body {
    SIDEBAR GAUCHE
    ============================================================ */
 
-  .left-sidebar {
-  position: fixed;
+  /* Supprime le titre du site dans la sidebar gauche */
+.md-sidebar--primary .md-nav__title {
+  display: none !important;
+}
+
+  .md-sidebar--primary .md-nav {
+  padding-top: 0 !important;
+}
+
+/* Conteneur */
+.md-sidebar--primary {
+  position: fixed !important;
   top: calc(var(--header-height) + 10px);
   left: 10px;
+
   width: 240px;
   height: calc(100vh - var(--header-height) - 20px);
 
@@ -403,12 +414,18 @@ body {
   border-radius: 6px;
   padding: 6px 0;
 
-  display: flex;
-  flex-direction: column;
   overflow-y: auto;
+  z-index: 5;
 }
 
-  .left-sidebar a {
+/* Liste */
+.md-sidebar--primary .md-nav__list {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Liens */
+.md-sidebar--primary .md-nav__link {
   position: relative;
   display: flex;
   align-items: center;
@@ -416,19 +433,27 @@ body {
   height: 32px;
   padding: 0 14px;
 
-  color: #fff;
-  text-decoration: none;
   font-size: 0.95rem;
+  font-weight: 400;
+  color: #fff !important;
 
   border-radius: 4px;
   transition: background 0.18s ease;
 }
 
-  .left-sidebar a.active {
-  background: rgba(255,255,255,0.08);
+/* Hover */
+.md-sidebar--primary .md-nav__link:hover {
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.left-sidebar a.active::before {
+/* Page active */
+.md-sidebar--primary .md-nav__link--active {
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 500;
+}
+
+/* Barre verticale active */
+.md-sidebar--primary .md-nav__link--active::before {
   content: "";
   position: absolute;
   left: 0;
@@ -438,19 +463,20 @@ body {
   border-radius: 8px;
 }
 
-  .left-sidebar hr {
-  margin: 6px 12px;
-  border: none;
-  height: 1px;
-  background: rgba(255,255,255,0.12);
+/* Supprimer les flèches Material */
+.md-sidebar--primary .md-nav__link::after {
+  display: none !important;
 }
 
-  .sidebar-bottom a {
-  opacity: 0.85;
+/* Séparateurs */
+.md-sidebar--primary .md-nav__item--section > .md-nav__link {
+  margin-top: 8px;
 }
 
-.sidebar-bottom a:hover {
-  opacity: 1;
+.md-sidebar--primary .md-nav__item--section {
+  border-top: 1px solid rgba(255,255,255,0.12);
+  margin-top: 8px;
+  padding-top: 6px;
 }
   
 /* ============================================================
