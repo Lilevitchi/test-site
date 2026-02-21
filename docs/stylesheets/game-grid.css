@@ -1,1 +1,80 @@
+/* ============================================================
+   11. HUB — GRILLE DES JEUX
+   ============================================================*/
 
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-md);
+    /*padding: 10px;*/
+    max-width: var( --content-max-width);
+    margin: 20px auto 0 auto !important;
+    height: auto !important;
+    /*overflow: visible !important;*/
+    padding-left: 25px !important;
+    padding-right: 0 !important;
+}
+
+[data-md-color-scheme] body:has(.game-grid) .game-grid {
+  grid-template-columns: repeat(5, minmax(200px, 1fr));
+}
+
+/* @media screen and (max-width: 45em) {
+    .game-grid {
+        grid-template-columns: 1fr !important;
+        padding-left: 0 !important; 
+        padding-right: 0 !important;
+        margin: 20px auto !important;
+        justify-items: center !important;
+    }
+    .game-card {
+        width: 85% !important;
+    }
+} */
+
+.game-card {
+    height: 160px !important; /* Réduit de 180px à 160px */
+    display: block;
+    position: relative;
+    text-decoration: none;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px solid #ff5722;
+    transition: transform 0.3s ease;
+}
+
+.game-card-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px) brightness(0.7); 
+    transition: filter 0.4s ease;
+}
+
+.game-card:hover .game-card-bg {
+    filter: blur(0px) brightness(1.4);
+}
+
+.game-card:hover { 
+   transform: scale(1.02); 
+   box-shadow: 0 0 20px rgba(255, 87, 34, 0.6) !important; 
+   border-color: #ff5722 !important;
+}
+
+.game-card h2 {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    color: #fff !important;
+    font-size: 1.5rem !important;
+    font-weight: 900 !important;
+    text-shadow: 2px 2px 10px #000;
+    margin: 0 !important;
+    border: none !important;
+    background: rgba(0,0,0,0.3);
+}
