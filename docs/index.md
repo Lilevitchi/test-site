@@ -1,46 +1,51 @@
----
-title: Modding
-hide:
-  - navigation
-  - toc
-  - footer
----
+<div class="hub-stage">
 
-<div class="master-hub" id="masterHub">
-    <div class="hub-bg" id="dynamicBg"></div>
+  <!-- BACKGROUND dynamique -->
+  <div class="dynamic-bg" id="dynamicBg"></div>
 
-  <div class="hub-curtain">
-        <img src="assets/lile-bot.png" class="hub-bot-small">
-        <h1 class="hub-main-title" id="hubTitle">Choisissez votre univers</h1>
-        
-  <div class="game-selection-bar">
-            <div class="game-card-mini" onclick="selectGame('fo4', 'Fallout 4', 'assets/fo4.jpg')">
-                <img src="assets/fo4.jpg"><span>Fallout 4</span>
-            </div>
-            <div class="game-card-mini" onclick="selectGame('london', 'Fallout London', 'assets/london.jpg')">
-                <img src="assets/london.jpg"><span>Fallout London</span>
-            </div>
-            <div class="game-card-mini" onclick="selectGame('nv', 'New Vegas', 'assets/fnv.jpg')">
-                <img src="assets/fnv.jpg"><span>New Vegas</span>
-            </div>
-            <div class="game-card-mini" onclick="selectGame('ttw', 'Tale of Two Wastelands', 'assets/ttw.jpg')">
-                <img src="assets/ttw.jpg"><span>TTW</span>
-            </div>
-            <div class="game-card-mini" onclick="selectGame('cp', 'Cyberpunk 2077', 'assets/cyberpunk.jpg')">
-                <img src="assets/cyberpunk.jpg"><span>Cyberpunk 2077</span>
-            </div>
-        </div>
+  <!-- PANNEAU HUB -->
+  <div class="hub-panel" id="hubPanel">
+    <h1 class="hub-title">Choisissez votre jeu</h1>
 
-   <div class="game-options-area" id="optionsArea">
-            <div class="hub-buttons-gap">
-                <a href="#" id="linkWritten" class="btn-hub-large btn-orange">
-                    <i class="fas fa-book"></i> Guide Écrit
-                </a>
-                <a href="#" id="linkVideo" target="_blank" class="btn-hub-large btn-red">
-                    <i class="fab fa-youtube"></i> Guide Vidéo
-                </a>
-            </div>
-            <button class="btn-back" onclick="resetHub()">← Retour au menu</button>
-        </div>
+  <div class="game-grid">
+      <button class="game-card" data-game="fo4">
+        <div class="game-card-bg" style="background-image:url('assets/fo4.jpg')"></div>
+        <h2>Fallout 4</h2>
+      </button>
+
+  <button class="game-card" data-game="london">
+        <div class="game-card-bg" style="background-image:url('assets/london.jpg')"></div>
+        <h2>Fallout London</h2>
+      </button>
+
+  <button class="game-card" data-game="fnv">
+        <div class="game-card-bg" style="background-image:url('assets/fnv.jpg')"></div>
+        <h2>New Vegas</h2>
+      </button>
+
+   <button class="game-card" data-game="ttw">
+        <div class="game-card-bg" style="background-image:url('assets/ttw.jpg')"></div>
+        <h2>TTW</h2>
+      </button>
+
+  <button class="game-card" data-game="cyberpunk">
+        <div class="game-card-bg" style="background-image:url('assets/cyberpunk.jpg')"></div>
+        <h2>Cyberpunk 2077</h2>
+      </button>
     </div>
+  </div>
+
+  <!-- PANNEAU JEU -->
+  <div class="game-panel" id="gamePanel">
+    <img id="dynamicRobot" class="hub-bot">
+    <h1 id="dynamicTitle"></h1>
+
+  <div class="hub-buttons-gap">
+      <a id="guideText" class="btn-hub-large btn-orange">Guide Écrit</a>
+      <a id="guideVideo" class="btn-hub-large btn-red" target="_blank">Guide Vidéo</a>
+    </div>
+
+  <button class="back-btn" onclick="closePanel()">Retour</button>
+  </div>
+
 </div>
