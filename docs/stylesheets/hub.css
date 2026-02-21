@@ -7,15 +7,20 @@
     display: none !important;
 }
 
-/* HUB WRAPPER - Bloque la page MkDocs standard */
+/* FORCE L'AFFICHAGE DU HUB SUR LA HOME */
+[data-md-color-scheme] .hub-wrapper {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
 .hub-wrapper {
     position: fixed;
     inset: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 9999; /* Par-dessus tout */
+    z-index: 9999;
     background: #111;
-    overflow: hidden;
 }
 
 /* Background dynamique */
@@ -41,12 +46,11 @@
 
 .display-zone {
     flex: 2;
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    margin-top: -5vh;
+    min-height: 60vh;
 }
 
 .selection-zone {
