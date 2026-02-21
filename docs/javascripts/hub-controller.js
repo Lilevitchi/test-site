@@ -16,47 +16,39 @@ function initHub() {
     if (!hubRobot || cards.length === 0) return;
 
     cards.forEach(card => {
-    card.addEventListener("click", () => {
-        const key = card.dataset.game;
-        const data = games[key];
-        if (!data) return;
+        card.addEventListener("click", () => {
+            const key = card.dataset.game;
+            const data = games[key];
+            if (!data) return;
 
-        // Activer la carte
-        cards.forEach(c => c.classList.remove("active"));
-        card.classList.add("active");
+            // 1. Activer la carte
+            cards.forEach(c => c.classList.remove("active"));
+            card.classList.add("active");
 
-        // Masquer robot et titre
-        hubRobot.style.transition = "all 0.4s ease";
-        hubRobot.style.opacity = 0;
-        hubRobot.style.transform = "scale(0.9)";
-        gameTitle.style.opacity = 0;
+            // 2. Animation de sortie
+            hubRobot.style.opacity = "0";
+            hubRobot.style.transform = "scale(0.9)";
 
-        // Quand la transition est terminée
-        hubRobot.addEventListener("transitionend", function handler() {
-            hubRobot.removeEventListener("transitionend", handler);
+            setTimeout(() => {
+                // 3. Changement des données
+                hubBg.style.backgroundImage = `url('${data.bg}')`;
+                hubRobot.src = data.robot;
+                gameTitle.textContent = data.title;
+                document.getElementById("guide-text").href = data.textLink;
+                document.getElementById("guide-video").href = data.videoLink;
 
-            // Changer fond, robot, titre et liens
-            hubBg.style.backgroundImage = `url('${data.bg}')`;
-            hubRobot.src = data.robot;
-            gameTitle.textContent = data.title;
-            document.getElementById("guide-text").href = data.textLink;
-            document.getElementById("guide-video").href = data.videoLink;
+                // 4. Afficher les boutons de guide
+                actionButtons.classList.add("visible");
 
-            // Afficher boutons et robot
-            actionButtons.classList.add("visible");
-            hubRobot.style.opacity = 1;
-            hubRobot.style.transform = "scale(1)";
-            gameTitle.style.opacity = 1;
-        }, { once: true });
-    });
-});
-}
-document.getElementById("guide-text").addEventListener("click", e => {
-    e.preventDefault();
-    const url = e.target.href;
-    fetch(url)
-        .then(r => r.text())
-        .then(html => {
-            document.querySelector(".md-content").innerHTML = html;
+                // 5. Animation d'entrée
+                hubRobot.style.opacity = "1";
+                hubRobot.style.transform = "scale(1)";
+            }, 250);
         });
+    });
+}
+
+// Relancer à chaque navigation MkDocs
+document$.subscribe(function() {
+    initHub();
 });
