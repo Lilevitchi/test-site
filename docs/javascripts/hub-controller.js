@@ -1,27 +1,41 @@
-function selectGame(id, name, bgPath) {
-    const hub = document.getElementById('masterHub');
-    const title = document.getElementById('hubTitle');
-    const bg = document.getElementById('dynamicBg');
-    
-    // 1. Activer l'animation du rideau
-    hub.classList.add('is-selected');
-    
-    // 2. Changer le titre et le fond
-    title.innerText = name;
-    bg.style.backgroundImage = `url('${bgPath}')`;
-    
-    // 3. Mettre à jour les liens des boutons (Exemple)
-    const links = {
-        'fo4': { written: 'fallout4/intro/', video: 'https://youtube.com/...' },
-        'london': { written: 'fallout-london/', video: 'https://youtube.com/...' },
-        // ... ajoute les autres ici
-    };
-    
-    document.getElementById('linkWritten').href = links[id].written;
-    document.getElementById('linkVideo').href = links[id].video;
-}
+<script>
+const games = {
+  fo4: {
+    bg: "assets/fo4.jpg",
+    robot: "assets/lile-bot-fo4.png",
+    title: "Bienvenue dans le Commonwealth",
+    textLink: "fallout4/intro/",
+    videoLink: "https://youtu.be/m_CawhgGBGk"
+  },
+  london: {
+    bg: "assets/london.jpg",
+    robot: "assets/lile-bot-london.png",
+    title: "Bienvenue à London",
+    textLink: "fallout-london/intro/",
+    videoLink: "#"
+  }
+  // ajoute les autres jeux ici
+};
 
-function resetHub() {
-    document.getElementById('masterHub').classList.remove('is-selected');
-    document.getElementById('hubTitle').innerText = "Choisissez votre univers";
+document.querySelectorAll(".game-card").forEach(card => {
+  card.addEventListener("click", () => {
+    const game = games[card.dataset.game];
+
+    document.getElementById("dynamicBg").style.backgroundImage =
+      `url(${game.bg})`;
+
+    document.getElementById("dynamicRobot").src = game.robot;
+    document.getElementById("dynamicTitle").textContent = game.title;
+    document.getElementById("guideText").href = game.textLink;
+    document.getElementById("guideVideo").href = game.videoLink;
+
+    document.getElementById("hubPanel").classList.add("active");
+    document.getElementById("gamePanel").classList.add("active");
+  });
+});
+
+function closePanel() {
+  document.getElementById("hubPanel").classList.remove("active");
+  document.getElementById("gamePanel").classList.remove("active");
 }
+</script>
