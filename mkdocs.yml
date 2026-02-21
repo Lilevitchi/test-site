@@ -37,16 +37,25 @@ nav:
   - Utilities: utilities.md
   - Bug Fixes: bugfix.md
   - Base Finish: basefinish.md
-  - ---
+
   - User Interface: hud.md
   - Tweaks: tweaks.md
   - Gameplay: gameplay.md
   - Content: content.md
   - Visuals: visuals.md
   - Extended Finish: finish.md
-  - ---
+
   - Changelog: changelog.md
   - Resources: resources.md
   - FAQ: faq.md
   - Safe Modding: safe-modding.md
   - Wabbajack: wabbajack.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/xxxx
+    - icon: fontawesome/brands/github
+      link: https://github.com/xxxx
+    - icon: fontawesome/solid/heart
+      link: https://ko-fi.com/xxxx
