@@ -170,7 +170,7 @@
 
 body:has(.hub-wrapper) .md-sidebar,
 body:has(.hub-wrapper) .md-footer,
-body:has(.hub-wrapper) .md-page__nav, {
+body:has(.hub-wrapper) .md-page__nav {
     display: none !important;
 }
 
