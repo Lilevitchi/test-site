@@ -28,3 +28,25 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+
+nav:
+  - Home: index.md
+  - Introduction: intro.md
+  - Setup: setup.md
+  - Mod Organizer 2: mo2.md
+  - Utilities: utilities.md
+  - Bug Fixes: bugfix.md
+  - Base Finish: basefinish.md
+  - ---
+  - User Interface: hud.md
+  - Tweaks: tweaks.md
+  - Gameplay: gameplay.md
+  - Content: content.md
+  - Visuals: visuals.md
+  - Extended Finish: finish.md
+  - ---
+  - Changelog: changelog.md
+  - Resources: resources.md
+  - FAQ: faq.md
+  - Safe Modding: safe-modding.md
+  - Wabbajack: wabbajack.md
