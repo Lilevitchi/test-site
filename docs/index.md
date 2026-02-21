@@ -7,29 +7,36 @@ hide:
 ---
 
 <div class="hub-wrapper">
-    <div class="hub-bg" style="background-image: url('assets/fo4.jpg');"></div>
+    <!-- Fond plein écran -->
+    <div class="hub-bg" style="background-image: url('assets/fond.jpg');"></div>
 
-  <div class="hub-main-container">
-        <img src="assets/lile-bot.png" class="hub-bot">
+    <div class="hub-main-container">
+        <img src="../assets/lile-bot-fo4.png" class="hub-bot">
 
-  <div class="hub-content">
-            <h1 class="hub-title">Bienvenue sur Lilevitchi | Modding</h1>
+        <div class="hub-content">
+            <h1 class="hub-title">Bienvenue dans le Commonwealth</h1>
 
-  <div class="hub-buttons-gap">
-                <a href="fallout4/" class="btn-hub-large btn-orange">
-                    <i class="fas fa-gamepad"></i> Fallout 4
+            <!-- Grid des jeux -->
+            <div class="game-grid">
+                <a href="fallout4/" class="game-card">
+                    <div class="game-card-bg" style="background-image: url('assets/fo4.jpg');"></div>
+                    <div class="game-card-overlay"><h2>Fallout 4</h2></div>
                 </a>
-                <a href="fallout-london/" class="btn-hub-large btn-orange">
-                    <i class="fas fa-gamepad"></i> Fallout London
+                <a href="fallout-london/" class="game-card">
+                    <div class="game-card-bg" style="background-image: url('assets/london.jpg');"></div>
+                    <div class="game-card-overlay"><h2>Fallout London</h2></div>
                 </a>
-                <a href="fnv/" class="btn-hub-large btn-orange">
-                    <i class="fas fa-gamepad"></i> Fallout New Vegas
+                <a href="fnv/" class="game-card">
+                    <div class="game-card-bg" style="background-image: url('assets/fnv.jpg');"></div>
+                    <div class="game-card-overlay"><h2>New Vegas</h2></div>
                 </a>
-                <a href="ttw/" class="btn-hub-large btn-orange">
-                    <i class="fas fa-gamepad"></i> Tale of Two Wastelands
+                <a href="ttw/" class="game-card">
+                    <div class="game-card-bg" style="background-image: url('assets/ttw.jpg');"></div>
+                    <div class="game-card-overlay"><h2>TTW</h2></div>
                 </a>
-                <a href="cyberpunk/" class="btn-hub-large btn-orange">
-                    <i class="fas fa-gamepad"></i> Cyberpunk 2077
+                <a href="cyberpunk/" class="game-card">
+                    <div class="game-card-bg" style="background-image: url('assets/cyberpunk.jpg');"></div>
+                    <div class="game-card-overlay"><h2>Cyberpunk 2077</h2></div>
                 </a>
             </div>
         </div>
