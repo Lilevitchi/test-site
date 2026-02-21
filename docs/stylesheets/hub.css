@@ -2,7 +2,6 @@
    HUB WRAPPER
    ============================================================ */
 
-/* HUB WRAPPER - Bloque la page MkDocs standard */
 .hub-wrapper {
     position: fixed;
     inset: 0;
@@ -11,6 +10,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    font-family: var(--font-main);
 }
 
 /* Background dynamique */
@@ -19,9 +19,8 @@
     inset: 0;
     background-size: cover;
     background-position: center;
-    filter: blur(6px) brightness(0.7); 
+    filter: var(--blur-strong) brightness(0.7);
     transition: background-image 0.8s ease-in-out, filter 0.5s ease;
-    background-image: url("../assets/Fond.png");
     z-index: -1;
 }
 
@@ -29,7 +28,6 @@
    SPLIT LAYOUT
    ============================================================ */
 
-/* Layout Split Screen */
 .split-layout {
     display: flex;
     flex-direction: column;
@@ -48,8 +46,8 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    gap: var(--space-xl);
     padding: 40px 20px;
-    gap: 40px;
 }
 
 /* Robot */
@@ -57,12 +55,13 @@
     width: 600px;
     max-width: 80vw;
     height: auto;
+    margin-bottom: -100px;
     transition: all 0.4s ease;
 }
 
 /* Titre */
 .md-typeset .hub-title {
-    color: #ffffff !important;
+    color: var(--text-primary) !important;
     font-size: 2.4rem;
     font-weight: 900 !important;
     text-shadow: 0 0 25px rgba(0,0,0,0.9);
@@ -78,119 +77,137 @@
     gap: 140px;
     justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
 }
 
-/* Boutons */
 .md-typeset .btn-hub-large {
     width: 300px;
-    padding: 14px 20px;
-    border-radius: 20px;
+    padding: 12px 20px;
+    border-radius: var(--radius-md);
     font-weight: 800;
     font-size: 1.4rem;
+    text-transform: none !important;
     text-decoration: none !important;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    color: #ffffff !important;   /* 🔥 FORCER BLANC */
+    gap: 15px;
+    color: #ffffff !important;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Bouton Guide écrit */
 .btn-orange {
-    background: #2c2c2c !important;
-    border: 2px solid rgba(255, 87, 34, 0.5) !important;
+    background: var(--btn-dark-bg) !important;
+    border: 2px solid rgba(255,87,34,0.5) !important;
 }
-
 .btn-orange:hover {
-    border-color: #ff5722 !important;
-    box-shadow: 0 0 25px 2px rgba(255, 87, 34, 0.8);
-    transform: scale(1.05);
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 25px 2 rgba(255,87,34,0.7);
+    transform: scale(1.03);
 }
 
 /* Bouton Guide vidéo */
 .btn-red {
-    background: #5e0000 !important;
-    border: 2px solid rgba(255, 0, 0, 0.5) !important;
+    background: var(--btn-red-bg) !important;
+    border: 2px solid rgba(255,0,0,0.5) !important;
 }
-
 .btn-red:hover {
     border-color: #ff0000 !important;
-    box-shadow: 0 0 25px 2px rgba(255, 0, 0, 0.8);
-    transform: scale(1.05);
+    box-shadow: 0 0 25px 2px rgba(255,0,0,0.7);
+    transform: scale(1.03);
 }
 
-/* Empêche Material de remettre du bleu */
-.md-typeset a.btn-hub-large,
-.md-typeset a.btn-hub-large:hover {
+/* Force blanc sur hover */
+.md-typeset a.btn-orange:hover,
+.md-typeset a.btn-red:hover {
     color: #ffffff !important;
     text-decoration: none !important;
 }
 
 /* =========================
-   PARTIE BASSE (GRID)
+   PARTIE BASSE - GRID
    ========================= */
-
 .selection-zone {
     flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
-
+    align-items: center;
     backdrop-filter: blur(20px);
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0,0,0,0.6);
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-/* ============================================================
-   GRID DES JEUX
-   ============================================================ */
-
-/* Cartes du bas */
-.game-grid-mini {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+/* Grid moderne */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-md);
+    max-width: var(--content-max-width);
+    margin: 20px auto 0 auto !important;
+    padding-left: 25px !important;
+    padding-right: 0 !important;
+    height: auto !important;
 }
 
-.mini-card {
-   flex: 1 1 150px;
-    width: 180px;
-    height: 100px;
-    border-radius: 15px;
-    overflow: hidden;
+[data-md-color-scheme] body:has(.game-grid) .game-grid {
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
+}
+
+/* Cartes de jeu */
+.game-card {
+    height: 160px !important;
+    display: block;
     position: relative;
-    cursor: pointer;
-    border: 3px solid rgba(255,255,255,0.1);
-    transition: 0.3s;
+    text-decoration: none;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px solid var(--accent);
+    transition: transform 0.3s ease;
 }
 
-.mini-card.active {
-   border-color: #ff5722;
-   transform: translateY(-10px);
-   box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+.game-card-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px) brightness(0.7);
+    transition: filter 0.4s ease;
 }
 
-.mini-card-bg {
-   width: 100%;
-   height: 100%;
-   background-size:cover;
-   filter: brightness(0.7); 
-   transition: 0.3s;
+.game-card:hover .game-card-bg {
+    filter: blur(0px) brightness(1.4);
 }
 
-.mini-card:hover .mini-card-bg { 
-   filter: brightness(1);
-   transform: scale(1.02); 
+.game-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(255,87,34,0.6) !important;
+    border-color: var(--accent) !important;
 }
 
-.mini-card span { 
-   position: absolute;
-   bottom: 10px;
-   left: 10px;
-   color: white;
-   font-weight: bold;
-   font-size: 0.9rem;
-   pointer-events: none;
+/* Texte sur carte */
+.game-card h2 {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    color: #fff !important;
+    font-size: 1.5rem !important;
+    font-weight: 900 !important;
+    text-shadow: 2px 2px 10px #000;
+    margin: 0 !important;
+    border: none !important;
+    background: rgba(0,0,0,0.3);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 768px) {
+    .hub-bot { width: 350px; }
+    .hub-buttons-gap { gap: 40px; }
+    .game-card h2 { font-size: 1.2rem !important; }
 }
