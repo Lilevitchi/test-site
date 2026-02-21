@@ -1,5 +1,5 @@
 ---
-title: Lilevitchi | Modding
+title: Modding
 hide:
   - navigation
   - toc
