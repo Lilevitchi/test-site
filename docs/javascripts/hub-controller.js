@@ -1,42 +1,54 @@
-function runHub() {
+function initHub() {
     const games = {
-        fo4: { bg: "assets/fo4.jpg", robot: "assets/lile-bot-fo4.png", title: "Bienvenue dans le Commonwealth", text: "fallout4/intro/", video: "https://youtu.be/..." },
-        london: { bg: "assets/london.jpg", robot: "assets/lile-bot-london.png", title: "Bienvenue à London", text: "fallout-london/intro/", video: "#" },
-        newvegas: { bg: "assets/newvegas.jpg", robot: "assets/lile-bot-newvegas.png", title: "Bienvenue à New Vegas", text: "fnv/intro/", video: "#" },
-        ttw: { bg: "assets/ttw.jpg", robot: "assets/lile-bot-ttw.png", title: "Bienvenue dans TTW", text: "ttw/intro/", video: "#" },
-        cyberpunk: { bg: "assets/cyberpunk.jpg", robot: "assets/lile-bot-cyberpunk.png", title: "Bienvenue à Night City", text: "cyberpunk/intro/", video: "#" }
+        fo4: { bg: "assets/fo4.jpg", robot: "assets/lile-bot-fo4.png", title: "Bienvenue dans le Commonwealth", textLink: "fallout4/intro/", videoLink: "https://youtu.be/m_CawhgGBGk" },
+        london: { bg: "assets/london.jpg", robot: "assets/lile-bot-london.png", title: "Bienvenue à London", textLink: "fallout-london/intro/", videoLink: "#" },
+        newvegas: { bg: "assets/newvegas.jpg", robot: "assets/lile-bot-newvegas.png", title: "Bienvenue à New Vegas", textLink: "fnv/intro/", videoLink: "#" },
+        ttw: { bg: "assets/ttw.jpg", robot: "assets/lile-bot-ttw.png", title: "Bienvenue dans TTW", textLink: "ttw/intro/", videoLink: "#" },
+        cyberpunk: { bg: "assets/cyberpunk.jpg", robot: "assets/lile-bot-cyberpunk.png", title: "Bienvenue à Night City", textLink: "cyberpunk/intro/", videoLink: "#" }
     };
 
-    const robotImg = document.getElementById("hub-bot");
-    const titleEl = document.getElementById("game-title");
-    const actionBox = document.getElementById("action-buttons");
+    const hubBg = document.getElementById("hub-bg");
+    const hubRobot = document.getElementById("hub-bot");
+    const gameTitle = document.getElementById("game-title");
+    const actionButtons = document.getElementById("action-buttons");
     const cards = document.querySelectorAll(".mini-card");
 
-    if (!robotImg || cards.length === 0) return;
+    if (!hubRobot || cards.length === 0) return;
 
     cards.forEach(card => {
-        card.onclick = function() {
-            const data = games[this.dataset.game];
-            
-            // Appliquer les changements immédiatement
-            document.getElementById("hub-bg").style.backgroundImage = `url('${data.bg}')`;
-            robotImg.src = data.robot;
-            titleEl.textContent = data.title;
-            
-            document.getElementById("guide-text").href = data.text;
-            document.getElementById("guide-video").href = data.video;
+        card.addEventListener("click", () => {
+            const key = card.dataset.game;
+            const data = games[key];
+            if (!data) return;
 
-            // Gestion des classes
+            // 1. Activer la carte
             cards.forEach(c => c.classList.remove("active"));
-            this.classList.add("active");
-            actionBox.classList.add("visible");
-            
-            console.log("Jeu sélectionné : " + data.title);
-        };
+            card.classList.add("active");
+
+            // 2. Animation de sortie
+            hubRobot.style.opacity = "0";
+            hubRobot.style.transform = "scale(0.9)";
+
+            setTimeout(() => {
+                // 3. Changement des données
+                hubBg.style.backgroundImage = `url('${data.bg}')`;
+                hubRobot.src = data.robot;
+                gameTitle.textContent = data.title;
+                document.getElementById("guide-text").href = data.textLink;
+                document.getElementById("guide-video").href = data.videoLink;
+
+                // 4. Afficher les boutons de guide
+                actionButtons.classList.add("visible");
+
+                // 5. Animation d'entrée
+                hubRobot.style.opacity = "1";
+                hubRobot.style.transform = "scale(1)";
+            }, 250);
+        });
     });
 }
 
-// Sécurité MkDocs
-document$.subscribe(() => {
-    setTimeout(runHub, 100); // Petit délai pour laisser le HTML s'injecter
+// Relancer à chaque navigation MkDocs
+document$.subscribe(function() {
+    initHub();
 });
