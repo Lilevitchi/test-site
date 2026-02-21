@@ -42,7 +42,7 @@
       text-decoration: none;
       border-radius: var(--radius-md);
       overflow: hidden;
-      border: 3px solid #ff5722;
+      border: 3px solid var(--accent);
       transition: transform 0.3s ease;
    }
    
@@ -62,7 +62,7 @@
    .game-card:hover { 
       transform: scale(1.02); 
       box-shadow: 0 0 20px rgba(255, 87, 34, 0.6) !important; 
-      border-color: #ff5722 !important;
+      border-color: var(--accent) !important;
    }
    
    .game-card h2 {
