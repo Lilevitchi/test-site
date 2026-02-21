@@ -1,51 +1,47 @@
-<div class="hub-stage">
+<div class="hub-wrapper">
 
-  <!-- BACKGROUND dynamique -->
-  <div class="dynamic-bg" id="dynamicBg"></div>
+  <div class="hub-bg" id="hub-bg"></div>
 
-  <!-- PANNEAU HUB -->
-  <div class="hub-panel" id="hubPanel">
-    <h1 class="hub-title">Choisissez votre jeu</h1>
+  <div class="hub-main-container" id="hub-main">
+
+  <img src="assets/robot-default.png" class="hub-bot" id="hub-bot">
+
+  <div class="hub-content">
+
+  <h1 class="hub-title">Choisis ton jeu</h1>
 
   <div class="game-grid">
-      <button class="game-card" data-game="fo4">
-        <div class="game-card-bg" style="background-image:url('assets/fo4.jpg')"></div>
-        <h2>Fallout 4</h2>
-      </button>
 
-  <button class="game-card" data-game="london">
-        <div class="game-card-bg" style="background-image:url('assets/london.jpg')"></div>
-        <h2>Fallout London</h2>
-      </button>
+  <div class="game-card" onclick="openGame('fallout4')">
+          <div class="game-card-bg" style="background-image:url('assets/fallout4-bg.jpg')"></div>
+          <h2>Fallout 4</h2>
+        </div>
 
-  <button class="game-card" data-game="fnv">
-        <div class="game-card-bg" style="background-image:url('assets/fnv.jpg')"></div>
-        <h2>New Vegas</h2>
-      </button>
+  <div class="game-card" onclick="openGame('newvegas')">
+          <div class="game-card-bg" style="background-image:url('assets/newvegas-bg.jpg')"></div>
+          <h2>New Vegas</h2>
+        </div>
 
-   <button class="game-card" data-game="ttw">
-        <div class="game-card-bg" style="background-image:url('assets/ttw.jpg')"></div>
-        <h2>TTW</h2>
-      </button>
-
-  <button class="game-card" data-game="cyberpunk">
-        <div class="game-card-bg" style="background-image:url('assets/cyberpunk.jpg')"></div>
-        <h2>Cyberpunk 2077</h2>
-      </button>
+  </div>
     </div>
   </div>
+</div>
 
-  <!-- PANNEAU JEU -->
-  <div class="game-panel" id="gamePanel">
-    <img id="dynamicRobot" class="hub-bot">
-    <h1 id="dynamicTitle"></h1>
+
+<!-- ================= PANEL JEU ================= -->
+
+<div class="game-panel" id="game-panel">
+
+  <div class="game-panel-content">
+
+  <h1 id="game-title"></h1>
 
   <div class="hub-buttons-gap">
-      <a id="guideText" class="btn-hub-large btn-orange">Guide Écrit</a>
-      <a id="guideVideo" class="btn-hub-large btn-red" target="_blank">Guide Vidéo</a>
+      <a id="guide-video" class="btn-hub-large btn-orange">Guide Vidéo</a>
+      <a id="guide-text" class="btn-hub-large btn-red">Guide Écrit</a>
     </div>
 
-  <button class="back-btn" onclick="closePanel()">Retour</button>
-  </div>
+  <button class="btn-back" onclick="closeGame()">Retour</button>
 
+  </div>
 </div>
