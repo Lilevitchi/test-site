@@ -47,7 +47,8 @@
     max-width: 75vw;
     height: auto;
     margin-bottom: 40px;
-    transition: transform 0.4s ease, opacity 0.4s ease;
+transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
 }
 
 /* Contenu central */
@@ -125,13 +126,16 @@
    ============================================================ */
 
 .game-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    max-width: 1600px;
-    margin: 0 auto;
-    width: 90%;
+display: flex;
+    flex-wrap: nowrap; /* Force une seule ligne */
+    justify-content: center;
+    gap: 15px;
+    overflow-x: auto; /* Scroll horizontal si trop petit */
+    padding: 20px;
+    scrollbar-width: none;
 }
+
+.game-grid::-webkit-scrollbar { display: none; }
 
 .game-card {
     height: 170px;
@@ -141,6 +145,7 @@
     border: 3px solid var(--accent);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+   flex: 0 0 220px;
 }
 
 .game-card-bg {
@@ -181,28 +186,34 @@
    GAME PANEL (rideau)
    ============================================================ */
 
+/* Modification du panneau pour qu'il soit invisible mais présent */
 .game-panel {
     position: fixed;
-    bottom: -100%;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.92);
-    backdrop-filter: blur(25px);
-
+    inset: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    transition: bottom 0.7s cubic-bezier(.77,0,.18,1);
-    z-index: 50;
+    z-index: 60;
+    
+    /* Effet rideau : on part du bas avec opacité 0 */
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    pointer-events: none;
 }
 
 .game-panel.active {
-    bottom: 0;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
 }
 
+/* On s'assure que le contenu du panel est bien au-dessus de tout */
 .game-panel-content {
-    text-align: center;
-    color: var(--text-primary);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
