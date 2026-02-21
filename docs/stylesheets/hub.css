@@ -2,25 +2,15 @@
    HUB PLEIN ÉCRAN
    ============================================================ */
 
-/* CORRECTIF MKDOCS : On cache le hub dès qu'on change de page */
-:not(body:has(.hub-wrapper)) .hub-wrapper {
-    display: none !important;
-}
-
-/* FORCE L'AFFICHAGE DU HUB SUR LA HOME */
-[data-md-color-scheme] .hub-wrapper {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
+/* HUB WRAPPER - Bloque la page MkDocs standard */
 .hub-wrapper {
     position: fixed;
     inset: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 9999;
+    z-index: 99; /* Par-dessus tout */
     background: #111;
+    overflow: hidden;
 }
 
 /* Background dynamique */
@@ -29,9 +19,10 @@
     inset: 0;
     background-size: cover;
     background-position: center;
-    filter: blur(6px) brightness(0.7);
+    filter: brightness(0.4) blur(10px);
     transition: background-image 0.8s ease;
     background-image: url("assets/Fond.png");
+    z-index: -1;
 }
 
 /* Layout Split Screen */
@@ -40,17 +31,15 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    position: relative;
-    z-index: 10;
 }
 
 .display-zone {
     flex: 2;
-    display: flex !important;
-    flex-direction: column;
+    display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 60vh;
+    text-align: center;
+    padding-top: 20px;
 }
 
 .selection-zone {
@@ -58,27 +47,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(15px);
-    border-top: 3px solid var(--accent);
+    border-top: 2px solid var(--md-accent-fg-color--transparent);
 }
 
 /* Eléments du haut */
 .hub-bot {
-    width: 550px;
-    max-width: 75vw;
+    width: 400px;
+    max-width: 60vw;
     height: auto;
-    margin-bottom: -40px;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-bottom: 20px;
 }
 
 .hub-title {
-    color: var(--text-primary) !important;
-    font-size: 2.2rem !important;
-    font-weight: 800 !important;
-    text-shadow: 2px 2px 15px #000;
-    margin-bottom: 40px !important;
-    border: none !important;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 30px;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
 /* ============================================================
@@ -88,99 +76,51 @@
 /* Boutons de guides */
 .hub-buttons-gap {
     display: flex;
-    gap: 100px;
+    gap: 40px;
     justify-content: center;
 }
 
 .btn-hub-large {
-    width: 300px;
-    padding: 12px 10px;
-    border-radius: 20px;
+    width: 250px;
+    padding: 15px 0;
+    border-radius: 50px;
     font-weight: 800;
-    font-size: 1.3rem;
+    text-transform: uppercase;
     text-decoration: none !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    color: var(--text-primary) !important;
+    transition: 0.3s;
+    text-align: center;
 }
 
-.btn-orange {
-    background: #2c2c2c !important;
-    border: 2px solid rgba(255, 87, 34, 0.5) !important;
-}
+.btn-orange { background: #ff5722; color: white !important; box-shadow: 0 0 15px rgba(255, 87, 34, 0.3); }
+.btn-red { background: #d32f2f; color: white !important; box-shadow: 0 0 15px rgba(211, 47, 47, 0.3); }
 
-.btn-orange:hover {
-    border-color: #ff5722 !important;
-    box-shadow: 0 0 25px 2px rgba(255, 87, 34, 0.7);
-    transform: scale(1.03);
-}
+.btn-orange:hover, .btn-red:hover { transform: scale(1.05); filter: brightness(1.2); }
 
-.btn-red {
-    background: #5e0000 !important;
-    border: 2px solid rgba(255, 0, 0, 0.5) !important;
-}
-
-.btn-red:hover {
-    border-color: #ff0000 !important;
-    box-shadow: 0 0 25px 2px rgba(255, 0, 0, 0.7);
-    transform: scale(1.03);
-}
+/* Etats de visibilité */
+.hidden-action { opacity: 0; transform: translateY(20px); pointer-events: none; transition: 0.5s; }
+.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
 
 /* ============================================================
    GRID DES JEUX
    ============================================================ */
 
 /* Cartes du bas */
-.game-grid-mini {
-    display: flex;
-    gap: 20px;
-    padding: 0 20px;
-}
+.game-grid-mini { display: flex; gap: 20px; padding: 20px; }
 
 .mini-card {
-    width: 220px;
-    height: 140px;
-    border-radius: 12px;
+    width: 180px;
+    height: 100px;
+    border-radius: 15px;
     overflow: hidden;
     position: relative;
     cursor: pointer;
-    border: 3px solid #ff5722;
-    transition: transform 0.3s ease;
+    border: 3px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
 }
 
-.mini-card-bg {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    filter: blur(5px) brightness(0.7);
-    transition: filter 0.4s ease;
-}
+.mini-card.active { border-color: #ff5722; transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
 
-.mini-card:hover .mini-card-bg, .mini-card.active .mini-card-bg {
-    filter: blur(0px) brightness(1.4);
-}
+.mini-card-bg { width: 100%; height: 100%; background-size: cover; filter: brightness(0.6); transition: 0.3s; }
+.mini-card:hover .mini-card-bg { filter: brightness(1); }
 
-.mini-card:hover, .mini-card.active {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 87, 34, 0.6);
-}
-
-.mini-card span {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-weight: 900;
-    text-shadow: 2px 2px 10px #000;
-    background: rgba(0,0,0,0.3);
-    pointer-events: none;
-}
-
-/* Visibilité progressive */
-.hidden-action { opacity: 0; transform: translateY(10px); pointer-events: none; transition: 0.4s; }
-.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+.mini-card span { position: absolute; bottom: 10px; left: 10px; color: white; font-weight: bold; font-size: 0.9rem; pointer-events: none; }
