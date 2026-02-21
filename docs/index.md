@@ -6,7 +6,7 @@
   <div class="hub-main-container">
 
     <!-- Robot -->
-  <img src="assets/robot-default.png"
+  <img src="assets/lile-bot.png.png"
          class="hub-bot"
          id="hub-bot"
          alt="Robot mascotte">
