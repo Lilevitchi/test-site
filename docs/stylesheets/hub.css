@@ -12,6 +12,7 @@
    justify-content: center;
    align-items: center;
    overflow: hidden;
+   z-index: 1000;
 }
 
 .hub-bg { 
@@ -19,7 +20,8 @@
    inset: 0;
    background-size: cover; 
    background-position: center; 
-   filter: var(--blur-strong) brightness(0.7); 
+   filter: var(--blur-strong, blur(6px)) brightness(0.7); 
+   z-index: 1;
 }
 
 .hub-main-container {
@@ -30,6 +32,7 @@
    text-align: center;
    width: 100%;
    margin-top: -25vh;
+   z-index: 2;
 }
 
 .hub-bot { 
@@ -41,18 +44,23 @@
 
 .hub-content { 
    position: relative; 
+   z-index: 3;
 }
 
+/* TITRE HUB — Toujours visible */
 .hub-title { 
    color: #fff !important; 
-   font-size: 2.2rem; 
+   font-size: 2.5rem; /* un peu plus grand pour le hub principal */
    font-weight: 800 !important; 
    text-shadow: 2px 2px 15px #000; 
    margin-bottom: 40px !important; 
    text-align: center;
    width: 100%;
+   line-height: 1.2;
+   display: block !important;
 }
 
+/* Boutons hub */
 .hub-buttons-gap {
    display: flex;
    gap: 140px;
@@ -62,11 +70,11 @@
 }
 
 .md-typeset .btn-hub-large {
-   width: 300px;
-   padding: 10px 10px;
+   width: 320px; /* un peu plus gros */
+   padding: 14px 12px;
    border-radius: 20px;
    font-weight: 800;
-   font-size: 1.4rem;
+   font-size: 1.5rem; /* légèrement plus gros */
    text-transform: none !important;
    text-decoration: none !important;
    display: flex;
@@ -80,9 +88,8 @@
    background: #2c2c2c !important;
    border: 2px solid rgba(255, 87, 34, 0.5) !important;
 }
-
 .btn-orange:hover {
-   border-color: var(--accent) !important;
+   border-color: var(--accent, #ff5722) !important;
    box-shadow: 0 0 25px 2px rgba(255, 87, 34, 0.7);
    transform: scale(1.03);
 }
@@ -91,45 +98,11 @@
    background: #5e0000 !important;
    border: 2px solid rgba(255, 0, 0, 0.5) !important;
 }
-
 .btn-red:hover {
    border-color: #ff0000 !important;
    box-shadow: 0 0 25px 2px rgba(255, 0, 0, 0.7);
    transform: scale(1.03);
 }
-
-.md-typeset a.btn-orange:hover, 
-.md-typeset a.btn-red:hover {
-   color: #fff !important; 
-   text-decoration: none !important;
-}
-
-.md-typeset .hub-title { 
-   color: #fff !important; 
-   font-size: 2.2rem; 
-   font-weight: 800 !important; 
-   text-transform: none !important;
-   text-shadow: 2px 2px 15px #000; 
-   margin-bottom: 40px !important; 
-   border: none !important; 
-   text-align: center !important;
-   display: block !important;
-   width: 100% !important;
-   line-height: 1.2;
-}
-
-body:has(.hub-wrapper) .md-content__inner h1:first-child:not(.hub-title),
-body:has(.hub-wrapper) .md-header__topic:first-child {
-   display: none !important;
-}
-
-body:has(.hub-wrapper) .md-header__topic:last-child {
-   display: block !important;
-   opacity: 1 !important;
-   transform: translateY(0) !important;
-   pointer-events: auto !important;
-} 
-
 
 /* ============================================================
    GRID DES JEUX
@@ -137,16 +110,16 @@ body:has(.hub-wrapper) .md-header__topic:last-child {
 
 .game-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: var(--space-md, 20px);
     max-width: var(--content-max-width, 1400px);
-    margin: 0 auto;
+    margin: 0 auto 40px auto;
     padding: 0 25px;
     width: 100%;
 }
 
 .game-card {
-    height: 160px;
+    height: 180px; /* un peu plus grand */
     display: block;
     position: relative;
     text-decoration: none;
@@ -170,8 +143,8 @@ body:has(.hub-wrapper) .md-header__topic:last-child {
 }
 
 .game-card:hover { 
-   transform: scale(1.02); 
-   box-shadow: 0 0 20px rgba(255, 87, 34, 0.6); 
+   transform: scale(1.03); 
+   box-shadow: 0 0 25px rgba(255, 87, 34, 0.6); 
    border-color: #ff5722;
 }
 
@@ -184,7 +157,7 @@ body:has(.hub-wrapper) .md-header__topic:last-child {
     text-align: center;
     width: 100%;
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.6rem; /* légèrement plus gros */
     font-weight: 900;
     text-shadow: 2px 2px 10px #000;
     margin: 0;
@@ -197,12 +170,21 @@ body:has(.hub-wrapper) .md-header__topic:last-child {
 
 body:has(.hub-wrapper) .md-sidebar,
 body:has(.hub-wrapper) .md-footer,
-body:has(.hub-wrapper) .md-page__nav {
+body:has(.hub-wrapper) .md-page__nav, {
     display: none !important;
 }
 
-/* S'assurer que le contenu principal ne prend plus de padding/margin */
 body:has(.hub-wrapper) .md-content {
     margin: 0 !important;
     padding: 0 !important;
+}
+
+/* Fix pour que le titre principal généré par frontmatter ne cache pas le hub-title */
+body:has(.hub-wrapper) .md-content__inner h1:first-child:not(.hub-title),
+body:has(.hub-wrapper) .md-header__topic:first-child {
+    display: none !important;
+}
+
+body:has(.hub-wrapper) .hub-title {
+    display: block !important;
 }
