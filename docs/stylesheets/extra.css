@@ -287,7 +287,7 @@ body {
 
   .md-content :is(h1, h2, h3, h4, h5, h6),
   .custom-card {
-    scroll-margin-top: calc(var(--header-height) + 30px);
+    scroll-margin-top: calc(var(--header-height) + 45px);
   }
 
 /* ============================================================
