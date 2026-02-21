@@ -37,7 +37,7 @@
         <!--
   <div class="game-card" data-game="newvegas">
           <div class="game-card-bg"
-               style="background-image:url('assets/newvegas.jpg')">
+               style="background-image:url('assets/fnv.jpg')">
           </div>
           <h2>New Vegas</h2>
         </div>
