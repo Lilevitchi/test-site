@@ -39,12 +39,26 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Guides:
-      - Fallout 4: fallout4/intro.md
-      - Fallout London: fallout-london/intro.md
-      - Fallout New Vegas: fnv/intro.md
-      - Tale of Two Wastelands: ttw/intro.md
-      - Cyberpunk 2077: cyberpunk/intro.md
+  - Fallout 4:
+      - Hub: fallout4/index.md
+      - Guide Écrit: fallout4/intro.md
+      - Guide Vidéo: https://youtu.be/m_CawhgGBGk
+  - Fallout London:
+      - Hub: fallout-london/index.md
+      - Guide Écrit: fallout-london/intro.md
+      - Guide Vidéo: "#"
+  - Fallout New Vegas:
+      - Hub: fnv/index.md
+      - Guide Écrit: fnv/intro.md
+      - Guide Vidéo: "#"
+  - Tale of Two Wastelands:
+      - Hub: ttw/index.md
+      - Guide Écrit: ttw/intro.md
+      - Guide Vidéo: "#"
+  - Cyberpunk 2077:
+      - Hub: cyberpunk/index.md
+      - Guide Écrit: cyberpunk/intro.md
+      - Guide Vidéo: "#"
 
 extra:
   social:
