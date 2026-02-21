@@ -190,3 +190,20 @@ body:has(.hub-wrapper) .md-header__topic:last-child {
     margin: 0;
     background: rgba(0,0,0,0.3);
 }
+
+/* ============================================================
+   Cacher header, footer, sidebars quand hub est actif
+   ============================================================ */
+
+body:has(.hub-wrapper) .md-sidebar,
+body:has(.hub-wrapper) .md-footer,
+body:has(.hub-wrapper) .md-header,
+body:has(.hub-wrapper) .md-page__nav {
+    display: none !important;
+}
+
+/* S'assurer que le contenu principal ne prend plus de padding/margin */
+body:has(.hub-wrapper) .md-content {
+    margin: 0 !important;
+    padding: 0 !important;
+}
