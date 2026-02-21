@@ -60,7 +60,7 @@
 .hub-title {
     font-size: 2.4rem;
     font-weight: 800;
-    color: #fff;
+    color: var(--text-primary);
     text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
     margin-bottom: 50px;
     line-height: 1.2;
@@ -96,9 +96,9 @@
 
 /* Bouton orange */
 .btn-orange {
-    background: #2c2c2c;
+    background: var(--btn-dark-bg);
     border: 2px solid rgba(255, 87, 34, 0.5);
-    color: #fff;
+    color: var(--text-primary);
 }
 
 .btn-orange:hover {
@@ -109,9 +109,9 @@
 
 /* Bouton rouge */
 .btn-red {
-    background: #5e0000;
+    background: var(--btn-red-bg);
     border: 2px solid rgba(255, 0, 0, 0.5);
-    color: #fff;
+    color: var(--text-primary);
 }
 
 .btn-red:hover {
@@ -171,7 +171,7 @@
 
     font-size: 1.6rem;
     font-weight: 900;
-    color: #fff;
+    color: var(--text-primary);
     text-shadow: 2px 2px 15px rgba(0,0,0,0.9);
     background: rgba(0,0,0,0.35);
     margin: 0;
@@ -204,7 +204,7 @@
 
 .game-panel-content {
     text-align: center;
-    color: #fff;
+    color: var(--text-primary);
 }
 
 /* ============================================================
