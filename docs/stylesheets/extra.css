@@ -13,6 +13,10 @@
   --bg-page: #1a1d23;
   --bg-surface: #2e3440;
   --bg-card: #242933;
+  --bot-bg: #3d2b26;
+  --progress-bg: #6e6e6e;
+  --btn-dark-bg: #2c2c2c;
+  --btn-red-bg: #5e0000;
 
   /* Layout Sizing */
   --header-height: 72px;
@@ -75,7 +79,7 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
-  color: #fff;
+  color: var(--text-primary);
   font-family: var(--font-main);
   font-size: var(--text-size-content);
   font-weight: 400;
@@ -84,6 +88,10 @@ body {
 * {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.63) transparent;
+}
+
+body:has(.hub-wrapper) {
+   overflow: hidden;
 }
 
 /* --- SECURITE POUR LE STICKY --- */
@@ -124,7 +132,7 @@ body {
     left: 0;
     width: 100%;
     height: calc(var(--header-height) + 3px);
-    background-color: #6e6e6e;
+    background-color: var(--progress-bg);
     z-index: 9;
     pointer-events: none;
     border-bottom-left-radius: var(--radius-md);
@@ -614,7 +622,7 @@ body {
   }
 
   .md-typeset h1, .md-typeset h2, .md-typeset h3 {
-    color: #ffffff;
+    color: var(--text-primary);
     font-weight: 700;
   }
 
@@ -632,7 +640,7 @@ body {
    .bot-advice {
      display: flex;
      align-items: center;
-     background-color: #3d2b26;
+     background-color: var(--bot-bg);
      padding: var(--space-xs);
      border-radius: var(--radius-md);
      max-width: 720px;
@@ -658,7 +666,7 @@ body {
    /* Texte du conseil */
    #lile-bot-tip {
      font-style: italic;
-     color: #fff;
+     color: var(--text-primary);
    }
 
 /* ============================================================
@@ -667,18 +675,10 @@ body {
 
   /* Curseur normal */
   .game-card, .md-logo, .md-header__button, .md-tabs__link, .md-nav__link, .md-typeset a {
-    cursor: url('../assets/curseur.png') 7 0, pointer !important;
+    cursor: var(--cursor-default) 7 0, pointer !important;
   }
 
   /* Curseur clic (doigt replié) */
   .game-card:active, .md-logo:active, .md-header__button:active, .md-tabs__link:active, .md-nav__link:active, .md-typeset a:active  {
-    cursor: url('../assets/curseur-clic.png') 7 0, pointer !important;
+    cursor: var(--cursor-click) !important;
   }
-
-/* Masquer les bordures de debug si nécessaire, ou les garder : 
-.md-main { border: 2px dashed yellow; }
-.md-container { border: 2px dashed green; }
-.md-header { border: 2px dashed blue; }
-
-.md-sidebar__inner { border: 2px dashed blue; }
-.md-sidebar { border: 2px dashed red; }*/
