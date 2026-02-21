@@ -38,15 +38,12 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Fallout 4:
-      - Home: fallout4/index.md
-      - Introduction: fallout4/intro.md
-      - Setup: fallout4/setup.md
-      - Bug Fixes: fallout4/bugfix.md
-  - Fallout London: fallout-london/index.md
-  - Fallout New Vegas: fnv/index.md
-  - Tale of Two Wastelands: ttw/index.md
-  - Cyberpunk 2077: cyberpunk/index.md
+  - Guides:
+      - Fallout 4: fallout4/intro.md
+      - Fallout London: fallout-london/intro.md
+      - Fallout New Vegas: fnv/intro.md
+      - Tale of Two Wastelands: ttw/intro.md
+      - Cyberpunk 2077: cyberpunk/intro.md
 
 extra:
   social:
