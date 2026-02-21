@@ -106,18 +106,18 @@ body:has(.hub-wrapper) {
 /* ============================================================
    TYPOGRAPHIE & CONTENU
    ============================================================*/
-  
-  .md-typeset {
-    font-size: var(--text-size-content);
-    color: var(--text-primary);
-    line-height: 1.6;
-  }
 
-  .md-typeset h1, .md-typeset h2, .md-typeset h3 {
-    color: var(--text-primary);
-    font-weight: 700;
-  }
+.md-typeset {
+   font-size: var(--text-size-content);
+   color: var(--text-primary);
+   line-height: 1.6;
+}
 
-  .md-typeset p {
-    color: var(--text-primary);
-  }
+.md-typeset h1, .md-typeset h2, .md-typeset h3 {
+   color: var(--text-primary);
+   font-weight: 700;
+}
+
+.md-typeset p {
+   color: var(--text-primary);
+}
