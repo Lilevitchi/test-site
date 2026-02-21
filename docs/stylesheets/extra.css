@@ -15,7 +15,7 @@
   --bg-card: #242933;
 
   /* Layout Sizing */
-  --header-height: 75px;
+  --header-height: 72px;
   --footer-height: 30px;
   --sidebar-width-primary: 216px;
   --sidebar-width-secondary: 226px;
@@ -458,8 +458,6 @@ body {
     margin: 0 !important;
     border: none;
     transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease !important;
-    align-items: center;
-    justify-content: center;
   }
 
   .md-footer-meta {
