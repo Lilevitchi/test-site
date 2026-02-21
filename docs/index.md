@@ -7,32 +7,38 @@ hide:
 ---
 
 <div class="hub-wrapper">
+    <!-- Background -->
     <div class="hub-bg" style="background-image: url('assets/fond.jpg');"></div>
 
   <div class="hub-main-container">
+        <!-- Bot central -->
         <img src="assets/lile-bot.png" class="hub-bot">
-        <div class="game-grid">
- <a href="fallout4/" class="game-card">
-        <div class="game-card-bg" style="background-image: url('assets/fo4.jpg');"></div>
-        <div class="game-card-overlay"><h2>Fallout 4</h2></div>
-    </a>
-    <a href="fallout-london/" class="game-card">
-        <div class="game-card-bg" style="background-image: url('assets/london.jpg');"></div>
-        <div class="game-card-overlay"><h2>Fallout London</h2></div>
-    </a>
- <a href="fnv/" class="game-card">
-        <div class="game-card-bg" style="background-image: url('assets/fnv.jpg');"></div>
-        <div class="game-card-overlay"><h2>New Vegas</h2></div>
-    </a>
- <a href="ttw/" class="game-card">
-        <div class="game-card-bg" style="background-image: url('assets/ttw.jpg');"></div>
-        <div class="game-card-overlay"><h2>TTW</h2></div>
-    </a>
- <a href="cyberpunk/" class="game-card">
-        <div class="game-card-bg" style="background-image: url('assets/cyberpunk.jpg');"></div>
-        <div class="game-card-overlay"><h2>Cyberpunk 2077</h2></div>
-    </a>
-</div>   
-    
-  </div>
+
+  <!-- Titre -->
+  <h1 class="hub-title">Bienvenue dans Mon Labo de Test</h1>
+
+  <!-- Grille des jeux -->
+  <div class="game-grid">
+            <a href="fallout4/" class="game-card">
+                <div class="game-card-bg" style="background-image: url('assets/fo4.jpg');"></div>
+                <div class="game-card-overlay"><h2>Fallout 4</h2></div>
+            </a>
+            <a href="fallout-london/" class="game-card">
+                <div class="game-card-bg" style="background-image: url('assets/london.jpg');"></div>
+                <div class="game-card-overlay"><h2>Fallout London</h2></div>
+            </a>
+            <a href="fnv/" class="game-card">
+                <div class="game-card-bg" style="background-image: url('assets/fnv.jpg');"></div>
+                <div class="game-card-overlay"><h2>New Vegas</h2></div>
+            </a>
+            <a href="ttw/" class="game-card">
+                <div class="game-card-bg" style="background-image: url('assets/ttw.jpg');"></div>
+                <div class="game-card-overlay"><h2>TTW</h2></div>
+            </a>
+            <a href="cyberpunk/" class="game-card">
+                <div class="game-card-bg" style="background-image: url('assets/cyberpunk.jpg');"></div>
+                <div class="game-card-overlay"><h2>Cyberpunk 2077</h2></div>
+            </a>
+        </div>
+    </div>
 </div>
