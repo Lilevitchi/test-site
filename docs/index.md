@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 <div class="hub-wrapper">
   <div class="hub-bg" id="hub-bg"></div>
 
