@@ -1,10 +1,13 @@
 <script>
 function initHub() {
+
+  // ======================
   // Définition des jeux
+  // ======================
   const games = {
     fo4: {
-      bg: "assets/Fond.png",             // fond par défaut ou image spécifique
-      robot: "assets/lile-bot-fo4.png",
+      bg: "assets/fo4.jpg",                 // Fond pour card et hub
+      robot: "assets/lile-bot-fo4.png",     // Robot spécifique
       title: "Bienvenue dans le Commonwealth",
       textLink: "fallout4/intro/",
       videoLink: "https://youtu.be/m_CawhgGBGk"
@@ -15,11 +18,33 @@ function initHub() {
       title: "Bienvenue à London",
       textLink: "fallout-london/intro/",
       videoLink: "#"
+    },
+    newvegas: {
+      bg: "assets/newvegas.jpg",
+      robot: "assets/lile-bot-newvegas.png",
+      title: "Bienvenue à New Vegas",
+      textLink: "fnv/intro/",
+      videoLink: "#"
+    },
+    ttw: {
+      bg: "assets/ttw.jpg",
+      robot: "assets/lile-bot-ttw.png",
+      title: "Bienvenue dans Tale of Two Wastelands",
+      textLink: "ttw/intro/",
+      videoLink: "#"
+    },
+    cyberpunk: {
+      bg: "assets/cyberpunk.jpg",
+      robot: "assets/lile-bot-cyberpunk.png",
+      title: "Bienvenue à Night City",
+      textLink: "cyberpunk/intro/",
+      videoLink: "#"
     }
-    // Ajoute d'autres jeux ici
   };
 
-  // Récupération des éléments du DOM
+  // ======================
+  // Références DOM
+  // ======================
   const hubBg      = document.getElementById("hub-bg");
   const hubRobot   = document.getElementById("hub-bot");
   const gameTitle  = document.getElementById("game-title");
@@ -27,49 +52,60 @@ function initHub() {
   const guideVideo = document.getElementById("guide-video");
   const gamePanel  = document.getElementById("game-panel");
 
-  // Ajout de l'écouteur sur chaque carte
+  // ======================
+  // Événements sur les cards
+  // ======================
   document.querySelectorAll(".game-card").forEach(card => {
     card.addEventListener("click", () => {
+
       const key = card.dataset.game;
       const game = games[key];
       if (!game) return;
 
-      // Animation du robot
-      hubRobot.style.transition = "transform 0.4s ease, opacity 0.4s ease";
+      // Animation du robot avant changement
       hubRobot.style.opacity = "0";
       hubRobot.style.transform = "translateY(20px)";
 
       setTimeout(() => {
-        // Mise à jour du fond
+
+        // Changer le fond
         if (hubBg) hubBg.style.backgroundImage = `url(${game.bg})`;
 
-        // Mise à jour du robot
+        // Changer le robot
         if (hubRobot) hubRobot.src = game.robot;
 
-        // Mise à jour du titre
+        // Changer le titre
         if (gameTitle) gameTitle.textContent = game.title;
 
-        // Mise à jour des liens
+        // Mettre à jour les liens des boutons
         if (guideText) guideText.href = game.textLink;
         if (guideVideo) guideVideo.href = game.videoLink;
 
-        // Remise du robot en place
+        // Animation retour du robot
         hubRobot.style.opacity = "1";
         hubRobot.style.transform = "translateY(0)";
+
       }, 200);
 
-      // Ouverture du panel rideau
+      // Ouvrir le rideau
       if (gamePanel) gamePanel.classList.add("active");
+
     });
   });
 
-  // Fermeture du panel
+  // ======================
+  // Fermeture du rideau
+  // ======================
   window.closeGame = function() {
     if (gamePanel) gamePanel.classList.remove("active");
+
+    // Optionnel : remettre fond et robot par défaut
+    if (hubBg) hubBg.style.backgroundImage = `url('assets/Fond.png')`;
+    if (hubRobot) hubRobot.src = "assets/lile-bot.png";
   };
 }
 
-// Initialisation au chargement
+// Compatible avec Material for MkDocs
 document.addEventListener("DOMContentLoaded", initHub);
 if (typeof document$ !== "undefined") {
   document$.subscribe(initHub);
