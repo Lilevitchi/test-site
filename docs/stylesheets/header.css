@@ -1,6 +1,4 @@
-[data-md-color-scheme] {
-   
-  .md-header {
+.md-header {
     height: var(--header-height);
     position: fixed;
     background-color: var(--bg-surface);
@@ -86,5 +84,3 @@
   .md-logo img:hover {
     transform: translateY(-2px);
   }
-
-}
