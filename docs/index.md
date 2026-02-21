@@ -7,16 +7,15 @@ hide:
 ---
 
 <div class="hub-wrapper">
-    <!-- Fond plein écran -->
-    <div class="hub-bg" style="background-image: url('assets/fond.jpg');"></div>
+
+  <div class="hub-bg" style="background-image: url('assets/fond.jpg');"></div>
 
   <div class="hub-main-container">
         <img src="../assets/lile-bot-fo4.png" class="hub-bot">
 
   <div class="hub-content">
-            <h1 class="hub-title">Bienvenue dans le Commonwealth</h1>
+            <h1 class="hub-title">Bienvenue</h1>
 
-            <!-- Grid des jeux -->
   <div class="game-grid">
                 <a href="fallout4/" class="game-card">
                     <div class="game-card-bg" style="background-image: url('assets/fo4.jpg');"></div>
