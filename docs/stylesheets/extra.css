@@ -458,6 +458,8 @@ body {
     margin: 0 !important;
     border: none;
     transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease !important;
+    align-items: center;
+    justify-content: center;
   }
 
   .md-footer-meta {
