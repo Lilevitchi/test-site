@@ -6,65 +6,57 @@ hide:
 
 <div class="hub-wrapper">
 
-  <!-- Background -->
+  <!-- Background dynamique -->
   <div class="hub-bg" style="background-image:url('assets/Fond.png')"></div>
 
   <div class="split-layout">
 
     <!-- =========================
-         PARTIE HAUTE
+         PARTIE HAUTE : Robot + Titre
     ========================== -->
-   <div class="display-zone">
-
-  <img src="assets/lile-bot.png" class="hub-bot" alt="Robot">
-
-  <h1 class="hub-title">
-        Choisis ton univers
-      </h1>
-
-   </div>
-
+  <div class="display-zone">
+      <img src="assets/lile-bot.png" class="hub-bot" alt="Robot">
+      <h1 class="hub-title">Choisis ton univers</h1>
+    </div>
 
     <!-- =========================
-         PARTIE BASSE - GRID JEUX
+         PARTIE BASSE : GRID DES JEUX
     ========================== -->
-   <div class="selection-zone">
+  <div class="selection-zone">
+      <div class="game-grid">
 
-  <div class="game-grid-mini">
-
-   <a href="fallout4/" class="mini-card">
-          <div class="mini-card-bg"
-               style="background-image:url('assets/fo4.jpg')"></div>
-          <span>Fallout 4</span>
+        <!-- Fallout 4 -->
+  <a href="fallout4/" class="game-card">
+          <div class="game-card-bg" style="background-image:url('assets/fo4.jpg')"></div>
+          <h2>Fallout 4</h2>
         </a>
 
-   <a href="fallout-london/" class="mini-card">
-          <div class="mini-card-bg"
-               style="background-image:url('assets/london.jpg')"></div>
-          <span>Fallout London</span>
+        <!-- Fallout London -->
+  <a href="fallout-london/" class="game-card">
+          <div class="game-card-bg" style="background-image:url('assets/london.jpg')"></div>
+          <h2>Fallout London</h2>
         </a>
 
-  <a href="fnv/" class="mini-card">
-          <div class="mini-card-bg"
-               style="background-image:url('assets/newvegas.jpg')"></div>
-          <span>Fallout New Vegas</span>
+        <!-- Fallout New Vegas -->
+  <a href="fnv/" class="game-card">
+          <div class="game-card-bg" style="background-image:url('assets/newvegas.jpg')"></div>
+          <h2>Fallout New Vegas</h2>
         </a>
 
-   <a href="ttw/" class="mini-card">
-          <div class="mini-card-bg"
-               style="background-image:url('assets/ttw.jpg')"></div>
-          <span>Tale of Two Wastelands</span>
+        <!-- Tale of Two Wastelands -->
+  <a href="ttw/" class="game-card">
+          <div class="game-card-bg" style="background-image:url('assets/ttw.jpg')"></div>
+          <h2>Tale of Two Wastelands</h2>
         </a>
 
-  <a href="cyberpunk/" class="mini-card">
-          <div class="mini-card-bg"
-               style="background-image:url('assets/cyberpunk.jpg')"></div>
-          <span>Cyberpunk 2077</span>
+        <!-- Cyberpunk 2077 -->
+  <a href="cyberpunk/" class="game-card">
+          <div class="game-card-bg" style="background-image:url('assets/cyberpunk.jpg')"></div>
+          <h2>Cyberpunk 2077</h2>
         </a>
 
-  </div>
-
- </div>
+   </div>
+    </div>
 
   </div>
 </div>
