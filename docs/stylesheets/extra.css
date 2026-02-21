@@ -389,6 +389,71 @@ body {
   }*/
 
 /* ============================================================
+   SIDEBAR GAUCHE
+   ============================================================ */
+
+  .left-sidebar {
+  position: fixed;
+  top: calc(var(--header-height) + 10px);
+  left: 10px;
+  width: 240px;
+  height: calc(100vh - var(--header-height) - 20px);
+
+  background: var(--bg-surface);
+  border-radius: 6px;
+  padding: 6px 0;
+
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+  .left-sidebar a {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  height: 32px;
+  padding: 0 14px;
+
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+
+  border-radius: 4px;
+  transition: background 0.18s ease;
+}
+
+  .left-sidebar a.active {
+  background: rgba(255,255,255,0.08);
+}
+
+.left-sidebar a.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 3px;
+  height: 18px;
+  background: var(--accent);
+  border-radius: 8px;
+}
+
+  .left-sidebar hr {
+  margin: 6px 12px;
+  border: none;
+  height: 1px;
+  background: rgba(255,255,255,0.12);
+}
+
+  .sidebar-bottom a {
+  opacity: 0.85;
+}
+
+.sidebar-bottom a:hover {
+  opacity: 1;
+}
+  
+/* ============================================================
    SIDEBAR DROITE
    ============================================================ */
 
