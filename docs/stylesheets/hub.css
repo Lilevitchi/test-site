@@ -126,11 +126,11 @@
 
 .game-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 25px;
-    max-width: 1200px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1600px;
     margin: 0 auto;
-    width: 100%;
+    width: 90%;
 }
 
 .game-card {
