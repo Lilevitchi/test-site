@@ -13,6 +13,7 @@
   --bg-page: #1a1d23;
   --bg-surface: #2e3440;
   --bg-card: #242933;
+  --bot-bg: #3d2b26;
 
   /* Layout Sizing */
   --header-height: 72px;
@@ -75,7 +76,7 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
-  color: #fff;
+  color: var(--text-primary);
   font-family: var(--font-main);
   font-size: var(--text-size-content);
   font-weight: 400;
@@ -103,26 +104,24 @@ body:has(.hub-wrapper) {
   display: none !important;
 }
 
-[data-md-color-scheme] {
-
 /* ============================================================
    STRUCTURE MAIN
    ============================================================*/
   
-  .md-container {
+  [data-md-color-scheme].md-container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background-color: var(--bg-page);
   }
   
-  .md-main {
+  [data-md-color-scheme].md-main {
     flex: 1 0 auto;
     display: block;
     padding-top: var(--header-height) !important;
   }
 
-  .md-grid {
+  [data-md-color-scheme].md-grid {
     max-width: 100% !important;
     margin: 0 !important;
   }
@@ -243,15 +242,13 @@ body:has(.hub-wrapper) {
   }
 
   .md-typeset h1, .md-typeset h2, .md-typeset h3 {
-    color: #ffffff;
+    color: var(--text-primary);
     font-weight: 700;
   }
 
   .md-typeset p {
     color: var(--text-primary);
   }
-
-}
 
 /* ============================================================
    BOT ASTUCES
@@ -261,7 +258,7 @@ body:has(.hub-wrapper) {
    .bot-advice {
      display: flex;
      align-items: center;
-     background-color: #3d2b26;
+     background-color: var(--bot-bg);
      padding: var(--space-xs);
      border-radius: var(--radius-md);
      max-width: 720px;
@@ -287,7 +284,7 @@ body:has(.hub-wrapper) {
    /* Texte du conseil */
    #lile-bot-tip {
      font-style: italic;
-     color: #fff;
+     color: var(--text-primary);
    }
 
 /* ============================================================
@@ -296,10 +293,10 @@ body:has(.hub-wrapper) {
 
   /* Curseur normal */
   .game-card, .md-logo, .md-header__button, .md-tabs__link, .md-nav__link, .md-typeset a {
-    cursor: url('../assets/curseur.png') 7 0, pointer !important;
+    cursor: var(--cursor-default) !important;
   }
 
   /* Curseur clic (doigt replié) */
   .game-card:active, .md-logo:active, .md-header__button:active, .md-tabs__link:active, .md-nav__link:active, .md-typeset a:active  {
-    cursor: url('../assets/curseur-clic.png') 7 0, pointer !important;
+    cursor: var(--cursor-click) !important;
   }
