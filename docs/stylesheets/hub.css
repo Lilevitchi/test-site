@@ -176,46 +176,14 @@
 /* ============================================================
    Cacher header, footer, sidebars quand hub est actif
    ============================================================ */
-
 body:has(.hub-wrapper) .md-sidebar,
 body:has(.hub-wrapper) .md-footer,
 body:has(.hub-wrapper) .md-page__nav {
     display: none !important;
 }
 
+/* S'assurer que le contenu principal ne prend plus de padding/margin */
 body:has(.hub-wrapper) .md-content {
     margin: 0 !important;
     padding: 0 !important;
-}
-
-/* Fix pour que le titre principal généré par frontmatter ne cache pas le hub-title */
-body:has(.hub-wrapper) .md-content__inner h1:first-child:not(.hub-title),
-body:has(.hub-wrapper) .md-header__topic:first-child {
-    display: none !important;
-}
-
-body:has(.hub-wrapper) .hub-title {
-    display: block !important;
-}
-
-/* ============================================================
-   Afficher le header quand hub est actif
-   ============================================================ */
-
-body:has(.hub-wrapper) .md-header {
-    display: flex !important;
-    z-index: 1001;
-}
-
-body:has(.hub-wrapper) .md-header__topic {
-    display: block !important;
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    pointer-events: auto !important;
-}
-
-body:has(.hub-wrapper) .md-header__topic h1,
-body:has(.hub-wrapper) .md-header__topic span {
-    display: inline !important;
-    color: var(--accent);
 }
