@@ -227,7 +227,7 @@ body {
    CONTENU CENTRAL
    ============================================================*/
 
-  /* --- CONTENT — STICKY--- */
+  /* --- CONTENT — STICKY --- */
   /*.md-content {
     background: var(--bg-page) !important;
     color: var(--text-primary);
@@ -242,7 +242,7 @@ body {
     padding-bottom: 20px !important;
   }*/
 
-/* --- CONTENT — FIXED--- */
+/* --- CONTENT — FIXED --- */
   .md-content {
     background: var(--bg-page) !important;
     color: var(--text-primary);
@@ -424,15 +424,13 @@ body {
   
 /* ---SOUS-CHAPITRES (H3 – Custom cards) --- */
   .nav-item-card-h3 .md-nav__link {
-    padding: 2px 10px 2px 20px !important;
+    padding: 2px 10px 2px 24px !important;
     font-size: calc(var(--text-size-content) - 1.25px);
     font-weight: 400;
     line-height: 1.3;
     color: var(--text-primary);
     opacity: 0.75;
     position: relative;
-    
-    /* animation safe */
     transform: none;
     animation: sidebarSubFade 180ms ease-out;
   }
