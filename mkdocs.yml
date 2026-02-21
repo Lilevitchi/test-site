@@ -25,7 +25,7 @@ extra_css:
   - stylesheets/style.css
   - stylesheets/header.css
   - stylesheets/sidebar.css
-  - stylesheets/hub.css
+  - stylesheets/hub2.css
   
 markdown_extensions:
   - admonition
