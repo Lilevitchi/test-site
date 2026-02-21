@@ -1,0 +1,402 @@
+/* ============================================================
+   Lilevitchi | Modding - Style CSS
+   ============================================================*/
+
+/* ============================================================
+   VARIABLES
+   ============================================================*/
+
+:root {
+  /* Brand & Colors */
+  --accent: #ff5722;
+  --accent-soft: rgba(255, 87, 34, 0.08);
+  --bg-page: #1a1d23;
+  --bg-surface: #2e3440;
+  --bg-card: #242933;
+
+  /* Layout Sizing */
+  --header-height: 72px;
+  --footer-height: 30px;
+  --sidebar-width-primary: 216px;
+  --sidebar-width-secondary: 226px;
+  --sidebar-gap: 10px;
+  /* Piloté par le JS */
+  --footer-visible-height: 0px;
+
+  /* Typography */
+  --font-main: Arial, Helvetica, sans-serif;
+  --text-size-header: 21px; 
+  --text-size-footer: 10px;
+  --text-size-content: 15px;
+  --text-primary: #fff;
+  --text-muted: #aab2c0;
+
+  /* Radius & Motion */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  /* Content sizing */
+  --content-max-width: 87.5rem;     /* 1400px */
+  --grid-max-width: 95%;
+
+  /* Effets & Cursor */
+  --blur-soft: blur(5px);
+  --blur-strong: blur(6px);
+  --cursor-default: url('../assets/curseur.png') 7 0, pointer;
+  --cursor-click: url('../assets/curseur-clic.png') 7 0, pointer;
+
+  /* Spacing */
+  --space-xs: 0.36rem;  /* ~6px */
+  --space-sm: 0.54rem;  /* ~9px */
+  --space-md: 0.9rem;   /* ~14px */
+  --space-lg: 1.12rem;  /* ~18px */
+  --space-xl: 1.44rem;  /* ~23px */
+  
+}
+
+/* ============================================================
+   GLOBAL
+   ============================================================*/
+
+/* --- CONFIGURATION GLOBALE & RESETS --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px !important; 
+  -webkit-text-size-adjust: none !important;
+  text-size-adjust: none !important;
+  background-color: var(--bg-page);
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-main);
+  font-size: var(--text-size-content);
+  font-weight: 400;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.63) transparent;
+}
+
+/* --- SECURITE POUR LE STICKY --- */
+.md-container, .md-main, .md-main__inner {
+  overflow: visible !important;
+}
+
+/* --- NETTOYAGE DES ÉLÉMENTS MATERIAL --- */
+.md-search, 
+.md-header__search, 
+.md-header__topic:last-child,
+.md-footer-nav {
+  display: none !important;
+}
+
+[data-md-color-scheme] {
+
+/* ============================================================
+   HEADER & BANNIÈRE
+   ============================================================*/
+
+  .md-header {
+    height: var(--header-height);
+    position: fixed;
+    background-color: var(--bg-surface);
+    border-bottom-left-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
+    border: 1px solid transparent;
+    outline: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.13);
+    z-index: 10;
+    overflow: visible;
+  }
+  
+  .header-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(var(--header-height) + 3px);
+    background-color: #6e6e6e;
+    z-index: 9;
+    pointer-events: none;
+    border-bottom-left-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
+  }
+  
+  .header-progress::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: var(--scroll-progress, 0%);
+    background-color: var(--accent);
+    border-bottom-left-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
+    transition: width 0.15s ease-out;
+  }
+
+  .md-header * {
+    font-size: inherit;
+  }
+
+  .md-header__inner {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .md-main__inner::before {
+    display: none !important;
+    content: none !important;
+    height: 0 !important;
+  }
+
+  .md-header__topic:first-child {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .md-header__title {
+    display: flex;
+    align-items: center;
+    margin-left: var(--space-xs);
+  }
+  
+  .md-header__title .md-ellipsis {
+    color: var(--accent) !important;
+    font-size: var(--text-size-header);
+    font-weight: 700;
+  }
+
+  .md-header__topic + .md-header__topic {
+    display: none !important;
+  }
+
+  .md-logo img {
+    height: 60px;
+    transition: transform 187ms ease;
+  }
+
+  .md-logo img:hover {
+    transform: translateY(-2px);
+  }
+
+/* ============================================================
+   STRUCTURE MAIN
+   ============================================================*/
+  
+  .md-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--bg-page);
+  }
+  
+  .md-main {
+    flex: 1 0 auto;
+    display: block;
+    padding-top: var(--header-height) !important;
+  }
+
+  .md-grid {
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+  
+  .md-main__inner {
+    display: flex;
+    align-items: flex-start;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    padding-bottom: var(--sidebar-gap) !important;
+  }
+  
+/* ============================================================
+   CONTENU CENTRAL
+   ============================================================*/
+
+  /* --- CONTENT — STICKY --- */
+  /*.md-content {
+    background: var(--bg-page) !important;
+    color: var(--text-primary);
+    border-radius: var(--radius-md);
+    flex: 1;
+    min-width: 0;
+    position: relative !important;
+    height: auto !important;
+    margin: var(--sidebar-gap) var(--sidebar-gap) 0 var(--sidebar-gap) !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    padding-bottom: 20px !important;
+  }*/
+
+/* --- CONTENT — FIXED --- */
+  .md-content {
+    background: var(--bg-page) !important;
+    color: var(--text-primary);
+    border-radius: var(--radius-md);
+    flex: 1;
+    min-width: 0;
+    position: relative !important;
+    height: auto !important;
+    margin-top: var(--sidebar-gap) !important;
+    margin-left: calc(var(--sidebar-width-primary) + (var(--sidebar-gap) * 2)) !important;
+    margin-right: calc(var(--sidebar-width-secondary) + (var(--sidebar-gap) * 2)) !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    padding-bottom: 20px !important;
+  }
+
+  .md-content__inner {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .md-content__inner:before {
+    display: none;
+  }
+
+  .md-content h1 {
+    display: none !important;
+  }
+  
+/* --- CUSTOM CARD --- */
+  .custom-card {
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-md);
+    margin-bottom: 10px;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    padding: 8px;
+    transition: transform 187ms ease;
+  }
+
+  .md-content :is(h1, h2, h3, h4, h5, h6),
+  .custom-card {
+    scroll-margin-top: calc(var(--header-height) + 60px);
+  }
+
+
+  
+/* ============================================================
+   FOOTER
+   ============================================================*/
+  
+  .md-footer {
+    flex-shrink: 0;
+    height: var(--footer-height);
+    background-color: var(--bg-surface);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 0 !important;
+    border: none;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease !important;
+  }
+
+  .md-footer-meta {
+    background-color: transparent;
+    margin-top: -3px; 
+  }
+
+  .md-footer-meta__inner {
+    height: calc(var(--footer-height) + 3px);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin: 0 !important;
+    font-size: var(--text-size-footer);
+    color: var(--text-muted);
+  }
+
+/* ============================================================
+   TYPOGRAPHIE & CONTENU
+   ============================================================*/
+  
+  .md-typeset {
+    font-size: var(--text-size-content);
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+
+  .md-typeset h1, .md-typeset h2, .md-typeset h3 {
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .md-typeset p {
+    color: var(--text-primary);
+  }
+
+}
+
+/* ============================================================
+   BOT ASTUCES
+   ============================================================*/
+
+   /* Bloc conseil du bot */
+   .bot-advice {
+     display: flex;
+     align-items: center;
+     background-color: #3d2b26;
+     padding: var(--space-xs);
+     border-radius: var(--radius-md);
+     max-width: 720px;
+     margin: 2rem auto;
+   }
+
+   /* Image du bot */
+   .bot-advice img {
+     margin-right: var(--space-md);
+     height: 100px;
+     width: auto;
+     flex-shrink: 0;
+     object-fit: contain;
+   }
+
+   /* Titre du conseil */
+   #lile-bot-title {
+     color: var(--accent);
+     font-weight: 700;
+     text-transform: uppercase;
+   }
+
+   /* Texte du conseil */
+   #lile-bot-tip {
+     font-style: italic;
+     color: #fff;
+   }
+
+/* ============================================================
+   CURSEURS
+   ============================================================*/
+
+  /* Curseur normal */
+  .game-card, .md-logo, .md-header__button, .md-tabs__link, .md-nav__link, .md-typeset a {
+    cursor: url('../assets/curseur.png') 7 0, pointer !important;
+  }
+
+  /* Curseur clic (doigt replié) */
+  .game-card:active, .md-logo:active, .md-header__button:active, .md-tabs__link:active, .md-nav__link:active, .md-typeset a:active  {
+    cursor: url('../assets/curseur-clic.png') 7 0, pointer !important;
+  }
+
+/* Masquer les bordures de debug si nécessaire, ou les garder : 
+.md-main { border: 2px dashed yellow; }
+.md-container { border: 2px dashed green; }
+.md-header { border: 2px dashed blue; }
+
+.md-sidebar__inner { border: 2px dashed blue; }
+.md-sidebar { border: 2px dashed red; }*/
