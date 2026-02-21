@@ -9,7 +9,7 @@
 
   <div class="game-grid">
         <div class="game-card" data-game="fo4">
-          <div class="game-card-bg" style="background-image:url('assets/fallout4-bg.jpg')"></div>
+          <div class="game-card-bg" style="background-image:url('assets/fo4.jpg')"></div>
           <h2>Fallout 4</h2>
         </div>
 
