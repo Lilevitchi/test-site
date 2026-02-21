@@ -1,4 +1,4 @@
-.game-grid {
+[data-md-color-scheme] .game-grid {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
    gap: var(--space-md);
@@ -29,7 +29,7 @@
       }
    } */
 
-.game-card {
+[data-md-color-scheme] .game-card {
    height: 160px !important; /* Réduit de 180px à 160px */
    display: block;
    position: relative;
@@ -40,7 +40,7 @@
    transition: transform 0.3s ease;
 }
 
-.game-card-bg {
+[data-md-color-scheme] .game-card-bg {
    width: 100%;
    height: 100%;
    background-size: cover;
@@ -49,17 +49,17 @@
    transition: filter 0.4s ease;
 }
 
-.game-card:hover .game-card-bg {
+[data-md-color-scheme] .game-card:hover .game-card-bg {
    filter: blur(0px) brightness(1.4);
 }
 
-.game-card:hover { 
+[data-md-color-scheme] .game-card:hover { 
    transform: scale(1.02); 
    box-shadow: 0 0 20px rgba(255, 87, 34, 0.6) !important; 
    border-color: var(--accent) !important;
 }
 
-.game-card h2 {
+[data-md-color-scheme] .game-card h2 {
    position: absolute;
    inset: 0;
    display: flex;
