@@ -2,11 +2,9 @@
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
    gap: var(--space-md);
-   /*padding: 10px;*/
    max-width: var( --content-max-width);
    margin: 20px auto 0 auto !important;
    height: auto !important;
-   /*overflow: visible !important;*/
    padding-left: 25px !important;
    padding-right: 0 !important;
 }
@@ -15,22 +13,9 @@
    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
    max-width: 1400px;
 }
-   
-   /*@media screen and (max-width: 45em) {
-      .game-grid {
-         grid-template-columns: 1fr !important;
-         padding-left: 0 !important; 
-         padding-right: 0 !important;
-         margin: 20px auto !important;
-         justify-items: center !important;
-      }
-      .game-card {
-         width: 85% !important;
-      }
-   } */
 
 .game-card {
-   height: 160px !important; /* Réduit de 180px à 160px */
+   height: 160px !important;
    display: block;
    position: relative;
    text-decoration: none;
