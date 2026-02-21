@@ -111,35 +111,39 @@ body {
     background-color: var(--bg-surface);
     border-bottom-left-radius: var(--radius-md);
     border-bottom-right-radius: var(--radius-md);
+    border: 1px solid transparent;
+    outline: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.13);
     z-index: 10;
     overflow: visible;
   }
-
-  .md-header::before {
-    content: "";
-    position: absolute;
+  
+  .header-progress-container {
+    position: fixed;
+    top: calc(var(--header-height) - 3px);
     left: 0;
-    bottom: 0;
-    height: 3px;
     width: 100%;
-    background-color: #6e6e6e;
-    mask-image: linear-gradient(to right, transparent 0, black var(--radius-md), black calc(100% - var(--radius-md)), transparent 100%);
+    height: 40px;
+    z-index: 9;
+    pointer-events: none;
+    overflow: hidden;
   }
   
-  .md-header::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 3px;
-    background-color: var(--accent);
-    width: var(--scroll-progress, 0%); /* Utilise la variable du JS */
-    mask-image: linear-gradient(to right, transparent 0, black var(--radius-md), black calc(100% - var(--radius-md)), transparent 100%);
+  .header-progress-track {
+    height: 100%;
+    background: #6e6e6e;
+    border-bottom-left-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
+  }
+  
+  .header-progress-bar {
+    height: 100%;
+    width: var(--scroll-progress, 0%);
+    background: var(--accent);
+    border-bottom-left-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
     transition: width 0.15s ease-out;
-    pointer-events: none;
-    /*box-shadow: 0 1px 8px var(--accent);*/
-    
-}
+  }
 
   .md-header * {
     font-size: inherit;
