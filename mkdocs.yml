@@ -23,10 +23,13 @@ extra_javascript:
   - javascripts/hub-controller.js
   
 extra_css:
-  - stylesheets/style.css
-  - stylesheets/header.css
-  - stylesheets/sidebar.css
-  - stylesheets/hub.css
+  - 'css/base.css'        # Variables, resets, styles globaux
+  - 'css/layout.css'      # Structure générale (md-container, md-main, content, footer)
+  - 'css/header.css'      # Header fixe, progress bar
+  - 'css/sidebar.css'     # Sidebars gauche/droite
+  - 'css/components.css'  # Blocs spécifiques type bot, cards
+  - 'css/hub.css'         # Hub full-screen, boutons, grid de jeux
+  - 'css/utilities.css'   # Classes utilitaires, overrides, animations, curseurs
   
 markdown_extensions:
   - admonition
