@@ -29,16 +29,18 @@
    display: flex;
    flex-direction: column;
    align-items: center;
+   justify-content: center; /* centre verticalement */
    text-align: center;
    width: 100%;
-   margin-top: -25vh;
+   height: 100%; /* pour flex centrer le robot */
+   margin: 0; /* plus besoin de -25vh */
    z-index: 2;
 }
 
 .hub-bot { 
-   width: 600px; 
-   max-width: 80vw; 
-   height: auto; 
+   width: 600px !important;  /* taille fixe pour uniformité */
+   height: auto !important;
+   max-width: none !important;
    margin-bottom: -100px; 
 }
 
@@ -50,7 +52,7 @@
 /* TITRE HUB — Toujours visible */
 .hub-title { 
    color: #fff !important; 
-   font-size: 2.5rem; /* un peu plus grand pour le hub principal */
+   font-size: 2.5rem; /* taille uniforme */
    font-weight: 800 !important; 
    text-shadow: 2px 2px 15px #000; 
    margin-bottom: 40px !important; 
@@ -70,7 +72,7 @@
 }
 
 .md-typeset .btn-hub-large {
-   width: 320px; /* un peu plus gros */
+   width: 320px; /* légèrement plus gros */
    padding: 14px 12px;
    border-radius: 20px;
    font-weight: 800;
@@ -82,6 +84,12 @@
    justify-content: center;
    gap: 15px;
    color: #fff !important; 
+}
+
+.md-typeset a.btn-orange:hover, 
+.md-typeset a.btn-red:hover {
+   color: #fff !important; 
+   text-decoration: none !important;
 }
 
 .btn-orange {
@@ -165,7 +173,7 @@
 }
 
 /* ============================================================
-   Cacher header, footer, sidebars quand hub est actif
+   Cacher sidebars/footer quand hub actif
    ============================================================ */
 
 body:has(.hub-wrapper) .md-sidebar,
@@ -179,7 +187,7 @@ body:has(.hub-wrapper) .md-content {
     padding: 0 !important;
 }
 
-/* Fix pour que le titre principal généré par frontmatter ne cache pas le hub-title */
+/* Fix pour que le titre généré par frontmatter ne cache pas le hub-title */
 body:has(.hub-wrapper) .md-content__inner h1:first-child:not(.hub-title),
 body:has(.hub-wrapper) .md-header__topic:first-child {
     display: none !important;
@@ -187,4 +195,13 @@ body:has(.hub-wrapper) .md-header__topic:first-child {
 
 body:has(.hub-wrapper) .hub-title {
     display: block !important;
+}
+
+/* ============================================================
+   Garder header visible
+   ============================================================ */
+
+body:has(.hub-wrapper) .md-header {
+    display: flex !important;
+    z-index: 1001; /* au-dessus du hub */
 }
