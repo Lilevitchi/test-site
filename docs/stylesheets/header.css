@@ -19,7 +19,7 @@
     left: 0;
     width: 100%;
     height: calc(var(--header-height) + 3px);
-    background-color: #6e6e6e;
+    background-color: var(--progress-bg);
     z-index: 9;
     pointer-events: none;
     border-bottom-left-radius: var(--radius-md);
