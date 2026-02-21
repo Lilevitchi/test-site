@@ -9,15 +9,13 @@ hide:
 
   <div class="split-layout">
     <div class="display-zone">
-      <div id="game-viewer">
-        <img src="assets/lile-bot.png" id="hub-bot" class="hub-bot" alt="Robot">
-        <h1 id="game-title" class="hub-title">Choisis ton jeu</h1>
-        
+      <img src="assets/lile-bot.png" id="hub-bot" class="hub-bot" alt="Robot">
+      <h1 id="game-title" class="hub-title">Choisis ton jeu</h1>
+      
   <div id="action-buttons" class="hidden-action">
-          <div class="hub-buttons-gap">
-            <a id="guide-text" class="btn-hub-large btn-orange">Guide Écrit</a>
-            <a id="guide-video" class="btn-hub-large btn-red" target="_blank">Guide Vidéo</a>
-          </div>
+        <div class="hub-buttons-gap">
+          <a id="guide-text" class="btn-hub-large btn-orange">Guide Écrit</a>
+          <a id="guide-video" class="btn-hub-large btn-red" target="_blank">Guide Vidéo</a>
         </div>
       </div>
     </div>
