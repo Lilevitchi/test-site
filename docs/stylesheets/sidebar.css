@@ -1,8 +1,6 @@
 /* ============================================================
    SIDEBARS — FIXED
    ============================================================ */
-
-[data-md-color-scheme] {
    
    .md-sidebar {
     position: fixed !important;
@@ -268,5 +266,3 @@
       transform: translateX(0);
     }
   }
-
-}
