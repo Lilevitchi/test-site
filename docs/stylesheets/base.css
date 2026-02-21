@@ -1,0 +1,104 @@
+/* ============================================================
+   VARIABLES
+   ============================================================*/
+
+:root {
+  /* Brand & Colors */
+  --accent: #ff5722;
+  --accent-soft: rgba(255, 87, 34, 0.08);
+  --bg-page: #1a1d23;
+  --bg-surface: #2e3440;
+  --bg-card: #242933;
+  --bot-bg: #3d2b26;
+  --progress-bg: #6e6e6e;
+  --btn-dark-bg: #2c2c2c;
+  --btn-red-bg: #5e0000;
+
+  /* Layout Sizing */
+  --header-height: 72px;
+  --footer-height: 30px;
+  --sidebar-width-primary: 216px;
+  --sidebar-width-secondary: 226px;
+  --sidebar-gap: 10px;
+  /* Piloté par le JS */
+  --footer-visible-height: 0px;
+
+  /* Typography */
+  --font-main: Arial, Helvetica, sans-serif;
+  --text-size-header: 21px; 
+  --text-size-footer: 10px;
+  --text-size-content: 15px;
+  --text-primary: #fff;
+  --text-muted: #aab2c0;
+
+  /* Radius & Motion */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  /* Content sizing */
+  --content-max-width: 87.5rem;     /* 1400px */
+  --grid-max-width: 95%;
+
+  /* Effets & Cursor */
+  --blur-soft: blur(5px);
+  --blur-strong: blur(6px);
+  --cursor-default: url('../assets/curseur.png') 7 0, pointer;
+  --cursor-click: url('../assets/curseur-clic.png') 7 0, pointer;
+
+  /* Spacing */
+  --space-xs: 0.36rem;  /* ~6px */
+  --space-sm: 0.54rem;  /* ~9px */
+  --space-md: 0.9rem;   /* ~14px */
+  --space-lg: 1.12rem;  /* ~18px */
+  --space-xl: 1.44rem;  /* ~23px */
+  
+}
+
+/* ============================================================
+   GLOBAL
+   ============================================================*/
+
+/* --- CONFIGURATION GLOBALE & RESETS --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px !important; 
+  -webkit-text-size-adjust: none !important;
+  text-size-adjust: none !important;
+  background-color: var(--bg-page);
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  font-size: var(--text-size-content);
+  font-weight: 400;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.63) transparent;
+}
+
+body:has(.hub-wrapper) {
+   overflow: hidden;
+}
+
+/* --- SECURITE POUR LE STICKY --- */
+.md-container, .md-main, .md-main__inner {
+  overflow: visible !important;
+}
+
+/* --- NETTOYAGE DES ÉLÉMENTS MATERIAL --- */
+.md-search, 
+.md-header__search, 
+.md-header__topic:last-child,
+.md-footer-nav {
+  display: none !important;
+}
