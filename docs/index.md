@@ -8,17 +8,34 @@
       <h1 class="hub-title">Choisis ton jeu</h1>
 
   <div class="game-grid">
-        <div class="game-card" data-game="fo4">
-          <div class="game-card-bg" style="background-image:url('assets/fo4.jpg')"></div>
-          <h2>Fallout 4</h2>
-        </div>
+    
+  <div class="game-card" data-game="fo4">
+    <div class="game-card-bg" style="background-image:url('assets/fo4.jpg')"></div>
+    <h2>Fallout 4</h2>
+  </div>
 
   <div class="game-card" data-game="london">
-          <div class="game-card-bg" style="background-image:url('assets/london.jpg')"></div>
-          <h2>Fallout London</h2>
-        </div>
-      </div>
-    </div>
+    <div class="game-card-bg" style="background-image:url('assets/london.jpg')"></div>
+    <h2>Fallout London</h2>
+  </div>
+
+  <div class="game-card" data-game="newvegas">
+    <div class="game-card-bg" style="background-image:url('assets/newvegas.jpg')"></div>
+    <h2>New Vegas</h2>
+  </div>
+  
+  <div class="game-card" data-game="ttw">
+    <div class="game-card-bg" style="background-image:url('assets/ttw.jpg')"></div>
+    <h2>TTW</h2>
+  </div>
+  
+  <div class="game-card" data-game="cyberpunk">
+    <div class="game-card-bg" style="background-image:url('assets/cyberpunk.jpg')"></div>
+    <h2>Cyberpunk 2077</h2>
+  </div>
+        
+   </div>
+   </div>
   </div>
 </div>
 
