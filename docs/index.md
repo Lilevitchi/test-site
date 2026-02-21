@@ -8,10 +8,10 @@ hide:
 
 <div class="hub-wrapper">
 
-  <div class="hub-bg" style="background-image: url('assets/fond.jpg');"></div>
+  <div class="hub-bg" style="background-image: url('assets/Fond.png');"></div>
 
   <div class="hub-main-container">
-        <img src="../assets/lile-bot-fo4.png" class="hub-bot">
+        <img src="assets/lile-bot.png" class="hub-bot">
 
   <div class="hub-content">
             <h1 class="hub-title">Bienvenue</h1>
