@@ -1,6 +1,6 @@
-function initSplitHub() {
+function initModernHub() {
     const games = {
-        fo4: { bg: "assets/fo4.jpg", robot: "assets/lile-bot-fo4.png", title: "Bienvenue dans le Commonwealth", textLink: "fallout4/intro/", videoLink: "https://youtu.be/m_CawhgGBGk" },
+        fo4: { bg: "assets/fo4.jpg", robot: "assets/lile-bot-fo4.png", title: "Bienvenue dans le Commonwealth", textLink: "fallout4/intro/", videoLink: "https://youtu.be/..." },
         london: { bg: "assets/london.jpg", robot: "assets/lile-bot-london.png", title: "Bienvenue à London", textLink: "fallout-london/intro/", videoLink: "#" },
         newvegas: { bg: "assets/newvegas.jpg", robot: "assets/lile-bot-newvegas.png", title: "Bienvenue à New Vegas", textLink: "fnv/intro/", videoLink: "#" },
         ttw: { bg: "assets/ttw.jpg", robot: "assets/lile-bot-ttw.png", title: "Bienvenue dans TTW", textLink: "ttw/intro/", videoLink: "#" },
@@ -10,45 +10,46 @@ function initSplitHub() {
     const hubBg = document.getElementById("hub-bg");
     const hubRobot = document.getElementById("hub-bot");
     const gameTitle = document.getElementById("game-title");
-    const actionButtons = document.getElementById("action-buttons");
+    const actionPanel = document.getElementById("action-buttons");
     const cards = document.querySelectorAll(".mini-card");
 
+    if (!hubRobot || cards.length === 0) return;
+
     cards.forEach(card => {
-        card.addEventListener("click", () => {
+        card.addEventListener("click", (e) => {
+            e.preventDefault(); // Empêche tout comportement bizarre
             const key = card.dataset.game;
             const game = games[key];
-            if (!game) return;
 
-            // Gestion de l'état actif sur les cartes
+            // 1. État Actif Visuel
             cards.forEach(c => c.classList.remove("active"));
             card.classList.add("active");
 
-            // Transition de sortie
+            // 2. Animation de transition (on réduit le délai pour moins de saccades)
             hubRobot.style.opacity = "0";
-            hubRobot.style.transform = "translateY(20px)";
             
             setTimeout(() => {
-                // Mise à jour des contenus
-                hubBg.style.backgroundImage = `url('${game.bg}')`;
+                // Mise à jour image de fond (directement via style pour éviter les sauts)
+                if(hubBg) hubBg.style.backgroundImage = `url('${game.bg}')`;
+                
                 hubRobot.src = game.robot;
                 gameTitle.textContent = game.title;
-                document.getElementById("guide-text").href = game.textLink;
-                document.getElementById("guide-video").href = game.videoLink;
+                
+                // On s'assure que les liens pointent au bon endroit
+                document.getElementById("guide-text").setAttribute("href", game.textLink);
+                document.getElementById("guide-video").setAttribute("href", game.videoLink);
 
-                // Affichage du panneau de boutons
-                actionButtons.classList.add("visible");
-
-                // Transition d'entrée
+                // On force l'apparition du panel de boutons
+                actionPanel.classList.remove("hidden-action");
+                actionPanel.classList.add("visible");
+                
                 hubRobot.style.opacity = "1";
-                hubRobot.style.transform = "translateY(0)";
-            }, 300);
+            }, 150); 
         });
     });
 }
 
-// Support Navigation MkDocs
-document$.subscribe(() => {
-    if (document.querySelector('.split-layout')) {
-        initSplitHub();
-    }
+// CRUCIAL : Relancer au chargement de MkDocs
+document$.subscribe(function() {
+    initModernHub();
 });
