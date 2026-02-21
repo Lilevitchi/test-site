@@ -2,25 +2,25 @@
    STRUCTURE MAIN
    ============================================================*/
   
-  [data-md-color-scheme].md-container {
+  [data-md-color-scheme] .md-container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background-color: var(--bg-page);
   }
   
-  [data-md-color-scheme].md-main {
+  [data-md-color-scheme] .md-main {
     flex: 1 0 auto;
     display: block;
     padding-top: var(--header-height) !important;
   }
 
-  [data-md-color-scheme].md-grid {
+  [data-md-color-scheme] .md-grid {
     max-width: 100% !important;
     margin: 0 !important;
   }
   
-  .md-main__inner {
+  [data-md-color-scheme] .md-main__inner {
     display: flex;
     align-items: flex-start;
     max-width: 100% !important;
@@ -49,7 +49,7 @@
   }*/
 
 /* --- CONTENT — FIXED --- */
-  .md-content {
+  [data-md-color-scheme] .md-content {
     background: var(--bg-page) !important;
     color: var(--text-primary);
     border-radius: var(--radius-md);
@@ -65,16 +65,16 @@
     padding-bottom: 20px !important;
   }
 
-  .md-content__inner {
+  [data-md-color-scheme] .md-content__inner {
     margin: 0 !important;
     padding: 0 !important;
   }
 
-  .md-content__inner:before {
+  [data-md-color-scheme] .md-content__inner:before {
     display: none;
   }
 
-  .md-content h1 {
+  [data-md-color-scheme] .md-content h1 {
     display: none !important;
   }
   
@@ -91,7 +91,7 @@
     transition: transform 187ms ease;
   }
 
-  .md-content :is(h1, h2, h3, h4, h5, h6),
+  [data-md-color-scheme] .md-content :is(h1, h2, h3, h4, h5, h6),
   .custom-card {
     scroll-margin-top: calc(var(--header-height) + 60px);
   }
@@ -100,7 +100,7 @@
    FOOTER
    ============================================================*/
   
-  .md-footer {
+  [data-md-color-scheme] .md-footer {
     flex-shrink: 0;
     height: var(--footer-height);
     background-color: var(--bg-surface);
@@ -110,12 +110,12 @@
     transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease !important;
   }
 
-  .md-footer-meta {
+  [data-md-color-scheme] .md-footer-meta {
     background-color: transparent;
     margin-top: -3px; 
   }
 
-  .md-footer-meta__inner {
+  [data-md-color-scheme] .md-footer-meta__inner {
     height: calc(var(--footer-height) + 3px);
     display: flex;
     align-items: center;
