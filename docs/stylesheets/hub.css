@@ -3,107 +3,111 @@
    ============================================================*/
 
 .hub-wrapper {
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100vw;
-   height: 100vh;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   overflow: hidden;
-   z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* centre verticalement hub-main-container */
+    overflow: hidden;
+    z-index: 1000;
 }
 
-.hub-bg { 
-   position: absolute;
-   inset: 0;
-   background-size: cover; 
-   background-position: center; 
-   filter: var(--blur-strong, blur(6px)) brightness(0.7); 
-   z-index: 1;
+.hub-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: blur(6px) brightness(0.7);
+    z-index: 1;
 }
 
 .hub-main-container {
-   position: relative;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center; /* centré verticalement */
-   text-align: center;
-   width: 100%;
-   height: 100%;
-   margin: 0;
-   z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* centre tout verticalement */
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
 }
 
-.hub-bot { 
-   width: 500px; /* taille fixe pour toutes les pages */
-   max-width: 80vw; 
-   height: auto; 
-   margin-bottom: -100px; 
+/* Robot – taille fixe et toujours au même niveau */
+.hub-bot {
+    width: 600px;
+    max-width: 80vw;
+    height: auto;
+    margin: 0; /* plus de marge négative */
 }
 
-.hub-content { 
-   position: relative; 
-   z-index: 3;
+/* Contenu hub : titre + boutons */
+.hub-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
-/* TITRE HUB */
-.hub-title { 
-   color: #fff !important; 
-   font-size: 2.5rem; 
-   font-weight: 800 !important; 
-   text-shadow: 2px 2px 15px #000; 
-   margin-bottom: 40px !important; 
-   text-align: center;
-   width: 100%;
-   line-height: 1.2;
-   display: block !important;
+/* Titre hub */
+.hub-title {
+    color: #fff !important;
+    font-size: 2.5rem;
+    font-weight: 800 !important;
+    text-shadow: 2px 2px 15px #000;
+    text-align: center;
+    line-height: 1.2;
+    margin: 0;
+    display: block !important;
 }
 
 /* Boutons hub */
 .hub-buttons-gap {
-   display: flex;
-   gap: 140px;
-   justify-content: center;
-   flex-wrap: wrap;
-   width: 100%;
+    display: flex;
+    gap: 140px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .md-typeset .btn-hub-large {
-   width: 320px; 
-   padding: 14px 12px;
-   border-radius: 20px;
-   font-weight: 800;
-   font-size: 1.5rem; 
-   text-transform: none !important;
-   text-decoration: none !important;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   gap: 15px;
-   color: #fff !important; 
+    width: 320px;
+    padding: 14px 12px;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: #fff !important;
+    text-transform: none !important;
+    text-decoration: none !important;
 }
 
 .btn-orange {
-   background: #2c2c2c !important;
-   border: 2px solid rgba(255, 87, 34, 0.5) !important;
+    background: #2c2c2c !important;
+    border: 2px solid rgba(255, 87, 34, 0.5) !important;
 }
 .btn-orange:hover {
-   border-color: var(--accent, #ff5722) !important;
-   box-shadow: 0 0 25px 2px rgba(255, 87, 34, 0.7);
-   transform: scale(1.03);
+    border-color: var(--accent, #ff5722) !important;
+    box-shadow: 0 0 25px 2px rgba(255, 87, 34, 0.7);
+    transform: scale(1.03);
 }
 
 .btn-red {
-   background: #5e0000 !important;
-   border: 2px solid rgba(255, 0, 0, 0.5) !important;
+    background: #5e0000 !important;
+    border: 2px solid rgba(255, 0, 0, 0.5) !important;
 }
 .btn-red:hover {
-   border-color: #ff0000 !important;
-   box-shadow: 0 0 25px 2px rgba(255, 0, 0, 0.7);
-   transform: scale(1.03);
+    border-color: #ff0000 !important;
+    box-shadow: 0 0 25px 2px rgba(255, 0, 0, 0.7);
+    transform: scale(1.03);
 }
 
 /* Hover boutons */
@@ -117,6 +121,7 @@
    GRID DES JEUX
    ============================================================*/
 
+
 .game-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -128,7 +133,7 @@
 }
 
 .game-card {
-    height: 180px; 
+    height: 180px;
     display: block;
     position: relative;
     text-decoration: none;
@@ -143,7 +148,7 @@
     height: 100%;
     background-size: cover;
     background-position: center;
-    filter: blur(5px) brightness(0.7); 
+    filter: blur(5px) brightness(0.7);
     transition: filter 0.4s ease;
 }
 
@@ -151,10 +156,10 @@
     filter: blur(0px) brightness(1.4);
 }
 
-.game-card:hover { 
-   transform: scale(1.03); 
-   box-shadow: 0 0 25px rgba(255, 87, 34, 0.6); 
-   border-color: #ff5722;
+.game-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px rgba(255, 87, 34, 0.6);
+    border-color: #ff5722;
 }
 
 .game-card h2 {
@@ -166,7 +171,7 @@
     text-align: center;
     width: 100%;
     color: #fff;
-    font-size: 1.6rem; 
+    font-size: 1.6rem;
     font-weight: 900;
     text-shadow: 2px 2px 10px #000;
     margin: 0;
@@ -186,4 +191,26 @@ body:has(.hub-wrapper) .md-page__nav {
 body:has(.hub-wrapper) .md-content {
     margin: 0 !important;
     padding: 0 !important;
+}
+
+/* ============================================================
+   Header visible malgré hub
+   ============================================================ */
+
+body:has(.hub-wrapper) .md-header {
+    display: flex !important;
+    z-index: 1001;
+}
+
+body:has(.hub-wrapper) .md-header__topic {
+    display: block !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+}
+
+body:has(.hub-wrapper) .md-header__topic h1,
+body:has(.hub-wrapper) .md-header__topic span {
+    display: inline !important;
+    color: (--accent);
 }
