@@ -1018,11 +1018,12 @@ body:has(.hub-wrapper) .md-main__inner {
     position: relative;
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 87, 34, 0.4);
+    border: 1px solid var(--accent);
     border-radius: 15px;
     padding: 15px 20px;
     max-width: 400px;
-    margin-bottom: 20px; /* Espace avec le robot */
+    margin-left: 180px;
+    margin-bottom: -20px; /* Espace avec le robot */
     animation: slideUpFade 0.8s ease-out 0.5s both;
     z-index: 110;
 }
@@ -1032,11 +1033,11 @@ body:has(.hub-wrapper) .md-main__inner {
     content: '';
     position: absolute;
     bottom: -10px;
-    left: 50%;
+    left: 30%;
     transform: translateX(-50%);
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 10px solid rgba(255, 87, 34, 0.4);
+    border-top: 10px solid var(--accent);
 }
 
 .bot-bubble p {
@@ -1045,5 +1046,5 @@ body:has(.hub-wrapper) .md-main__inner {
     line-height: 1.4;
     margin: 0 !important;
     font-style: italic;
-    text-align: center;
+    text-align: left;
 }
