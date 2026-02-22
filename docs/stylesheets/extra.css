@@ -875,7 +875,7 @@ body:has(.hub-wrapper) .md-main__inner {
 }
 .btn-orange:hover {
     border-color: var(--accent) !important;
-    box-shadow: 0 0 25px 2 rgba(255,87,34,0.7);
+    box-shadow: 0 0 25px 2px rgba(255,87,34,0.7);
     transform: scale(1.03);
 }
 
@@ -981,6 +981,16 @@ body:has(.hub-wrapper) .md-main__inner {
     margin: 0 !important;
     border: none !important;
     background: rgba(0,0,0,0.3);
+}
+
+.active-game {
+    border-color: #ffffff !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Pour que les icônes FontAwesome s'affichent bien si tu les utilises */
+.btn-hub-large i {
+    font-size: 1.2rem;
 }
 
 /* ============================================================
