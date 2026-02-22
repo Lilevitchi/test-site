@@ -983,14 +983,25 @@ body:has(.hub-wrapper) .md-main__inner {
     background: rgba(0,0,0,0.3);
 }
 
-.active-game {
-    border-color: #ffffff !important;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5) !important;
+.game-card.active-game {
+    /* Remonte la carte de 20px et garde le boost GPU */
+    transform: translateY(-20px) translateZ(0) !important;
+    
+    /* Aura blanche/orange pour bien la détacher du reste */
+    box-shadow: 0 10px 30px rgba(255, 87, 34, 0.4) !important;
+    border-color: #ffffff !important; 
+    z-index: 10; /* Passe au-dessus des autres si besoin */
 }
 
-/* Pour que les icônes FontAwesome s'affichent bien si tu les utilises */
-.btn-hub-large i {
-    font-size: 1.2rem;
+/* On force l'image de la carte active à être nette et lumineuse */
+.game-card.active-game .game-card-bg {
+    filter: blur(0px) brightness(1.4) !important;
+}
+
+/* Petit ajustement : on désactive le hover sur la carte déjà active 
+   pour éviter que ça saute dans tous les sens */
+.game-card.active-game:hover {
+    transform: translateY(-20px) scale(1.02) translateZ(0) !important;
 }
 
 /* ============================================================
