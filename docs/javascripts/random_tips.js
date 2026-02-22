@@ -32,28 +32,11 @@ function initRobotTips() {
 }
 document$.subscribe(function() {
 
+    // Robot tips
     initRobotTips();
 
+    // Detect hub page
     const isHub = document.querySelector('.hub-wrapper');
+    document.body.classList.toggle("is-hub", !!isHub);
 
-    if (isHub) {
-        document.body.classList.add("is-hub");
-    } else {
-        document.body.classList.remove("is-hub");
-    }
-
-    const footer = document.querySelector(".md-footer");
-
-const setFooterHeight = () => {
-  if (!footer) return;
-  const height = footer.offsetHeight;
-  document.documentElement.style.setProperty(
-    "--real-footer-height",
-    `${height}px`
-  );
-};
-
-setFooterHeight();
-window.addEventListener("resize", setFooterHeight);
-    
 });
