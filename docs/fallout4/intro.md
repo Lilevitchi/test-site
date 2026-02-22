@@ -1,8 +1,8 @@
 <div class="bot-advice">
     <img src="../../assets/lile-bot-fo4.png" alt="Bot">
     <div>
-        <strong id="lile-bot-title">Système Opérationnel</strong><br>
-        <span id="lile-bot-tip">Bienvenue dans le laboratoire de test. Tout semble fonctionner nominalement !</span>
+        <strong class="static-bot-title">Système Opérationnel</strong>
+        <span class="static-bot-tip">Bienvenue dans le laboratoire de test. Tout semble fonctionner nominalement !</span>
     </div>
 </div>
 
@@ -25,8 +25,8 @@
 <div class="bot-advice">
     <img src="../../assets/lile-bot-fo4.png" alt="Bot">
     <div>
-        <strong id="lile-bot-title">Astuce Performance</strong><br>
-        <span id="lile-bot-tip">Utilise des images compressées pour garder un chargement fluide sur mobile.</span>
+        <strong class="static-bot-title">Astuce Performance</strong><br>
+        <span class="static-bot-tip">Utilise des images compressées pour garder un chargement fluide sur mobile.</span>
     </div>
 </div>
 
@@ -52,8 +52,8 @@
 <div class="bot-advice">
     <img src="../../assets/lile-bot-fo4.png" alt="Bot">
     <div>
-        <strong id="lile-bot-title">Note de Patch</strong><br>
-        <span id="lile-bot-tip">La version 2.0 du thème supporte désormais l'injection dynamique des H3 dans la sidebar !</span>
+        <strong class="static-bot-title">Note de Patch</strong><br>
+        <span class="static-bot-tip">La version 2.0 du thème supporte désormais l'injection dynamique des H3 dans la sidebar !</span>
     </div>
 </div>
 
@@ -85,7 +85,7 @@
 <div class="bot-advice">
     <img src="../../assets/lile-bot-fo4.png" alt="Bot">
     <div>
-        <strong id="lile-bot-title">Analyse Terminée</strong><br>
-        <span id="lile-bot-tip">Félicitations, vous avez atteint la fin de la page sans erreurs détectées.</span>
+        <strong class="static-bot-title">Analyse Terminée</strong><br>
+        <span class="static-bot-tip">Félicitations, vous avez atteint la fin de la page sans erreurs détectées.</span>
     </div>
 </div>
