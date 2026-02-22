@@ -30,28 +30,18 @@ function initRobotTips() {
     const randomTip = tips[Math.floor(Math.random() * tips.length)];
     tipElement.innerText = randomTip;
 }
-
 document$.subscribe(function() {
-    // 1. Toujours lancer les tips en premier
     initRobotTips();
-
-    // 2. Détection
+    
     const isHub = document.querySelector('.hub-wrapper');
-
-    if (!isHub) {
-        // --- SUR LES GUIDES ---
-        // On s'assure que le scroll est réactivé (car bloqué sur le Hub)
+    if (isHub) {
+        document.body.style.overflow = "hidden";
+    } else {
         document.body.style.overflow = "visible";
-        
-        // Petit délai pour laisser MkDocs poser ses éléments
+        // Réveil des sidebars pour intro.md
         setTimeout(() => {
-            // Réveil forcé pour la sidebar de droite et la barre de progression
             window.dispatchEvent(new Event("resize"));
             window.dispatchEvent(new Event("scroll"));
-        }, 150);
-    } else {
-        // --- SUR LE HUB ---
-        // On bloque le scroll pour un look "App" plein écran
-        document.body.style.overflow = "hidden";
+        }, 100);
     }
 });
