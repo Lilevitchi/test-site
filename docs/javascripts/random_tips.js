@@ -31,17 +31,14 @@ function initRobotTips() {
     tipElement.innerText = randomTip;
 }
 document$.subscribe(function() {
+
     initRobotTips();
-    
+
     const isHub = document.querySelector('.hub-wrapper');
+
     if (isHub) {
-        document.body.style.overflow = "hidden";
+        document.body.classList.add("is-hub");
     } else {
-        document.body.style.overflow = "visible";
-        // Réveil des sidebars pour intro.md
-        setTimeout(() => {
-            window.dispatchEvent(new Event("resize"));
-            window.dispatchEvent(new Event("scroll"));
-        }, 100);
+        document.body.classList.remove("is-hub");
     }
 });
