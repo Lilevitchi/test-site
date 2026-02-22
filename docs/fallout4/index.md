@@ -4,6 +4,8 @@ hide:
   - navigation
   - toc
   - footer
+  - header
+  - sidebar
 ---
 
 <div class="hub-wrapper">
