@@ -1,5 +1,5 @@
 <div class="bot-advice">
-    <img src="../assets/lile-bot.png" alt="Bot">
+    <img src="../assets/lile-bot-fo4.png" alt="Bot">
     <div>
         <strong id="lile-bot-title">Système Opérationnel</strong><br>
         <span id="lile-bot-tip">Bienvenue dans le laboratoire de test. Tout semble fonctionner nominalement !</span>
@@ -23,7 +23,7 @@
 </div>
 
 <div class="bot-advice">
-    <img src="../assets/lile-bot.png" alt="Bot">
+    <img src="../assets/lile-bot-fo4.png" alt="Bot">
     <div>
         <strong id="lile-bot-title">Astuce Performance</strong><br>
         <span id="lile-bot-tip">Utilise des images compressées pour garder un chargement fluide sur mobile.</span>
@@ -50,7 +50,7 @@
 </div>
 
 <div class="bot-advice">
-    <img src="../assets/lile-bot.png" alt="Bot">
+    <img src="../assets/lile-bot-fo4.png" alt="Bot">
     <div>
         <strong id="lile-bot-title">Note de Patch</strong><br>
         <span id="lile-bot-tip">La version 2.0 du thème supporte désormais l'injection dynamique des H3 dans la sidebar !</span>
@@ -83,7 +83,7 @@
 </div>
 
 <div class="bot-advice">
-    <img src="../assets/lile-bot.png" alt="Bot">
+    <img src="../assets/lile-bot-fo4.png" alt="Bot">
     <div>
         <strong id="lile-bot-title">Analyse Terminée</strong><br>
         <span id="lile-bot-tip">Félicitations, vous avez atteint la fin de la page sans erreurs détectées.</span>
