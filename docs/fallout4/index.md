@@ -12,6 +12,9 @@ hide:
   <div class="split-layout">
     <div class="display-zone">
       <div class="hub-central-content">
+                <div class="bot-bubble">
+        <p id="lile-bot-tip">Chargement d'une astuce...</p>
+    </div>
         <img src="../assets/lile-bot-fo4.png" class="hub-bot" alt="Robot Fallout 4">
         <div class="custom-hub-title">Bienvenue dans le Commonwealth</div>
         
