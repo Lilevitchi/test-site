@@ -32,33 +32,26 @@ function initRobotTips() {
 }
 
 document$.subscribe(function() {
-    // 1. Relance les astuces
+    // 1. Toujours lancer les tips en premier
     initRobotTips();
 
-    // 2. Gestion des sidebars (On enlève le display:none si on n'est pas sur le Hub)
-    const sidebars = document.querySelectorAll('.md-sidebar');
+    // 2. Détection
     const isHub = document.querySelector('.hub-wrapper');
 
-    if (isHub) {
-        sidebars.forEach(s => s.style.setProperty('display', 'none', 'important'));
-    } else {
-        sidebars.forEach(s => s.style.removeProperty('display'));
-
-        // FONCTION DE RAFRAÎCHISSEMENT
-        const refreshLogic = () => {
-            // On simule les événements pour tes deux premiers JS
-            document.dispatchEvent(new Event("DOMContentLoaded"));
+    if (!isHub) {
+        // --- SUR LES GUIDES ---
+        // On s'assure que le scroll est réactivé (car bloqué sur le Hub)
+        document.body.style.overflow = "visible";
+        
+        // Petit délai pour laisser MkDocs poser ses éléments
+        setTimeout(() => {
+            // Réveil forcé pour la sidebar de droite et la barre de progression
             window.dispatchEvent(new Event("resize"));
             window.dispatchEvent(new Event("scroll"));
-        };
-
-        // Exécution 1 : Immédiate
-        refreshLogic();
-
-        // Exécution 2 : Après 200ms (laisse le temps au Layout de se poser)
-        setTimeout(refreshLogic, 200);
-        
-        // Exécution 3 : Après 500ms (sécurité pour les images lentes)
-        setTimeout(refreshLogic, 500);
+        }, 150);
+    } else {
+        // --- SUR LE HUB ---
+        // On bloque le scroll pour un look "App" plein écran
+        document.body.style.overflow = "hidden";
     }
 });
