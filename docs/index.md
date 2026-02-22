@@ -10,6 +10,9 @@ hide:
   <div class="split-layout">
     <div class="display-zone">
       <div class="hub-central-content">
+        <div class="bot-bubble">
+        <p id="lile-bot-tip">Chargement d'une astuce...</p>
+    </div>
         <img src="assets/lile-bot.png" class="hub-bot" alt="Robot">
         <div class="custom-hub-title">Choisis ton univers</div>
       </div>
