@@ -41,4 +41,19 @@ document$.subscribe(function() {
     } else {
         document.body.classList.remove("is-hub");
     }
+
+    const footer = document.querySelector(".md-footer");
+
+const setFooterHeight = () => {
+  if (!footer) return;
+  const height = footer.offsetHeight;
+  document.documentElement.style.setProperty(
+    "--real-footer-height",
+    `${height}px`
+  );
+};
+
+setFooterHeight();
+window.addEventListener("resize", setFooterHeight);
+    
 });
