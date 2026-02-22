@@ -124,9 +124,7 @@ body.is-hub .md-content__inner h1 {
 }
 
 body.is-hub {
-    overflow: hidden !important;
-    height: 100vh;
-    background-color: #000 !important; /* Fond noir de sécurité */
+    background-color: #000 !important;
 }
 
 /* Reset du container MkDocs pour prendre 100% de la place */
