@@ -22,6 +22,7 @@ extra_javascript:
   - javascripts/random_tips.js
   - javascripts/dynamic-sidebar-layout.js
   - javascripts/progress-bar.js
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js
   
 extra_css:
   - stylesheets/extra.css
