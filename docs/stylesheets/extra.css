@@ -886,7 +886,7 @@ body:has(.hub-wrapper) {
 }
 
 .game-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-20px);
     box-shadow: 0 0 20px rgba(255,87,34,0.6) !important;
     border-color: var(--accent) !important;
 }
