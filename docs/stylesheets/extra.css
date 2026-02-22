@@ -72,12 +72,12 @@ html {
   -webkit-text-size-adjust: none !important;
   text-size-adjust: none !important;
   background-color: var(--bg-page);
-  overflow-y: auto;
+  overflow-y: scroll;
   scroll-behavior: smooth;
 }
 
 body {
-  min-height: 100dvh;
+  min-height: 100vh;
   margin: 0;
   color: var(--text-primary);
   font-family: var(--font-main);
@@ -124,8 +124,9 @@ body.is-hub .md-content__inner h1 {
 }
 
 body.is-hub {
-    background-color: #000 !important;
-  overflow: hidden !important;
+    overflow: hidden !important;
+    height: 100vh;
+    background-color: #000 !important; /* Fond noir de sécurité */
 }
 
 /* Reset du container MkDocs pour prendre 100% de la place */
@@ -135,10 +136,9 @@ body.is-hub .md-container {
 }
 
 body.is-hub .md-main {
-    min-height: auto !important;
-    height: auto !important;
-    display: block !important;
-  padding-top: 0 !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 body.is-hub .md-main__inner {
@@ -147,6 +147,7 @@ body.is-hub .md-main__inner {
     margin: 0 !important;
 }
 
+/* 2. Forcer le footer en noir uniquement quand on est sur le Hub */
 body.is-hub .md-footer {
     background-color: #000000 !important;
     border-top: none !important;
@@ -252,7 +253,7 @@ body.is-hub .md-footer {
   .md-container {
     display: flex;
     flex-direction: column;
-    min-height: 100dvh;
+    min-height: 100vh;
     background-color: var(--bg-page);
   }
   
@@ -350,7 +351,7 @@ body.is-hub .md-footer {
   .md-sidebar {
     position: fixed !important;
     top: calc(var(--header-height) + var(--sidebar-gap)) !important;
-    height: calc(100dvh - var(--header-height) - (var(--sidebar-gap) * 2) - var(--footer-visible-height, 0px)) !important;
+    height: calc(100vh - var(--header-height) - (var(--sidebar-gap) * 2) - var(--footer-visible-height, 0px)) !important;
     padding: 0 !important;
     margin: 0 !important;
     z-index: 100;
@@ -403,7 +404,7 @@ body.is-hub .md-footer {
   .md-sidebar {
     position: sticky !important;
     top: calc(var(--header-height) + var(--sidebar-gap)) !important;
-    height: calc(100dvh - var(--header-height) - (var(--sidebar-gap) * 2) - var(--footer-visible-height, 0px)) !important;
+    height: calc(100vh - var(--header-height) - (var(--sidebar-gap) * 2) - var(--footer-visible-height, 0px)) !important;
     padding: 0 !important;
     margin: 0 !important;
     margin-top: var(--sidebar-gap) !important; 
@@ -461,7 +462,7 @@ body.is-hub .md-footer {
   left: 10px;
 
   width: 240px;
-  height: calc(100dvh - var(--header-height) - 20px);
+  height: calc(100vh - var(--header-height) - 20px);
 
   background: var(--bg-surface);
   border-radius: 6px;
@@ -744,17 +745,20 @@ body.is-hub .md-footer {
    ============================================================ */
 
 .hub-wrapper {
-    position: relative;
+    position: fixed;
     inset: 0;
-    width: 100%;
-    min-height: calc(100dvh - var(--footer-height));
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     font-family: var(--font-main);
-    background: #000;
+    background: linear-gradient(to bottom, 
+        rgba(0,0,0,0) 0%, 
+        rgba(0,0,0,0.4) 60%, 
+        rgba(0,0,0,1) 100%); /* Finition noir pur */
 }
 
 /* Background dynamique */
