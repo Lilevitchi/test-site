@@ -678,6 +678,18 @@ body:has(.hub-wrapper) .md-main__inner {
      object-fit: contain;
    }
 
+.bot-advice strong {
+    color: #ff5722;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.bot-advice span {
+    font-style: italic;
+    color: var(--md-typeset-color);
+}
+
    /* Titre du conseil */
    #lile-bot-title {
      color: var(--accent);
