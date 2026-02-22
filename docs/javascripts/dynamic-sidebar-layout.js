@@ -7,7 +7,7 @@
  * Single source of truth for layout behavior
  */
 
-document.addEventListener("DOMContentLoaded", () => {
+document$.subscribe(function () {
   const root = document.documentElement;
   const footer = document.querySelector(".md-footer");
   const sidebar = document.querySelector(".md-sidebar--secondary");
