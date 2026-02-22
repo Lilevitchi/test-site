@@ -151,8 +151,6 @@ body.is-hub .md-main__inner {
 body.is-hub .md-footer {
     background-color: #000000 !important;
     border-top: none !important;
-    position: relative;
-    z-index: 10;
 }
 
 [data-md-color-scheme] {
