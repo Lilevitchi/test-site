@@ -1033,9 +1033,10 @@ body:has(.hub-wrapper) .md-main__inner {
     border: 1px solid var(--accent);
     border-radius: 15px;
     padding: 15px 20px;
-    max-width: 400px;
+    max-width: 300px;
     margin-left: 180px;
     margin-bottom: -20px; /* Espace avec le robot */
+    transform: translateX(160px);
     animation: slideUpFade 0.8s ease-out 0.5s both;
     z-index: 110;
 }
