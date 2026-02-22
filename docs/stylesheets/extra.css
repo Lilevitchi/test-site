@@ -731,7 +731,7 @@ body:has(.hub-wrapper) .md-main__inner {
     background-size: cover;
     background-position: center;
     filter: var(--blur-strong) brightness(0.7);
-    animation: slowFade 2s ease-in-out forwards;
+    animation: fastFade 1.2s ease-out forwards;
 }
 
 .hub-main-container {
@@ -792,6 +792,11 @@ body:has(.hub-wrapper) .md-main__inner {
     to { opacity: 1; }
 }
 
+@keyframes fastFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 @keyframes fadeInRobot {
     from { opacity: 0; transform: scale(0.9); }
     to { opacity: 1; transform: scale(1); }
@@ -803,12 +808,12 @@ body:has(.hub-wrapper) .md-main__inner {
 }
 
 @keyframes slideUpFromBottom {
-    from { 
-        transform: translateY(100%); /* Commence totalement sous l'écran */
+    0% { 
+        transform: translateY(100%) translateZ(0); /* Force le GPU avec translateZ */
         opacity: 0;
     }
-    to { 
-        transform: translateY(0);    /* Arrive à sa place normale */
+    100% { 
+        transform: translateY(0) translateZ(0);
         opacity: 1;
     }
 }
@@ -911,7 +916,12 @@ body:has(.hub-wrapper) .md-main__inner {
     backdrop-filter: blur(20px);
     background: rgba(0,0,0,0.6);
     border-top: 1px solid var(--accent);
-  animation: slideUpFromBottom 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
+    will-change: transform, opacity; /* Prépare le navigateur */
+    backface-visibility: hidden;    /* Évite les micro-clignotements */
+    perspective: 1000px;            /* Donne de la profondeur pour la fluidité */
+    
+    /* Application de l'animation */
+    animation: slideUpFromBottom 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
 }
 
 /* Grid moderne */
