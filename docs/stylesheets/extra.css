@@ -111,7 +111,6 @@ body:has(.hub-wrapper) {
 body:has(.hub-wrapper) .md-header,
 body:has(.hub-wrapper) .header-progress,
 body:has(.hub-wrapper) .md-sidebar,
-body:has(.hub-wrapper) .md-footer,
 body:has(.hub-wrapper) .md-tabs,
 body:has(.hub-wrapper) .md-main__inner > .md-content > .md-content__inner h1:first-child {
     display: none !important;
@@ -119,6 +118,12 @@ body:has(.hub-wrapper) .md-main__inner > .md-content > .md-content__inner h1:fir
     height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
+}
+
+/* 2. Forcer le footer en noir uniquement quand on est sur le Hub */
+body:has(.hub-wrapper) .md-footer {
+    background-color: #000000 !important;
+    border-top: none !important;
 }
 
 /* Reset du container MkDocs pour prendre 100% de la place */
@@ -732,7 +737,10 @@ body:has(.hub-wrapper) .md-main__inner {
     align-items: center;
     overflow: hidden;
     font-family: var(--font-main);
-    background: #000;
+    background: linear-gradient(to bottom, 
+        rgba(0,0,0,0) 0%, 
+        rgba(0,0,0,0.4) 60%, 
+        rgba(0,0,0,1) 100%); /* Finition noir pur */
 }
 
 /* Background dynamique */
