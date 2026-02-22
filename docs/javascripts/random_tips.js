@@ -32,11 +32,13 @@ function initRobotTips() {
 }
 document$.subscribe(function() {
 
-    // Robot tips
     initRobotTips();
 
-    // Detect hub page
     const isHub = document.querySelector('.hub-wrapper');
-    document.body.classList.toggle("is-hub", !!isHub);
 
+    if (isHub) {
+        document.body.classList.add("is-hub");
+    } else {
+        document.body.classList.remove("is-hub");
+    }
 });
