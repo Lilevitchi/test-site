@@ -721,7 +721,7 @@ body:has(.hub-wrapper) .md-main__inner {
     align-items: center;
     overflow: hidden;
     font-family: var(--font-main);
-    z-index: 9999 !important;
+    background: #000;
 }
 
 /* Background dynamique */
@@ -731,8 +731,7 @@ body:has(.hub-wrapper) .md-main__inner {
     background-size: cover;
     background-position: center;
     filter: var(--blur-strong) brightness(0.7);
-    transition: background-image 0.8s ease-in-out, filter 0.5s ease;
-    z-index: 1;
+    animation: slowFade 2s ease-in-out forwards;
 }
 
 .hub-main-container {
@@ -788,6 +787,11 @@ body:has(.hub-wrapper) .md-main__inner {
     animation: fadeInRobot 0.8s ease-out;
 }
 
+@keyframes slowFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 @keyframes fadeInRobot {
     from { opacity: 0; transform: scale(0.9); }
     to { opacity: 1; transform: scale(1); }
@@ -806,6 +810,21 @@ body:has(.hub-wrapper) .md-main__inner {
   display: block !important;
   width: 100% !important;
   line-height: 1.2;
+}
+
+.custom-hub-title {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #ffffff !important;
+    font-size: 3rem !important;
+    font-weight: 900 !important;
+    text-align: center !important;
+    text-shadow: 0 0 20px rgba(0,0,0,1), 0 0 10px rgba(255,255,255,0.2) !important;
+    margin-top: 20px !important;
+    font-family: var(--font-main), sans-serif;
+    z-index: 102;
+    animation: slowFade 1.5s ease-in-out 0.5s both;
 }
 
 /* =========================
@@ -888,6 +907,7 @@ body:has(.hub-wrapper) .md-main__inner {
     padding-left: 25px !important;
     padding-right: 0 !important;
     height: auto !important;
+    animation: slowFade 1s ease-in-out 1s both; /* Arrive après le robot */
 }
 
 [data-md-color-scheme] body:has(.game-grid) .game-grid {
@@ -904,6 +924,7 @@ body:has(.hub-wrapper) .md-main__inner {
     overflow: hidden;
     border: 3px solid var(--accent);
     transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
 }
 
 .game-card-bg {
