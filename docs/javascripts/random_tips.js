@@ -36,24 +36,30 @@ function initRobotTips() {
     tipElement.innerText = randomTip;
 }
 
-// Support pour MkDocs Material (Se lance à chaque changement de page)
 document$.subscribe(function() {
-    // 1. Relance les astuces
+    // 1. Initialise les tips aléatoires (si sur un Index)
     initRobotTips();
 
-    // 2. RÉVEILLE tes deux premiers scripts
-    // On simule l'événement que tes scripts attendent pour s'exécuter
-    document.dispatchEvent(new Event("DOMContentLoaded"));
-
-    // 3. FIX INTERFACE (Sidebars)
+    // 2. Gestion immédiate des sidebars
     const sidebars = document.querySelectorAll('.md-sidebar');
-    if (document.querySelector('.hub-wrapper')) {
-        // Si on est sur un Index : on cache les sidebars
+    const isHub = document.querySelector('.hub-wrapper');
+
+    if (isHub) {
         sidebars.forEach(s => s.style.display = 'none');
     } else {
-        // Si on est sur un Guide : on les réaffiche
         sidebars.forEach(s => s.style.display = 'block');
-        // On force un petit scroll pour que la barre de progression se mette à jour
-        window.dispatchEvent(new Event("scroll"));
+
+        // FORCE LE RENDU IMMÉDIAT
+        // On attend 50ms pour être sûr que MkDocs a fini d'injecter le HTML
+        setTimeout(() => {
+            // Simule un scroll pour activer la barre de progression
+            window.dispatchEvent(new Event("scroll"));
+            // Simule un resize pour forcer le Layout Controller à dessiner la sidebar de droite
+            window.dispatchEvent(new Event("resize"));
+            
+            // Si tes autres scripts ont des fonctions accessibles, on les appelle
+            if (typeof updateFooterHeight === "function") updateFooterHeight();
+            if (typeof buildSidebar === "function") buildSidebar();
+        }, 50);
     }
 });
