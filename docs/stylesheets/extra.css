@@ -731,7 +731,7 @@ body:has(.hub-wrapper) .md-main__inner {
     background-size: cover;
     background-position: center;
     filter: var(--blur-strong) brightness(0.7);
-    animation: fastFade 1.2s ease-out forwards;
+    animation: fastFade 1.5s ease-out forwards;
 }
 
 .hub-main-container {
@@ -774,6 +774,7 @@ body:has(.hub-wrapper) .md-main__inner {
     gap: var(--space-xl);
     padding: 40px 20px;
     z-index: 100;
+    animation: slideUpSync 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
 
 /* Robot */
@@ -818,6 +819,18 @@ body:has(.hub-wrapper) .md-main__inner {
     }
 }
 
+@keyframes slideUpSync {
+    0% { 
+        /* On combine le mouvement vertical et le boost GPU */
+        transform: translateY(60px) translateZ(0); 
+        opacity: 0; 
+    }
+    100% { 
+        transform: translateY(0) translateZ(0); 
+        opacity: 1; 
+    }
+}
+
 /* Titre */
 .md-typeset .hub-title { 
   color: #ffffff !important; 
@@ -845,7 +858,7 @@ body:has(.hub-wrapper) .md-main__inner {
     margin-top: 20px !important;
     font-family: var(--font-main), sans-serif;
     z-index: 102;
-    animation: slowFade 1.5s ease-in-out 0.5s both;
+    animation: fastFade 0.8s ease-in-out 0.6s both;
 }
 
 /* =========================
@@ -921,7 +934,7 @@ body:has(.hub-wrapper) .md-main__inner {
     perspective: 1000px;            /* Donne de la profondeur pour la fluidité */
     
     /* Application de l'animation */
-    animation: slideUpFromBottom 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
+    animation: slideUpSync 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
 
 /* Grid moderne */
