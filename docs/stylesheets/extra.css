@@ -760,12 +760,18 @@ body:has(.hub-wrapper) {
 }
 
 /* Titre */
-.md-typeset .hub-title {
-    color: var(--text-primary) !important;
-    font-size: 2.2rem;
-    font-weight: 800 !important;
-    text-shadow: 0 0 25px rgba(0,0,0,0.9);
-    margin: 0 !important;
+.md-typeset .hub-title { 
+  color: #ffffff !important; 
+  font-size: 2.2rem; 
+  font-weight: 800 !important; 
+  text-transform: none !important;
+  text-shadow: 2px 2px 15px #000; 
+  margin-bottom: 40px !important; 
+  border: none !important; 
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  line-height: 1.2;
 }
 
 /* =========================
