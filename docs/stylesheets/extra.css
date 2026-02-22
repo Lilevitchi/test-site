@@ -941,7 +941,7 @@ body:has(.hub-wrapper) .md-main__inner {
 }
 
 .game-card:hover {
-    transform: translateY(-20px);
+    transform: scale(1.02);
     box-shadow: 0 0 20px rgba(255,87,34,0.6) !important;
     border-color: var(--accent) !important;
 }
