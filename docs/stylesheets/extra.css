@@ -784,7 +784,7 @@ body:has(.hub-wrapper) .md-main__inner {
     margin-bottom: 20px;
     transition: all 0.4s ease;
     z-index: 101;
-    animation: fadeInRobot 0.8s ease-out;
+    animation: slideUpFade 1s ease-out forwards;
 }
 
 @keyframes slowFade {
@@ -795,6 +795,11 @@ body:has(.hub-wrapper) .md-main__inner {
 @keyframes fadeInRobot {
     from { opacity: 0; transform: scale(0.9); }
     to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Titre */
