@@ -36,7 +36,24 @@ function initRobotTips() {
     tipElement.innerText = randomTip;
 }
 
-// Support pour MkDocs Material (recharge le script au changement de page)
+// Support pour MkDocs Material (Se lance à chaque changement de page)
 document$.subscribe(function() {
+    // 1. Relance les astuces
     initRobotTips();
+
+    // 2. RÉVEILLE tes deux premiers scripts
+    // On simule l'événement que tes scripts attendent pour s'exécuter
+    document.dispatchEvent(new Event("DOMContentLoaded"));
+
+    // 3. FIX INTERFACE (Sidebars)
+    const sidebars = document.querySelectorAll('.md-sidebar');
+    if (document.querySelector('.hub-wrapper')) {
+        // Si on est sur un Index : on cache les sidebars
+        sidebars.forEach(s => s.style.display = 'none');
+    } else {
+        // Si on est sur un Guide : on les réaffiche
+        sidebars.forEach(s => s.style.display = 'block');
+        // On force un petit scroll pour que la barre de progression se mette à jour
+        window.dispatchEvent(new Event("scroll"));
+    }
 });
