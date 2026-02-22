@@ -252,7 +252,7 @@ body.is-hub .md-footer {
   .md-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100dvh;
     background-color: var(--bg-page);
   }
   
@@ -747,7 +747,7 @@ body.is-hub .md-footer {
     position: relative;
     inset: 0;
     width: 100%;
-    min-height: calc(100vh - var(--footer-height));
+    min-height: calc(100dvh - var(--footer-height));
     display: flex;
     flex-direction: column;
     justify-content: center;
