@@ -446,7 +446,6 @@ body:has(.hub-wrapper) .md-main__inner {
   padding: 6px 0;
 
   overflow-y: auto;
-  z-index: 5;
 }
 
 /* Liste */
@@ -757,7 +756,6 @@ body:has(.hub-wrapper) .md-main__inner {
     flex-direction: column;
     width: 100%;
     height: 100%;
-    z-index: 10;
 }
 
 /* =========================
@@ -788,35 +786,16 @@ body:has(.hub-wrapper) .md-main__inner {
     animation: slideUpFade 1s ease-out forwards;
 }
 
-@keyframes slowFade {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
 
 @keyframes fastFade {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-@keyframes fadeInRobot {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
 
 @keyframes slideUpFade {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideUpFromBottom {
-    0% { 
-        transform: translateY(100%) translateZ(0); /* Force le GPU avec translateZ */
-        opacity: 0;
-    }
-    100% { 
-        transform: translateY(0) translateZ(0);
-        opacity: 1;
-    }
 }
 
 @keyframes slideUpSync {
@@ -962,8 +941,9 @@ body:has(.hub-wrapper) .md-main__inner {
     border-radius: 12px;
     overflow: hidden;
     border: 3px solid var(--accent);
-    transition: transform 0.3s ease;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.3s ease, 
+                border-color 0.3s ease;
 }
 
 .game-card-bg {
