@@ -111,8 +111,7 @@ body:has(.hub-wrapper) {
 body:has(.hub-wrapper) .md-header,
 body:has(.hub-wrapper) .header-progress,
 body:has(.hub-wrapper) .md-sidebar,
-body:has(.hub-wrapper) .md-tabs,
-body:has(.hub-wrapper) .md-main__inner > .md-content > .md-content__inner h1:first-child {
+body:has(.hub-wrapper) .md-tabs {
     opacity: 0 !important;
     pointer-events: none !important;
     visibility: hidden !important;
