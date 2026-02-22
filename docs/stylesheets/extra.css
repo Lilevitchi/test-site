@@ -1012,3 +1012,38 @@ body:has(.hub-wrapper) .md-main__inner {
     .hub-buttons-gap { gap: 40px; }
     .game-card h2 { font-size: 1.2rem !important; }
 }
+
+/* Bulle de discussion du robot */
+.bot-bubble {
+    position: relative;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 87, 34, 0.4);
+    border-radius: 15px;
+    padding: 15px 20px;
+    max-width: 400px;
+    margin-bottom: 20px; /* Espace avec le robot */
+    animation: slideUpFade 0.8s ease-out 0.5s both;
+    z-index: 110;
+}
+
+/* La petite flèche de la bulle */
+.bot-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgba(255, 87, 34, 0.4);
+}
+
+.bot-bubble p {
+    color: #eee !important;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0 !important;
+    font-style: italic;
+    text-align: center;
+}
