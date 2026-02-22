@@ -118,12 +118,19 @@ body:has(.hub-wrapper) .md-main__inner > .md-content > .md-content__inner h1:fir
     visibility: hidden !important;
 }
 
-/* 2. Forcer le footer en noir uniquement quand on est sur le Hub */
-body:has(.hub-wrapper) .md-footer {
-    background-color: #000000 !important;
-    border-top: none !important;
-    position: relative;
-    z-index: 10;
+/* 2. Suppression du cadre gris (md-content) qui clignote au refresh */
+body:has(.hub-wrapper) .md-content {
+    background: transparent !important;
+    margin: 0 !important;
+}
+body:has(.hub-wrapper) .md-content__inner {
+    display: none !important;
+}
+
+body:has(.hub-wrapper) {
+    overflow: hidden !important;
+    height: 100vh;
+    background-color: #000 !important; /* Fond noir de sécurité */
 }
 
 /* Reset du container MkDocs pour prendre 100% de la place */
@@ -132,15 +139,24 @@ body:has(.hub-wrapper) .md-container {
     background: #000; /* Fond noir pour éviter les flashs blancs */
 }
 
-body:has(.hub-wrapper) .md-main__inner {
-    max-width: none !important;
-    margin: 0 !important;
-}
-
 body:has(.hub-wrapper) .md-main {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+body:has(.hub-wrapper) .md-main__inner {
+  height: 100%;
+    max-width: none !important;
+    margin: 0 !important;
+}
+
+/* 2. Forcer le footer en noir uniquement quand on est sur le Hub */
+body:has(.hub-wrapper) .md-footer {
+    background-color: #000000 !important;
+    border-top: none !important;
+    position: relative;
+    z-index: 10;
 }
 
 [data-md-color-scheme] {
