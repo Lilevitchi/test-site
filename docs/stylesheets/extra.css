@@ -107,6 +107,13 @@ body:has(.hub-wrapper) {
   display: none !important;
 }
 
+/* 1. SUPPRIMER LE HEADER ET SIDEBAR SUR LE HUB */
+body:has(.hub-wrapper) .md-header,
+body:has(.hub-wrapper) .md-sidebar,
+body:has(.hub-wrapper) .md-footer {
+    display: none !important;
+}
+
 [data-md-color-scheme] {
 
 /* ============================================================
@@ -675,7 +682,7 @@ body:has(.hub-wrapper) {
 
   /* Curseur normal */
   .game-card, .md-logo, .md-header__button, .md-tabs__link, .md-nav__link, .md-typeset a {
-    cursor: var(--cursor-default) 7 0, pointer !important;
+    cursor: var(--cursor-default) !important;
   }
 
   /* Curseur clic (doigt replié) */
