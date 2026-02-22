@@ -35,26 +35,12 @@ document$.subscribe(function() {
     // 1. Relance les astuces
     initRobotTips();
 
-    // 2. Gestion des sidebars
-    const sidebars = document.querySelectorAll('.md-sidebar');
-    const isHub = document.querySelector('.hub-wrapper');
-
-    if (isHub) {
-        // Mode HUB : On cache tout
-        sidebars.forEach(s => {
-            s.style.setProperty('display', 'none', 'important');
-        });
-    } else {
-        // Mode GUIDE : On enlève juste le "none" pour laisser le CSS original (Flex/Fixed) reprendre le dessus
-        sidebars.forEach(s => {
-            s.style.removeProperty('display');
-        });
-
-        // REVEIL DES SCRIPTS (Le fameux fix pour le scroll)
-        setTimeout(() => {
-            document.dispatchEvent(new Event("DOMContentLoaded"));
-            window.dispatchEvent(new Event("scroll"));
-            window.dispatchEvent(new Event("resize"));
-        }, 100); // 100ms pour être vraiment sûr
-    }
+    // 2. Réveil forcé des scripts de layout
+    // On attend un tout petit peu que MkDocs injecte le nouveau contenu
+    setTimeout(() => {
+        // Simule les événements attendus par tes deux premiers JS
+        document.dispatchEvent(new Event("DOMContentLoaded"));
+        window.dispatchEvent(new Event("scroll"));
+        window.dispatchEvent(new Event("resize"));
+    }, 100);
 });
