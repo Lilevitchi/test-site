@@ -3,7 +3,6 @@ title: Fallout 4
 hide:
   - navigation
   - toc
-  - footer
 ---
 
 <div class="hub-wrapper">
