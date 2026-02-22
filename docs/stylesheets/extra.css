@@ -72,7 +72,7 @@ html {
   -webkit-text-size-adjust: none !important;
   text-size-adjust: none !important;
   background-color: var(--bg-page);
-  overflow-y: scroll;
+  overflow-y: auto;
   scroll-behavior: smooth;
 }
 
@@ -747,7 +747,7 @@ body.is-hub .md-footer {
     position: relative;
     inset: 0;
     width: 100%;
-    height: calc(100vh - var(--real-footer-height));
+    min-height: calc(100vh - var(--footer-height));
     display: flex;
     flex-direction: column;
     justify-content: center;
