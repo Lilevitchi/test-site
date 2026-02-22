@@ -19,9 +19,9 @@ theme:
     - navigation.tracking
 
 extra_javascript:
-  - javascripts/random_tips.js
   - javascripts/dynamic-sidebar-layout.js
   - javascripts/progress-bar.js
+  - javascripts/random_tips.js
   
 extra_css:
   - stylesheets/extra.css
