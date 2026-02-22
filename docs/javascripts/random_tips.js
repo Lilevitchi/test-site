@@ -2,13 +2,11 @@ function initRobotTips() {
     const tipElement = document.getElementById("lile-bot-tip");
     if (!tipElement) return;
 
-    // Détection du jeu via l'URL
     const url = window.location.href;
-    let category = "general"; // Par défaut
+    let category = "general"; 
 
     if (url.includes("fallout4")) category = "fo4";
     else if (url.includes("fallout-london")) category = "london";
-    // Ajoute tes autres jeux ici...
 
     const allTips = {
         general: [
@@ -28,38 +26,35 @@ function initRobotTips() {
         ]
     };
 
-    // Sélection des astuces selon la catégorie
     const tips = allTips[category] || allTips["general"];
     const randomTip = tips[Math.floor(Math.random() * tips.length)];
-
-    // Injection (sans titre)
     tipElement.innerText = randomTip;
 }
 
 document$.subscribe(function() {
-    // 1. Initialise les tips aléatoires (si sur un Index)
+    // 1. Relance les astuces
     initRobotTips();
 
-    // 2. Gestion immédiate des sidebars
+    // 2. Gestion des sidebars
     const sidebars = document.querySelectorAll('.md-sidebar');
     const isHub = document.querySelector('.hub-wrapper');
 
     if (isHub) {
-        sidebars.forEach(s => s.style.display = 'none');
+        // Mode HUB : On cache tout
+        sidebars.forEach(s => {
+            s.style.setProperty('display', 'none', 'important');
+        });
     } else {
-        sidebars.forEach(s => s.style.display = 'block');
+        // Mode GUIDE : On enlève juste le "none" pour laisser le CSS original (Flex/Fixed) reprendre le dessus
+        sidebars.forEach(s => {
+            s.style.removeProperty('display');
+        });
 
-        // FORCE LE RENDU IMMÉDIAT
-        // On attend 50ms pour être sûr que MkDocs a fini d'injecter le HTML
+        // REVEIL DES SCRIPTS (Le fameux fix pour le scroll)
         setTimeout(() => {
-            // Simule un scroll pour activer la barre de progression
+            document.dispatchEvent(new Event("DOMContentLoaded"));
             window.dispatchEvent(new Event("scroll"));
-            // Simule un resize pour forcer le Layout Controller à dessiner la sidebar de droite
             window.dispatchEvent(new Event("resize"));
-            
-            // Si tes autres scripts ont des fonctions accessibles, on les appelle
-            if (typeof updateFooterHeight === "function") updateFooterHeight();
-            if (typeof buildSidebar === "function") buildSidebar();
-        }, 50);
+        }, 100); // 100ms pour être vraiment sûr
     }
 });
