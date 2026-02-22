@@ -1,24 +1,20 @@
 /**
  * Layout Controller
- * - Footer-aware sidebars
- * - Stable viewport height
- * - Custom TOC enrichment (custom cards)
- * 
- * Single source of truth for layout behavior
+ * Compatible navigation.instant
  */
 
 document$.subscribe(function () {
-  const root = document.documentElement;
-  const footer = document.querySelector(".md-footer");
-  const sidebar = document.querySelector(".md-sidebar--secondary");
 
+  const root = document.documentElement;
   let lastFooterHeight = 0;
   let ticking = false;
+  let observer = null;
 
   /* =====================================================
      1. FOOTER AWARE HEIGHT
      ===================================================== */
   const updateFooterHeight = () => {
+    const footer = document.querySelector(".md-footer");
     if (!footer) return;
 
     const footerRect = footer.getBoundingClientRect();
@@ -36,15 +32,19 @@ document$.subscribe(function () {
      2. SIDEBAR TOC + CUSTOM CARDS
      ===================================================== */
   const buildSidebar = () => {
-    const tocList = sidebar?.querySelector(".md-nav__list");
+
+    const sidebar = document.querySelector(".md-sidebar--secondary");
+    if (!sidebar) return;
+
+    const tocList = sidebar.querySelector(".md-nav__list");
     if (!tocList) return;
 
-    // Nettoyage
     tocList.querySelectorAll(".nav-item-card-h3").forEach(el => el.remove());
 
     const cards = document.querySelectorAll(".custom-card h3");
 
     cards.forEach(h3 => {
+
       if (!h3.id) {
         h3.id = h3.innerText
           .toLowerCase()
@@ -86,21 +86,27 @@ document$.subscribe(function () {
   };
 
   /* =====================================================
-     3. OBSERVER SIDEBAR (MkDocs)
+     3. OBSERVER SIDEBAR (Rebind propre)
      ===================================================== */
-  if (sidebar) {
-    const observer = new MutationObserver(() => {
-      observer.disconnect();
+  const initObserver = () => {
+
+    const sidebar = document.querySelector(".md-sidebar--secondary");
+    if (!sidebar) return;
+
+    if (observer) observer.disconnect();
+
+    observer = new MutationObserver(() => {
       buildSidebar();
-      observer.observe(sidebar, { childList: true, subtree: true });
     });
+
     observer.observe(sidebar, { childList: true, subtree: true });
-  }
+  };
 
   /* =====================================================
      4. SCROLL HANDLER UNIQUE
      ===================================================== */
-  window.addEventListener("scroll", () => {
+
+  const scrollHandler = () => {
     if (!ticking) {
       requestAnimationFrame(() => {
         updateFooterHeight();
@@ -108,9 +114,17 @@ document$.subscribe(function () {
       });
       ticking = true;
     }
-  }, { passive: true });
+  };
 
-  // Init
+  window.removeEventListener("scroll", scrollHandler);
+  window.addEventListener("scroll", scrollHandler, { passive: true });
+
+  /* =====================================================
+     INIT
+     ===================================================== */
+
   updateFooterHeight();
   buildSidebar();
+  initObserver();
+
 });
