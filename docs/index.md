@@ -11,7 +11,7 @@ hide:
     <div class="display-zone">
       <div class="hub-central-content">
         <img src="assets/lile-bot.png" class="hub-bot" alt="Robot">
-        <h1 class="hub-title">Choisis ton univers</h1>
+        <div class="custom-hub-title">Choisis ton univers</div>
       </div>
     </div>
 
