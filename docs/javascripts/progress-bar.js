@@ -1,7 +1,7 @@
 /* =====================================================
    PROGRESS BAR CONTROLLER
    ===================================================== */
-document.addEventListener("DOMContentLoaded", () => {
+document$.subscribe(function () {
   const root = document.documentElement;
   let ticking = false;
 
