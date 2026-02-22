@@ -36,21 +36,7 @@ function initRobotTips() {
     tipElement.innerText = randomTip;
 }
 
-function fixInterface() {
-    const isHub = document.querySelector('.hub-wrapper');
-    const sidebars = document.querySelectorAll('.md-sidebar');
-
-    if (isHub) {
-        // Sur le hub : masquer les sidebars
-        sidebars.forEach(s => s.style.display = 'none');
-    } else {
-        // Sur un guide : forcer l'affichage
-        sidebars.forEach(s => s.style.display = 'block');
-    }
-}
-
-// L'unique écouteur pour MkDocs Material
+// Support pour MkDocs Material (recharge le script au changement de page)
 document$.subscribe(function() {
     initRobotTips();
-    fixInterface();
 });
