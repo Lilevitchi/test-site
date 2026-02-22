@@ -802,6 +802,17 @@ body:has(.hub-wrapper) .md-main__inner {
     to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes slideUpFromBottom {
+    from { 
+        transform: translateY(100%); /* Commence totalement sous l'écran */
+        opacity: 0;
+    }
+    to { 
+        transform: translateY(0);    /* Arrive à sa place normale */
+        opacity: 1;
+    }
+}
+
 /* Titre */
 .md-typeset .hub-title { 
   color: #ffffff !important; 
@@ -900,6 +911,7 @@ body:has(.hub-wrapper) .md-main__inner {
     backdrop-filter: blur(20px);
     background: rgba(0,0,0,0.6);
     border-top: 1px solid var(--accent);
+  animation: slideUpFromBottom 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
 }
 
 /* Grid moderne */
@@ -912,7 +924,6 @@ body:has(.hub-wrapper) .md-main__inner {
     padding-left: 25px !important;
     padding-right: 0 !important;
     height: auto !important;
-    animation: slowFade 1s ease-in-out 1s both; /* Arrive après le robot */
 }
 
 [data-md-color-scheme] body:has(.game-grid) .game-grid {
