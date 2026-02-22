@@ -1035,8 +1035,7 @@ body:has(.hub-wrapper) .md-main__inner {
     padding: 15px 20px;
     max-width: 300px;
     margin-left: 180px;
-    margin-bottom: -20px; /* Espace avec le robot */
-    transform: translateX(160px);
+    margin-bottom: 20px; /* Espace avec le robot */
     animation: slideUpFade 0.8s ease-out 0.5s both;
     z-index: 110;
 }
@@ -1046,7 +1045,7 @@ body:has(.hub-wrapper) .md-main__inner {
     content: '';
     position: absolute;
     bottom: -10px;
-    left: 30%;
+    left: 50%;
     transform: translateX(-50%);
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
