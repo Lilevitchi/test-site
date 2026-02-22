@@ -107,11 +107,27 @@ body:has(.hub-wrapper) {
   display: none !important;
 }
 
-/* 1. SUPPRIMER LE HEADER ET SIDEBAR SUR LE HUB */
+/* Cache absolument tout ce qui appartient à MkDocs Material sur la home */
 body:has(.hub-wrapper) .md-header,
+body:has(.hub-wrapper) .header-progress,
 body:has(.hub-wrapper) .md-sidebar,
-body:has(.hub-wrapper) .md-footer {
+body:has(.hub-wrapper) .md-footer,
+body:has(.hub-wrapper) .md-tabs,
+body:has(.hub-wrapper) .md-main__inner > .md-content > .md-content__inner h1:first-child {
     display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Reset du container MkDocs pour prendre 100% de la place */
+body:has(.hub-wrapper) .md-container {
+    display: block !important;
+}
+body:has(.hub-wrapper) .md-main__inner {
+    max-width: none !important;
+    margin: 0 !important;
 }
 
 [data-md-color-scheme] {
@@ -705,6 +721,7 @@ body:has(.hub-wrapper) .md-footer {
     align-items: center;
     overflow: hidden;
     font-family: var(--font-main);
+    z-index: 9999 !important;
 }
 
 /* Background dynamique */
@@ -715,6 +732,7 @@ body:has(.hub-wrapper) .md-footer {
     background-position: center;
     filter: var(--blur-strong) brightness(0.7);
     transition: background-image 0.8s ease-in-out, filter 0.5s ease;
+    z-index: 1;
 }
 
 .hub-main-container {
@@ -740,6 +758,7 @@ body:has(.hub-wrapper) .md-footer {
     flex-direction: column;
     width: 100%;
     height: 100%;
+    z-index: 10;
 }
 
 /* =========================
@@ -755,6 +774,7 @@ body:has(.hub-wrapper) .md-footer {
     text-align: center;
     gap: var(--space-xl);
     padding: 40px 20px;
+    z-index: 100;
 }
 
 /* Robot */
@@ -762,8 +782,15 @@ body:has(.hub-wrapper) .md-footer {
     width: 600px;
     max-width: 80vw;
     height: auto;
-    margin-bottom: -100px;
+    margin-bottom: 20px;
     transition: all 0.4s ease;
+    z-index: 101;
+    animation: fadeInRobot 0.8s ease-out;
+}
+
+@keyframes fadeInRobot {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
 
 /* Titre */
