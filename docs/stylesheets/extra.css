@@ -122,7 +122,8 @@ body:has(.hub-wrapper) .md-content {
     background: transparent !important;
     margin: 0 !important;
 }
-body:has(.hub-wrapper) .md-content__inner {
+
+body:has(.hub-wrapper) .md-content__inner h1 {
     display: none !important;
 }
 
