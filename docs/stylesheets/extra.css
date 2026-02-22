@@ -90,10 +90,6 @@ body {
   scrollbar-color: rgba(255, 255, 255, 0.63) transparent;
 }
 
-body:has(.hub-wrapper) {
-   overflow: hidden;
-}
-
 /* --- SECURITE POUR LE STICKY --- */
 .md-container, .md-main, .md-main__inner {
   overflow: visible !important;
@@ -108,51 +104,51 @@ body:has(.hub-wrapper) {
 }
 
 /* Cache absolument tout ce qui appartient à MkDocs Material sur la home */
-body:has(.hub-wrapper) .md-header,
-body:has(.hub-wrapper) .header-progress,
-body:has(.hub-wrapper) .md-sidebar,
-body:has(.hub-wrapper) .md-tabs {
+body.is-hub .md-header,
+body.is-hub .header-progress,
+body.is-hub .md-sidebar,
+body.is-hub .md-tabs {
     opacity: 0 !important;
     pointer-events: none !important;
     visibility: hidden !important;
 }
 
 /* 2. Suppression du cadre gris (md-content) qui clignote au refresh */
-body:has(.hub-wrapper) .md-content {
+body.is-hub .md-content {
     background: transparent !important;
     margin: 0 !important;
 }
 
-body:has(.hub-wrapper) .md-content__inner h1 {
+body.is-hub .md-content__inner h1 {
     display: none !important;
 }
 
-body:has(.hub-wrapper) {
+body.is-hub {
     overflow: hidden !important;
     height: 100vh;
     background-color: #000 !important; /* Fond noir de sécurité */
 }
 
 /* Reset du container MkDocs pour prendre 100% de la place */
-body:has(.hub-wrapper) .md-container {
+body.is-hub .md-container {
     display: block !important;
     background: #000; /* Fond noir pour éviter les flashs blancs */
 }
 
-body:has(.hub-wrapper) .md-main {
+body.is-hub .md-main {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-body:has(.hub-wrapper) .md-main__inner {
+body.is-hub .md-main__inner {
   height: 100%;
     max-width: none !important;
     margin: 0 !important;
 }
 
 /* 2. Forcer le footer en noir uniquement quand on est sur le Hub */
-body:has(.hub-wrapper) .md-footer {
+body.is-hub .md-footer {
     background-color: #000000 !important;
     border-top: none !important;
     position: relative;
