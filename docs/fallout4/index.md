@@ -5,28 +5,32 @@ hide:
   - toc
 ---
 
+
 <div class="hub-wrapper">
   <div class="hub-bg" style="background-image: url('../assets/fo4.jpg');"></div>
 
   <div class="split-layout">
-    <div class="display-zone">
+
+  <div class="display-zone">
       <div class="hub-central-content">
-                <div class="bot-bubble">
-        <p id="lile-bot-tip">Chargement d'une astuce...</p>
-    </div>
-        <img src="../assets/lile-bot-fo4.png" class="hub-bot" alt="Robot Fallout 4">
-        
+
+  <div class="bot-bubble">
+          <p id="lile-bot-tip">Chargement d'une astuce...</p>
+  </div>
+
+  <img src="../assets/lile-bot-fo4.png" class="hub-bot" alt="Robot Fallout 4">
+
   <div class="hub-overlay-content">
           <div class="custom-hub-title">
             Bienvenue dans le Commonwealth
           </div>
 
-  <div class="hub-buttons-gap">
+   <div class="hub-buttons-gap">
             <a href="intro/" class="btn-hub-large btn-orange">
               Guide Écrit
             </a>
 
-  <a href="https://youtu.be/m_CawhgGBGk?si=V8ovH2IEi1shkF6d"
+   <a href="https://youtu.be/m_CawhgGBGk?si=V8ovH2IEi1shkF6d"
                target="_blank"
                class="btn-hub-large btn-red">
               Guide Vidéo
@@ -35,7 +39,7 @@ hide:
         </div>
 
   </div>
-</div>
+  </div>
 
   <div class="selection-zone">
       <div class="game-grid">
