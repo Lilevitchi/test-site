@@ -298,8 +298,8 @@ body.is-hub .md-footer {
 }
 
 .md-content__inner {
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .md-content__inner:before {
