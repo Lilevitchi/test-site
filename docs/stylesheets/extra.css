@@ -103,7 +103,8 @@ body {
   display: none !important;
 }
 
-/*body.is-hub .md-header,
+/* Cache absolument tout ce qui appartient à MkDocs Material sur la home */
+body.is-hub .md-header,
 body.is-hub .header-progress,
 body.is-hub .md-sidebar,
 body.is-hub .md-footer,
@@ -113,6 +114,7 @@ body.is-hub .md-tabs {
     visibility: hidden !important;
 }
 
+/* 2. Suppression du cadre gris (md-content) qui clignote au refresh */
 body.is-hub .md-content {
     background: transparent !important;
     margin: 0 !important;
@@ -125,12 +127,13 @@ body.is-hub .md-content__inner h1 {
 body.is-hub {
     overflow: hidden !important;
     height: 100vh;
-    background-color: #000 !important;
+    background-color: #000 !important; /* Fond noir de sécurité */
 }
 
+/* Reset du container MkDocs pour prendre 100% de la place */
 body.is-hub .md-container {
     display: block !important;
-    background: #000;
+    background: #000; /* Fond noir pour éviter les flashs blancs */
 }
 
 body.is-hub .md-main {
@@ -143,7 +146,9 @@ body.is-hub .md-main__inner {
   height: 100%;
     max-width: none !important;
     margin: 0 !important;
-}*/
+}
+
+[data-md-color-scheme] {
 
 /* ============================================================
    HEADER & BANNIÈRE
@@ -336,7 +341,7 @@ body.is-hub .md-main__inner {
 
 /* ============================================================
    SIDEBARS — FIXED
-   ============================================================*/
+   ============================================================ */
   
   .md-sidebar {
     position: fixed !important;
@@ -413,7 +418,6 @@ body.is-hub .md-main__inner {
     will-change: auto !important; 
     -webkit-font-smoothing: antialiased;
     transform: translateZ(0);
-    backface-visibility: hidden;
   }
   
   .md-sidebar--primary {
@@ -435,8 +439,9 @@ body.is-hub .md-main__inner {
 
 /* ============================================================
    SIDEBAR GAUCHE
-   ============================================================ 
+   ============================================================ */
 
+  /* Supprime le titre du site dans la sidebar gauche */
 .md-sidebar--primary .md-nav__title {
   display: none !important;
 }
@@ -445,6 +450,7 @@ body.is-hub .md-main__inner {
   padding-top: 0 !important;
 }
 
+/* Conteneur */
 .md-sidebar--primary {
   position: fixed !important;
   top: calc(var(--header-height) + 10px);
@@ -460,11 +466,13 @@ body.is-hub .md-main__inner {
   overflow-y: auto;
 }
 
+/* Liste */
 .md-sidebar--primary .md-nav__list {
   padding: 0 !important;
   margin: 0 !important;
 }
 
+/* Liens */
 .md-sidebar--primary .md-nav__link {
   position: relative;
   display: flex;
@@ -481,15 +489,18 @@ body.is-hub .md-main__inner {
   transition: background 0.18s ease;
 }
 
+/* Hover */
 .md-sidebar--primary .md-nav__link:hover {
   background: rgba(255, 255, 255, 0.06);
 }
 
+/* Page active */
 .md-sidebar--primary .md-nav__link--active {
   background: rgba(255, 255, 255, 0.08);
   font-weight: 500;
 }
 
+/* Barre verticale active */
 .md-sidebar--primary .md-nav__link--active::before {
   content: "";
   position: absolute;
@@ -500,10 +511,12 @@ body.is-hub .md-main__inner {
   border-radius: 8px;
 }
 
+/* Supprimer les flèches Material */
 .md-sidebar--primary .md-nav__link::after {
   display: none !important;
 }
 
+/* Séparateurs */
 .md-sidebar--primary .md-nav__item--section > .md-nav__link {
   margin-top: 8px;
 }
@@ -512,7 +525,7 @@ body.is-hub .md-main__inner {
   border-top: 1px solid rgba(255,255,255,0.12);
   margin-top: 8px;
   padding-top: 6px;
-}*/
+}
   
 /* ============================================================
    SIDEBAR DROITE
@@ -625,10 +638,11 @@ body.is-hub .md-main__inner {
 
   .md-footer-meta {
     background-color: transparent;
+    margin-top: -3px; 
   }
 
   .md-footer-meta__inner {
-    height: var(--footer-height);
+    height: calc(var(--footer-height) + 3px);
     display: flex;
     align-items: center;
     padding: 0 20px;
@@ -655,6 +669,8 @@ body.is-hub .md-main__inner {
   .md-typeset p {
     color: var(--text-primary);
   }
+
+}
 
 /* ============================================================
    BOT ASTUCES
