@@ -109,43 +109,43 @@ body.is-hub .header-progress,
 body.is-hub .md-sidebar,
 body.is-hub .md-footer,
 body.is-hub .md-tabs {
-    opacity: 0 !important;
-    pointer-events: none !important;
-    visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
 }
 
 /* 2. Suppression du cadre gris (md-content) qui clignote au refresh */
 body.is-hub .md-content {
-    background: transparent !important;
-    margin: 0 !important;
+  background: transparent !important;
+  margin: 0 !important;
 }
 
 body.is-hub .md-content__inner h1 {
-    display: none !important;
+  display: none !important;
 }
 
 body.is-hub {
-    background-color: #000 !important;
-  overflow: hidden !important;
+  background-color: #000 !important;
+  overflow: visible !important;
 }
 
 /* Reset du container MkDocs pour prendre 100% de la place */
 body.is-hub .md-container {
-    display: block !important;
-    background: #000; /* Fond noir pour éviter les flashs blancs */
+  display: block !important;
+  background: #000; /* Fond noir pour éviter les flashs blancs */
 }
 
 body.is-hub .md-main {
-    min-height: auto !important;
-    height: auto !important;
-    display: block !important;
+  min-height: auto !important;
+  height: auto !important;
+  display: block !important;
   padding-top: 0 !important;
 }
 
 body.is-hub .md-main__inner {
   height: 100%;
-    max-width: none !important;
-    margin: 0 !important;
+  max-width: none !important;
+  margin: 0 !important;
 }
 
 [data-md-color-scheme] {
@@ -276,22 +276,6 @@ body.is-hub .md-main__inner {
    CONTENU CENTRAL
    ============================================================*/
 
-  /* --- CONTENT — STICKY --- */
-  /*.md-content {
-    background: var(--bg-page) !important;
-    color: var(--text-primary);
-    border-radius: var(--radius-md);
-    flex: 1;
-    min-width: 0;
-    position: relative !important;
-    height: auto !important;
-    margin: var(--sidebar-gap) var(--sidebar-gap) 0 var(--sidebar-gap) !important;
-    margin-bottom: 0 !important;
-    padding: 0 !important;
-    padding-bottom: 20px !important;
-  }*/
-
-/* --- CONTENT — FIXED --- */
   .md-content {
     background: var(--bg-page) !important;
     color: var(--text-primary);
@@ -340,7 +324,7 @@ body.is-hub .md-main__inner {
   }
 
 /* ============================================================
-   SIDEBARS — FIXED
+   SIDEBARS
    ============================================================*/
   
   .md-sidebar {
@@ -391,51 +375,6 @@ body.is-hub .md-main__inner {
     padding: 0 !important;
     overflow: visible !important;
   }
-  
-/* ============================================================
-   SIDEBARS — STICKY
-   ============================================================
-  
-  .md-sidebar {
-    position: sticky !important;
-    top: calc(var(--header-height) + var(--sidebar-gap)) !important;
-    height: calc(100vh - var(--header-height) - (var(--sidebar-gap) * 2) - var(--footer-visible-height, 0px)) !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    margin-top: var(--sidebar-gap) !important; 
-    z-index: 1;
-    overflow-x: hidden !important;
-  }
-
-  .md-sidebar__inner {
-    background-color: var(--bg-surface);
-    border-radius: var(--radius-md);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    will-change: auto !important; 
-    -webkit-font-smoothing: antialiased;
-    transform: translateZ(0);
-  }
-  
-  .md-sidebar--primary {
-    margin-left: var(--sidebar-gap) !important; 
-    width: var(--sidebar-width-primary) !important; 
-  }
-  
-  .md-sidebar--secondary {
-    margin-right: var(--sidebar-gap) !important; 
-    width: var(--sidebar-width-secondary) !important; 
-  }
-  
-  .md-sidebar__scrollwrap {
-    margin: 0 !important;
-    padding: 0 !important;
-    height: 100% !important; 
-    overflow: visible !important;
-  }*/
 
 /* ============================================================
    SIDEBAR GAUCHE
@@ -751,15 +690,14 @@ body.is-hub .md-main__inner {
    ============================================================*/
 
 .hub-wrapper {
-    position: fixed;
-    inset: 0;
-    width: 100vw;
+    position: relative;
+    width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    overflow: hidden;
+    overflow: visible; 
     font-family: var(--font-main);
     background: #000;
 }
@@ -781,7 +719,7 @@ body.is-hub .md-main__inner {
   align-items: center;
   text-align: center;
   width: 100%;
-  margin-top: -25vh;
+  margin-top: clamp(10px, 5vh, 50px);
 }
 
 .hub-content { 
@@ -804,7 +742,7 @@ body.is-hub .md-main__inner {
    =========================*/
 
 .display-zone {
-    flex: 2;
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -832,7 +770,6 @@ body.is-hub .md-main__inner {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
 
 @keyframes slideUpFade {
     from { opacity: 0; transform: translateY(20px); }
@@ -941,8 +878,9 @@ body.is-hub .md-main__inner {
 /* =========================
    PARTIE BASSE - GRID
    =========================*/
+
 .selection-zone {
-    flex: 1;
+    flex: 1 1 auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -952,7 +890,8 @@ body.is-hub .md-main__inner {
     will-change: transform, opacity; /* Prépare le navigateur */
     backface-visibility: hidden;    /* Évite les micro-clignotements */
     perspective: 1000px;            /* Donne de la profondeur pour la fluidité */
-    
+    overflow-y: auto; /* scroll si trop de contenu */
+    padding-bottom: 20px;
     /* Application de l'animation */
     animation: slideUpSync 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
@@ -1048,6 +987,22 @@ body.is-hub .md-main__inner {
 /* ============================================================
    Responsive
    ============================================================*/
+@media (max-width: 1200px) {
+    .bot-bubble {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .bot-bubble {
+        max-width: 200px;
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+}
+
 @media (max-width: 768px) {
     .hub-bot { width: 350px; }
     .hub-buttons-gap { gap: 40px; }
