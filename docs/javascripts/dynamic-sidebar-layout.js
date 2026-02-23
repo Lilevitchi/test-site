@@ -46,6 +46,7 @@ document$.subscribe(function () {
     const tocList = sidebar.querySelector(".md-nav__list");
     if (!tocList) return;
 
+    // Supprime les anciens sous-chapitres
     tocList.querySelectorAll(".nav-item-card-h3").forEach(el => el.remove());
 
     const cards = document.querySelectorAll(".custom-card h3");
@@ -141,12 +142,31 @@ document$.subscribe(function () {
   };
 
   /* =====================================================
+     6. NAVIGATION INSTANT HOOK
+     ===================================================== */
+  const setupNavigationInstant = () => {
+    if (window.navigation && navigation.instant) {
+      navigation.instant.on('after', () => {
+        // Rebuild sidebar après injection de la page
+        buildSidebar();
+        updateFooterHeight();
+
+        // Optionnel : réinit tips si tu veux
+        if (typeof initRobotTips === "function") {
+          initRobotTips();
+        }
+      });
+    }
+  };
+
+  /* =====================================================
      INIT
      ===================================================== */
   updateFooterHeight();
   buildSidebar();
   initObserver();
   initFooterObserver();
+  setupNavigationInstant();
 
   // Recalcul périodique en cas de footer animés ou apparitions tardives
   setInterval(updateFooterHeight, 200);
