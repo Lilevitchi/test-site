@@ -100,9 +100,3 @@ hide:
 
   </div>
 </div>
-
-<script>
-document.getElementById("hubBurgerToggle")?.addEventListener("click", function () {
-  document.getElementById("hubBurgerMenu")?.classList.toggle("open");
-});
-</script>
