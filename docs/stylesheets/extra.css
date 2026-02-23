@@ -303,8 +303,8 @@ body.is-hub .md-main__inner {
     margin-right: calc(var(--sidebar-width-secondary) + (var(--sidebar-gap) * 2)) !important;
     margin-bottom: 0 !important;
     padding: 0 !important;
-    padding-bottom: 20px !important;*/
-  }
+    padding-bottom: 20px !important;
+  }*/
 
   .md-content__inner {
     margin: 0 !important;
