@@ -711,7 +711,7 @@ body.is-hub .md-main__inner {
 
 .hub-overlay-content {
     position: relative;
-    margin-top: 0; /* ajuste finement ici */
+    margin-top: -100px; /* ajuste finement ici */
     z-index: 2;
     display: flex;
     flex-direction: column;
