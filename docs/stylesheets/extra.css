@@ -1207,12 +1207,4 @@ body.is-hub .md-footer {
     display: block;
   }
 
-     .md-sidebar {
-    display: none !important; /* Masque la sidebar fixe */
-  }
-
-  .md-header, .md-tabs {
-    z-index: 9999; /* Pour que le burger soit au-dessus si nécessaire */
-  }
-
 }
