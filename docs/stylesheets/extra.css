@@ -720,6 +720,11 @@ body.is-hub .md-main__inner {
 
 .custom-hub-title {
     white-space: nowrap;
+    font-size: 3rem;
+    font-weight: 900;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(0,0,0,1);
     margin-bottom: 20px;
 }
 
