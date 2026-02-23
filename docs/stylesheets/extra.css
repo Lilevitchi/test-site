@@ -85,10 +85,6 @@ body {
   font-weight: 400;
 }
 
-html, body {
-  height: 100%;
-}
-
 * {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.63) transparent;
@@ -252,7 +248,7 @@ body.is-hub .md-main__inner {
   .md-container {
     display: flex;
     flex-direction: column;
-    min-height: 100%;
+    min-height: 100vh;
     background-color: var(--bg-page);
   }
   
@@ -744,10 +740,10 @@ body.is-hub .md-main__inner {
    ============================================================ */
 
 .hub-wrapper {
-    position: relative !important;
+    position: fixed;
     inset: 0;
     width: 100vw;
-    height: auto !important;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
