@@ -1036,6 +1036,75 @@ body.is-hub .md-footer {
   z-index: 1;
 }
 
+
+/* ============================================================
+   Robot Tips
+   ============================================================*/
+
+/* Bulle du robot */
+.bot-bubble {
+  position: relative;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  max-width: 300px;
+  margin-left: 180px;
+  margin-bottom: 0;
+  animation: slideUpFade 0.8s ease-out 0.5s both;
+  z-index: 110;
+}
+
+/* La petite flèche de la bulle */
+.bot-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--accent);
+}
+
+.bot-bubble p {
+  color: var(--text-primary) !important;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0 !important;
+  font-style: italic;
+  text-align: left;
+}
+
+.hub-burger {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 200;
+}
+
+.hub-burger button {
+  background: var(--accent);
+  border: none;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  font-weight: bold;
+  color: white;
+}
+
+.hub-burger-menu {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.hub-burger-menu.open {
+  display: flex;
+}
+
 /* ============================================================
    Responsive
    ============================================================*/
@@ -1109,72 +1178,10 @@ body.is-hub .md-footer {
   .md-footer-meta__inner .md-social {
     justify-content: flex-end;
   }
+}
 
+@media (max-width: 768px) {
   .hub-burger {
     display: block;
   }
-}
-
-/* Bulle du robot */
-.bot-bubble {
-  position: relative;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--accent);
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
-  max-width: 300px;
-  margin-left: 180px;
-  margin-bottom: 0;
-  animation: slideUpFade 0.8s ease-out 0.5s both;
-  z-index: 110;
-}
-
-/* La petite flèche de la bulle */
-.bot-bubble::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid var(--accent);
-}
-
-.bot-bubble p {
-  color: var(--text-primary) !important;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  margin: 0 !important;
-  font-style: italic;
-  text-align: left;
-}
-
-.hub-burger {
-  display: none;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 200;
-}
-
-.hub-burger button {
-  background: var(--accent);
-  border: none;
-  padding: 10px 18px;
-  border-radius: var(--radius-md);
-  font-weight: bold;
-  color: white;
-}
-
-.hub-burger-menu {
-  display: none;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.hub-burger-menu.open {
-  display: flex;
 }
