@@ -629,11 +629,10 @@ body.is-hub .md-main__inner {
 
   .md-footer-meta {
     background-color: transparent;
-    margin-top: -3px; 
   }
 
   .md-footer-meta__inner {
-    height: calc(var(--footer-height) + 3px);
+    height: var(--footer-height);
     display: flex;
     align-items: center;
     padding: 0 20px;
