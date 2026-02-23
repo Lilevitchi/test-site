@@ -510,7 +510,7 @@ body.is-hub .md-footer {
   top: 50%;
   transform: translateY(-50%);
   width: 4px;
-  eight: 4px;
+  height: 4px;
   border-radius: 50%;
   background: var(--accent);
   opacity: 0.45;
@@ -572,7 +572,7 @@ body.is-hub .md-footer {
   align-items: center;
   padding: 0 20px;
   margin: 0;
-  ize: var(--text-size-footer);
+  font-size: var(--text-size-footer);
   color: var(--text-muted);
 }
 
@@ -694,7 +694,7 @@ body.is-hub .md-footer {
   width: 100vw;
   height: 100vh;
   display: flex;
-  lex-direction: column;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   overflow: hidden; 
@@ -716,7 +716,7 @@ body.is-hub .md-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+}
 
 .custom-hub-title {
   white-space: nowrap;
