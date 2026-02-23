@@ -5,6 +5,12 @@ hide:
   - toc
 ---
 
+<!-- Script pour ajouter is-hub dès le départ -->
+<script>
+  // ajoute is-hub sur le body immédiatement
+  document.documentElement.classList.add('is-hub');
+</script>
+
 <div class="hub-wrapper">
 
   <div class="hub-bg" style="background-image: url('../assets/newvegas.jpg');"></div>
