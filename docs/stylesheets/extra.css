@@ -1157,10 +1157,8 @@ body.is-hub .md-footer {
     justify-content: flex-end;
   }
 
-}
-
-@media (max-width: 768px) {
   .hub-burger {
     display: block;
   }
+
 }
