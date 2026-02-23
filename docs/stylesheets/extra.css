@@ -100,37 +100,14 @@ body {
   display: none;
 }
 
-/* Tout est masqué par défaut */
-.md-header,
-.header-progress,
-.md-sidebar,
-.md-tabs,
-.md-footer {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-/* On montre seulement si c’est pas le hub */
-body:not(.is-hub) .md-header,
-body:not(.is-hub) .header-progress,
-body:not(.is-hub) .md-sidebar,
-body:not(.is-hub) .md-tabs,
-body:not(.is-hub) .md-footer {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-/* Hub : tout reste masqué par défaut */
+/* Cache absolument tout ce qui appartient à MkDocs Material sur la home */
 body.is-hub .md-header,
 body.is-hub .header-progress,
 body.is-hub .md-sidebar,
-body.is-hub .md-tabs,
-body.is-hub .md-footer {
+body.is-hub .md-tabs {
   opacity: 0;
-  visibility: hidden;
   pointer-events: none;
+  visibility: hidden;
 }
 
 /* 2. Suppression du cadre gris (md-content) qui clignote au refresh */
@@ -744,6 +721,16 @@ body.is-hub .md-footer {
   align-items: center;
 }
 
+.custom-hub-title {
+  white-space: nowrap;
+  font-size: 3rem;
+  font-weight: 900;
+  text-align: center;
+  color: var(--text-primary);
+  text-shadow: 0 0 20px rgba(0,0,0,1);
+  margin-bottom: 20px;
+}
+
 /* Background dynamique */
 .hub-bg {
   position: absolute;
@@ -842,12 +829,27 @@ body.is-hub .md-footer {
    TITRES HUB
    ============================================================*/
   
+/* Titre */
+.md-typeset .hub-title { 
+  color: var(--text-primary) !important; 
+  font-size: 2.2rem; 
+  font-weight: 800 !important; 
+  text-transform: none !important;
+  text-shadow: 2px 2px 15px rgba(0,0,0,1);
+  margin-bottom: 40px !important; 
+  border: none !important; 
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  line-height: 1.2;
+}
+
 .custom-hub-title {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
   color: var(--text-primary) !important;
-  font-size: clamp(2rem, 3vw, 3rem);
+  font-size: clamp(24px, 5vw, 48px);
   font-weight: 900 !important;
   text-align: center !important;
   text-shadow: 0 0 20px rgba(0,0,0,1), 0 0 10px rgba(255,255,255,0.2) !important;
@@ -856,8 +858,7 @@ body.is-hub .md-footer {
   z-index: 102;
   max-width: 90%;
   margin: 0 auto;
-   margin-bottom: 20px;
-  white-space: nowrap;
+  white-space: normal;
   animation: fastFade 0.8s ease-in-out 0.6s both;
 }
 
@@ -1036,10 +1037,65 @@ body.is-hub .md-footer {
   z-index: 1;
 }
 
-
 /* ============================================================
-   Robot Tips
+   Responsive
    ============================================================*/
+
+@media (max-width: 1024px) {
+   
+  .display-zone {
+     flex: 0 0 65vh;
+  }
+
+  .selection-zone {
+     flex: 0 0 35vh;
+  }
+
+  .hub-bot {
+     width: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .selection-zone {
+    display: none;
+  }
+
+  .bot-bubble {
+    display: none;
+  }
+
+  .display-zone {
+    flex: 1;
+    min-height: 100vh;
+    justify-content: center;
+  }
+
+   .custom-hub-title {
+    font-size: 2.4rem;
+    margin-top: 10px;
+  }
+
+  .hub-buttons-gap {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .btn-hub-large {
+    width: 85%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .hub-bot {
+    width: 400px;
+    max-width: 85%;
+  }
+
+}
 
 /* Bulle du robot */
 .bot-bubble {
@@ -1081,7 +1137,7 @@ body.is-hub .md-footer {
   display: none;
   position: absolute;
   top: 20px;
-  right: 20px;
+  left: 20px;
   z-index: 200;
 }
 
@@ -1103,81 +1159,6 @@ body.is-hub .md-footer {
 
 .hub-burger-menu.open {
   display: flex;
-}
-
-/* ============================================================
-   Responsive
-   ============================================================*/
-
-@media (max-width: 1024px) {
-   
-  .display-zone {
-     flex: 0 0 65vh;
-  }
-
-  .selection-zone {
-     flex: 0 0 35vh;
-  }
-
-  .hub-bot {
-     width: 450px;
-  }
-}
-
-@media (max-width: 768px) {
-
-  .hub-wrapper {
-    height: auto;
-    min-height: 100vh;
-    overflow: hidden;
-  }
-   
-  .selection-zone {
-    display: none;
-    max-height: calc(100vh - 50px);
-    overflow-y: auto;
-  }
-
-  .bot-bubble {
-    display: none;
-  }
-
-  .display-zone {
-    flex: 1;
-    min-height: 100vh;
-    justify-content: center;
-  }
-
-   .custom-hub-title {
-    font-size: 2.4rem;
-    margin-top: 10px;
-  }
-
-  .hub-buttons-gap {
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    align-items: center;
-  }
-
-  .btn-hub-large {
-    width: 85%;
-    max-width: 320px;
-    margin: 0 auto;
-  }
-
-  .hub-bot {
-    width: 400px;
-    max-width: 85%;
-  }
-
-  .md-footer-meta__inner .md-copyright {
-    display: none;
-  }
-
-  .md-footer-meta__inner .md-social {
-    justify-content: flex-end;
-  }
 }
 
 @media (max-width: 768px) {
