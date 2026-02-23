@@ -41,4 +41,14 @@ document$.subscribe(function() {
     } else {
         document.body.classList.remove("is-hub");
     }
+
+      // === BURGER HUB ===
+  const burger = document.getElementById("hubBurgerToggle");
+  const burgerMenu = document.getElementById("hubBurgerMenu");
+  if (burger && burgerMenu) {
+    burger.addEventListener("click", () => {
+      burgerMenu.classList.toggle("open");
+    });
+  }
+    
 });
