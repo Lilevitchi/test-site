@@ -7,6 +7,20 @@ hide:
 <div class="hub-wrapper">
   <div class="hub-bg" style="background-image:url('assets/Fond.png')"></div>
 
+  <div class="hub-burger">
+  <button id="hubBurgerToggle">Choisir un jeu</button>
+
+  <div id="hubBurgerMenu" class="hub-burger-menu">
+
+  <a href="../fallout4/" class="burger-item active-game">Fallout 4</a>
+  <a href="../fallout-london/" class="burger-item">Fallout London</a>
+   <a href="../fnv/" class="burger-item">New Vegas</a>
+   <a href="../ttw/" class="burger-item">TTW</a>
+  <a href="../cyberpunk/" class="burger-item">Cyberpunk 2077</a>
+
+  </div>
+  </div>
+
   <div class="split-layout">
 
   <div class="display-zone">
