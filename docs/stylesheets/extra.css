@@ -107,6 +107,7 @@ body {
 body.is-hub .md-header,
 body.is-hub .header-progress,
 body.is-hub .md-sidebar,
+body.is-hub .md-footer,
 body.is-hub .md-tabs {
     opacity: 0 !important;
     pointer-events: none !important;
@@ -145,11 +146,6 @@ body.is-hub .md-main__inner {
   height: 100%;
     max-width: none !important;
     margin: 0 !important;
-}
-
-body.is-hub .md-footer {
-    background-color: #000000 !important;
-    border-top: none !important;
 }
 
 [data-md-color-scheme] {
@@ -443,9 +439,8 @@ body.is-hub .md-footer {
 
 /* ============================================================
    SIDEBAR GAUCHE
-   ============================================================*/
+   ============================================================
 
-  /* Supprime le titre du site dans la sidebar gauche */
 .md-sidebar--primary .md-nav__title {
   display: none !important;
 }
@@ -454,7 +449,6 @@ body.is-hub .md-footer {
   padding-top: 0 !important;
 }
 
-/* Conteneur */
 .md-sidebar--primary {
   position: fixed !important;
   top: calc(var(--header-height) + 10px);
@@ -470,13 +464,11 @@ body.is-hub .md-footer {
   overflow-y: auto;
 }
 
-/* Liste */
 .md-sidebar--primary .md-nav__list {
   padding: 0 !important;
   margin: 0 !important;
 }
 
-/* Liens */
 .md-sidebar--primary .md-nav__link {
   position: relative;
   display: flex;
@@ -493,18 +485,15 @@ body.is-hub .md-footer {
   transition: background 0.18s ease;
 }
 
-/* Hover */
 .md-sidebar--primary .md-nav__link:hover {
   background: rgba(255, 255, 255, 0.06);
 }
 
-/* Page active */
 .md-sidebar--primary .md-nav__link--active {
   background: rgba(255, 255, 255, 0.08);
   font-weight: 500;
 }
 
-/* Barre verticale active */
 .md-sidebar--primary .md-nav__link--active::before {
   content: "";
   position: absolute;
@@ -515,12 +504,10 @@ body.is-hub .md-footer {
   border-radius: 8px;
 }
 
-/* Supprimer les flèches Material */
 .md-sidebar--primary .md-nav__link::after {
   display: none !important;
 }
 
-/* Séparateurs */
 .md-sidebar--primary .md-nav__item--section > .md-nav__link {
   margin-top: 8px;
 }
@@ -529,11 +516,11 @@ body.is-hub .md-footer {
   border-top: 1px solid rgba(255,255,255,0.12);
   margin-top: 8px;
   padding-top: 6px;
-}
+}*/
   
 /* ============================================================
    SIDEBAR DROITE
-   ============================================================
+   ============================================================*/
 
   .md-sidebar--secondary .md-nav__title,
   .md-sidebar--secondary label[for="__toc"] {
@@ -618,7 +605,7 @@ body.is-hub .md-footer {
       opacity: 0.75;
       transform: translateX(0);
     }
-  }*/
+  }
   
 /* ============================================================
    FOOTER
@@ -736,10 +723,10 @@ body.is-hub .md-footer {
    ============================================================*/
 
 .hub-wrapper {
-    position: relative;
+    position: fixed;
     inset: 0;
-    width: 100%;
-    height: calc(100vh - var(--real-footer-height));
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
