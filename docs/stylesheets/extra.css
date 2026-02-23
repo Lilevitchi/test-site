@@ -110,15 +110,6 @@ body.is-hub .md-tabs {
   visibility: hidden;
 }
 
-body:not(.is-hub) .md-header,
-body:not(.is-hub) .md-sidebar,
-body:not(.is-hub) .md-tabs,
-body:not(.is-hub) .md-footer {
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none;
-}
-
 /* 2. Suppression du cadre gris (md-content) qui clignote au refresh */
 body.is-hub .md-content {
   background: transparent;
