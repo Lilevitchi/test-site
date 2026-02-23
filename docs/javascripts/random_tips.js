@@ -50,5 +50,18 @@ document$.subscribe(function() {
       burgerMenu.classList.toggle("open");
     });
   }
+
+      // === COPYRIGHT MOBILE (supprimer sur petit écran) ===
+  const hideCopyrightMobile = () => {
+    if (window.innerWidth <= 768) {
+      const copyright = document.querySelector('.md-footer-meta__inner .md-copyright');
+      if (copyright) copyright.style.display = 'none';
+    } else {
+      const copyright = document.querySelector('.md-footer-meta__inner .md-copyright');
+      if (copyright) copyright.style.display = '';
+    }
+  };
+  hideCopyrightMobile();
+  window.addEventListener('resize', hideCopyrightMobile);
     
 });
