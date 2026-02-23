@@ -2,20 +2,27 @@
  * Layout Controller
  * Compatible navigation.instant
  */
-
 document$.subscribe(function () {
 
   const root = document.documentElement;
   let lastFooterHeight = 0;
   let ticking = false;
   let observer = null;
+  let footerObserver = null;
 
   /* =====================================================
-     1. FOOTER AWARE HEIGHT
+     1. FOOTER AWARE HEIGHT DYNAMIQUE
      ===================================================== */
   const updateFooterHeight = () => {
     const footer = document.querySelector(".md-footer");
-    if (!footer) return;
+    if (!footer) {
+      // Footer absent → reset variable
+      if (lastFooterHeight !== 0) {
+        root.style.setProperty("--footer-visible-height", `0px`);
+        lastFooterHeight = 0;
+      }
+      return;
+    }
 
     const footerRect = footer.getBoundingClientRect();
     const viewportHeight = window.innerHeight;
@@ -89,7 +96,6 @@ document$.subscribe(function () {
      3. OBSERVER SIDEBAR (Rebind propre)
      ===================================================== */
   const initObserver = () => {
-
     const sidebar = document.querySelector(".md-sidebar--secondary");
     if (!sidebar) return;
 
@@ -105,7 +111,6 @@ document$.subscribe(function () {
   /* =====================================================
      4. SCROLL HANDLER UNIQUE
      ===================================================== */
-
   const scrollHandler = () => {
     if (!ticking) {
       requestAnimationFrame(() => {
@@ -120,11 +125,30 @@ document$.subscribe(function () {
   window.addEventListener("scroll", scrollHandler, { passive: true });
 
   /* =====================================================
+     5. FOOTER OBSERVER DYNAMIQUE (resize + apparition/disparition)
+     ===================================================== */
+  const initFooterObserver = () => {
+    const footer = document.querySelector(".md-footer");
+    if (!footer) return;
+
+    if (footerObserver) footerObserver.disconnect();
+
+    footerObserver = new ResizeObserver(() => {
+      updateFooterHeight();
+    });
+
+    footerObserver.observe(footer);
+  };
+
+  /* =====================================================
      INIT
      ===================================================== */
-
   updateFooterHeight();
   buildSidebar();
   initObserver();
+  initFooterObserver();
+
+  // Recalcul périodique en cas de footer animés ou apparitions tardives
+  setInterval(updateFooterHeight, 200);
 
 });
