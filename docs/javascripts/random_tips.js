@@ -40,8 +40,5 @@ document$.subscribe(function() {
         document.body.classList.add("is-hub");
     } else {
         document.body.classList.remove("is-hub");
-
-        // --- RESET footer-visible-height quand on quitte le hub ---
-        document.body.style.setProperty('--footer-visible-height', '0px');
     }
 });
