@@ -125,7 +125,8 @@ body.is-hub .md-content__inner h1 {
 
 body.is-hub {
   background-color: #000 !important;
-  overflow: visible !important;
+  height: 100vh;
+  overflow: hidden !important;
 }
 
 /* Reset du container MkDocs pour prendre 100% de la place */
@@ -135,7 +136,7 @@ body.is-hub .md-container {
 }
 
 body.is-hub .md-main {
-  min-height: auto !important;
+  min-height: 100vh !important;
   height: auto !important;
   display: block !important;
   padding-top: 0 !important;
@@ -149,9 +150,13 @@ body.is-hub .md-main__inner {
 
 /* 2. Forcer le footer en noir uniquement quand on est sur le Hub */
 body.is-hub .md-footer {
-    background-color: #000000 !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000 !important;
     border-top: none !important;
-   position: fixed:
+    z-index: 200;
 }
 
 [data-md-color-scheme] {
@@ -704,7 +709,7 @@ body.is-hub .md-footer {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    overflow: visible; 
+    overflow: hidden; 
     font-family: var(--font-main);
     background: linear-gradient(to bottom, 
         rgba(0,0,0,0) 0%, 
