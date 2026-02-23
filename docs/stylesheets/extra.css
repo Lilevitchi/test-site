@@ -710,11 +710,17 @@ body.is-hub .md-main__inner {
 }
 
 .hub-overlay-content {
-    position: absolute;   /* ← au lieu de relative */
-    bottom: 40px;         /* ajuste selon ton image */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 102;
+    position: relative;
+    margin-top: -60px; /* ajuste finement ici */
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.custom-hub-title {
+    white-space: nowrap;
+    margin-bottom: 20px;
 }
 
 /* Background dynamique */
