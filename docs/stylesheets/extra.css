@@ -690,13 +690,12 @@ body.is-hub .md-main__inner {
 .bot-advice strong {
     color: #ff5722;
     display: block;
-    margin-bottom: 5px;
     font-size: 1.1rem;
 }
 
 .bot-advice span {
     font-style: italic;
-    color: var(--md-typeset-color);
+    color: var(--text-primary);
 }
 
    /* Titre du conseil */
