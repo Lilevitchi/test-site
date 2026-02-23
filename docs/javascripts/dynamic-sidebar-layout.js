@@ -16,6 +16,7 @@ document$.subscribe(function () {
   const updateFooterHeight = () => {
     const footer = document.querySelector(".md-footer");
     if (!footer) {
+      // Footer absent → reset variable
       if (lastFooterHeight !== 0) {
         root.style.setProperty("--footer-visible-height", `0px`);
         lastFooterHeight = 0;
@@ -38,19 +39,19 @@ document$.subscribe(function () {
      2. SIDEBAR TOC + CUSTOM CARDS
      ===================================================== */
   const buildSidebar = () => {
+
     const sidebar = document.querySelector(".md-sidebar--secondary");
     if (!sidebar) return;
 
     const tocList = sidebar.querySelector(".md-nav__list");
     if (!tocList) return;
 
-    // Supprime les anciens sous-chapitres
     tocList.querySelectorAll(".nav-item-card-h3").forEach(el => el.remove());
 
     const cards = document.querySelectorAll(".custom-card h3");
-    if (!cards.length) return; // si pas de cards, exit
 
     cards.forEach(h3 => {
+
       if (!h3.id) {
         h3.id = h3.innerText
           .toLowerCase()
@@ -100,7 +101,10 @@ document$.subscribe(function () {
 
     if (observer) observer.disconnect();
 
-    observer = new MutationObserver(() => buildSidebar());
+    observer = new MutationObserver(() => {
+      buildSidebar();
+    });
+
     observer.observe(sidebar, { childList: true, subtree: true });
   };
 
@@ -121,7 +125,7 @@ document$.subscribe(function () {
   window.addEventListener("scroll", scrollHandler, { passive: true });
 
   /* =====================================================
-     5. FOOTER OBSERVER DYNAMIQUE
+     5. FOOTER OBSERVER DYNAMIQUE (resize + apparition/disparition)
      ===================================================== */
   const initFooterObserver = () => {
     const footer = document.querySelector(".md-footer");
@@ -129,41 +133,11 @@ document$.subscribe(function () {
 
     if (footerObserver) footerObserver.disconnect();
 
-    footerObserver = new ResizeObserver(updateFooterHeight);
-    footerObserver.observe(footer);
-  };
-
-  /* =====================================================
-     6. OBSERVER CONTENU PRINCIPAL
-     ===================================================== */
-  const initContentObserver = () => {
-    const content = document.querySelector(".md-content");
-    if (!content) return;
-
-    const contentObserver = new MutationObserver(() => {
-      buildSidebar();
+    footerObserver = new ResizeObserver(() => {
       updateFooterHeight();
     });
 
-    contentObserver.observe(content, { childList: true, subtree: true });
-  };
-
-  /* =====================================================
-     7. NAVIGATION INSTANT HOOK
-     ===================================================== */
-  const setupNavigationInstant = () => {
-    if (window.navigation && navigation.instant) {
-      navigation.instant.on('after', () => {
-        // Rebuild sidebar après injection de la page
-        buildSidebar();
-        updateFooterHeight();
-
-        // Réinit tips si défini
-        if (typeof initRobotTips === "function") {
-          initRobotTips();
-        }
-      });
-    }
+    footerObserver.observe(footer);
   };
 
   /* =====================================================
@@ -173,6 +147,8 @@ document$.subscribe(function () {
   buildSidebar();
   initObserver();
   initFooterObserver();
-  initContentObserver();  // <-- observer du contenu principal
-  setupNavigationInstant();
+
+  // Recalcul périodique en cas de footer animés ou apparitions tardives
+  setInterval(updateFooterHeight, 200);
+
 });
