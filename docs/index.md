@@ -8,15 +8,26 @@ hide:
   <div class="hub-bg" style="background-image:url('assets/Fond.png')"></div>
 
   <div class="split-layout">
-    <div class="display-zone">
+
+  <div class="display-zone">
       <div class="hub-central-content">
-        <div class="bot-bubble">
-        <p id="lile-bot-tip">Chargement d'une astuce...</p>
-    </div>
-        <img src="assets/lile-bot.png" class="hub-bot" alt="Robot">
-        <div class="custom-hub-title">Choisis ton univers</div>
-      </div>
-    </div>
+
+   <div class="bot-bubble">
+          <p id="lile-bot-tip">Chargement d'une astuce...</p>
+        </div>
+
+   <img src="assets/lile-bot.png" class="hub-bot" alt="Robot">
+
+  <div class="hub-overlay-content">
+          <div class="custom-hub-title">
+            Choisis ton univers
+          </div>
+    
+   <div class="hub-buttons-gap"></div>
+  </div>
+
+ </div>
+ </div>
 
   <div class="selection-zone">
       <div class="game-grid">
