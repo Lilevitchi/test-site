@@ -644,7 +644,7 @@ body.is-hub .md-main__inner {
     line-height: 1;
   }
 
-  .md-footer-meta__inner .media-social a.md-social__link {
+  .md-footer-meta__inner .md-social a.md-social__link {
     display: inline-block;
     width: 1.6rem;
     height: 1.1rem;
@@ -652,6 +652,16 @@ body.is-hub .md-main__inner {
     padding: 0;
     margin: 0;
     line-height: 1.1rem;
+  }
+
+  .md-footer-meta__inner .md-social a.md-social__link {
+    display: inline-block;
+    width: 1.6rem;
+    height: 1.1rem;
+    text-align: center;
+    line-height: 1.1rem;
+    margin: 0;
+    padding: 0;
   }
   
 /* ============================================================
