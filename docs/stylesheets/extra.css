@@ -703,7 +703,9 @@ body.is-hub .md-footer {
 }
 
 .hub-central-content {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -768,7 +770,9 @@ body.is-hub .md-footer {
    ============================================================*/
 
 .display-zone {
-  flex: 0 0 auto;
+  flex: 0 0 60vh;
+  min-height: 60vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -917,7 +921,8 @@ body.is-hub .md-footer {
    =========================*/
 
 .selection-zone {
-  flex: 1 1 auto;
+  flex: 0 0 40vh;
+  min-height: 40vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -929,6 +934,7 @@ body.is-hub .md-footer {
   perspective: 1000px;
   overflow-y: auto;
   animation: slideUpSync 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+  box-shadow: 0 -10px 40px rgba(0,0,0,0.6) inset;
 }
 
 /* Grid moderne */
@@ -1016,25 +1022,52 @@ body.is-hub .md-footer {
 /* ============================================================
    Responsive
    ============================================================*/
-  
-@media (max-width: 1200px) {
-  .bot-bubble {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 250px;
+
+@media (max-width: 1024px) {
+   
+  .display-zone {
+     flex: 0 0 65vh;
+  }
+
+  .selection-zone {
+     flex: 0 0 35vh;
+  }
+
+  .hub-bot {
+     width: 450px;
   }
 }
 
 @media (max-width: 768px) {
-  .bot-bubble {
-    max-width: 200px;
-    padding: 10px 15px;
-    font-size: 0.85rem;
+
+  .selection-zone {
+    display: none;
   }
 
-  .hub-bot { width: 350px; }
-  .hub-buttons-gap { gap: 40px; }
-  .game-card h2 { font-size: 1.2rem !important; }
+  .bot-bubble {
+    display: none;
+  }
+
+  .display-zone {
+    flex: 1;
+    min-height: 100vh;
+    justify-content: center;
+  }
+
+  .hub-buttons-gap {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .btn-hub-large {
+    width: 85%;
+    max-width: 320px;
+  }
+
+  .hub-bot {
+    width: 300px;
+  }
+
 }
 
 /* Bulle du robot */
@@ -1071,4 +1104,38 @@ body.is-hub .md-footer {
   margin: 0 !important;
   font-style: italic;
   text-align: left;
+}
+
+.hub-burger {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 200;
+}
+
+.hub-burger button {
+  background: var(--accent);
+  border: none;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  font-weight: bold;
+  color: white;
+}
+
+.hub-burger-menu {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.hub-burger-menu.open {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .hub-burger {
+    display: block;
+  }
 }
