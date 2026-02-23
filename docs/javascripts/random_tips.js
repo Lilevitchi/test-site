@@ -37,9 +37,16 @@ document$.subscribe(function() {
         cyberpunk: ["Cyberpunk 2077 : sauvegardez avant les mods scriptés."]
       };
 
-      const tips = allTips[category] || allTips.general;
-      const randomTip = tips[Math.floor(Math.random() * tips.length)];
-      tipElement.innerText = randomTip;
+      const updateTip = () => {
+        const tips = allTips[category] || allTips.general;
+        tipElement.innerText = tips[Math.floor(Math.random() * tips.length)];
+      };
+
+      // Initial tip
+      updateTip();
+
+      // Rafraîchissement toutes les 15 secondes (optionnel)
+      setInterval(updateTip, 15000);
     }
 
   } else {
@@ -52,8 +59,17 @@ document$.subscribe(function() {
     card.addEventListener('click', () => {
       const current = document.querySelector('.game-card.active-game');
       if (current === card) return;
-      if (current) current.classList.remove('active-game');
+
+      // Animation montée du cadre pour le jeu actif
+      if (current) {
+        current.classList.remove('active-game');
+        current.style.transform = "translateY(0)";
+        current.style.transition = "transform 0.3s ease";
+      }
+
       card.classList.add('active-game');
+      card.style.transform = "translateY(-10px)";
+      card.style.transition = "transform 0.3s ease";
     });
   });
 
@@ -71,6 +87,9 @@ document$.subscribe(function() {
     if (window.innerWidth <= 768) {
       const copyright = document.querySelector('.md-footer-meta__inner .md-copyright');
       if (copyright) copyright.style.display = 'none';
+    } else {
+      const copyright = document.querySelector('.md-footer-meta__inner .md-copyright');
+      if (copyright) copyright.style.display = '';
     }
   };
   hideCopyrightMobile();
