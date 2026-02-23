@@ -1,0 +1,24 @@
+/* ============================================================
+   Cacher sidebar et footer quand hub
+   ============================================================ */
+
+body:has(.hub-wrapper) .md-sidebar,
+body:has(.hub-wrapper) .md-footer,
+body:has(.hub-wrapper) .md-page__nav,
+body:has(.hub-wrapper) .md-header {
+    display: none !important;
+}
+
+/* ============================================================
+   CURSEURS
+   ============================================================*/
+
+  /* Curseur normal */
+  .game-card, .md-logo, .md-header__button, .md-tabs__link, .md-nav__link, .md-typeset a {
+    cursor: var(--cursor-default) !important;
+  }
+
+  /* Curseur clic (doigt replié) */
+  .game-card:active, .md-logo:active, .md-header__button:active, .md-tabs__link:active, .md-nav__link:active, .md-typeset a:active  {
+    cursor: var(--cursor-click) !important;
+  }
