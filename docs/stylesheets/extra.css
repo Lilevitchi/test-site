@@ -709,6 +709,7 @@ body.is-hub .md-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .hub-overlay-content {
@@ -848,13 +849,16 @@ body.is-hub .md-footer {
   visibility: visible !important;
   opacity: 1 !important;
   color: var(--text-primary) !important;
-  font-size: 3rem !important;
+  font-size: clamp(24px, 5vw, 48px);
   font-weight: 900 !important;
   text-align: center !important;
   text-shadow: 0 0 20px rgba(0,0,0,1), 0 0 10px rgba(255,255,255,0.2) !important;
   margin-top: 0;
   font-family: var(--font-main), sans-serif;
   z-index: 102;
+  max-width: 90%;
+  margin: 0 auto;
+  white-space: normal;
   animation: fastFade 0.8s ease-in-out 0.6s both;
 }
 
@@ -866,6 +870,7 @@ body.is-hub .md-footer {
   display: flex;
   gap: 140px;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   width: 100%;
 }
@@ -933,7 +938,6 @@ body.is-hub .md-footer {
   backface-visibility: hidden;
   perspective: 1000px;
   overflow-y: auto;
-  animation: slideUpSync 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
   box-shadow: 0 -10px 40px rgba(0,0,0,0.6) inset;
 }
 
@@ -1019,6 +1023,20 @@ body.is-hub .md-footer {
   transform: translateY(-20px) scale(1.02) translateZ(0) !important;
 }
 
+.game-card h2,
+.burger-item {
+  color: white !important;
+}
+
+.game-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  border-radius: inherit;
+  z-index: 1;
+}
+
 /* ============================================================
    Responsive
    ============================================================*/
@@ -1057,15 +1075,19 @@ body.is-hub .md-footer {
   .hub-buttons-gap {
     flex-direction: column;
     gap: 20px;
+    width: 100%;
+    align-items: center;
   }
 
   .btn-hub-large {
     width: 85%;
     max-width: 320px;
+    margin: 0 auto;
   }
 
   .hub-bot {
     width: 300px;
+    max-width: 85%;
   }
 
 }
@@ -1110,7 +1132,7 @@ body.is-hub .md-footer {
   display: none;
   position: absolute;
   top: 20px;
-  right: 20px;
+  left: 20px;
   z-index: 200;
 }
 
