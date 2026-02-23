@@ -275,7 +275,7 @@ body.is-hub .md-main__inner {
    ============================================================*/
 
   /* --- CONTENT — STICKY --- */
-  .md-content {
+  /*.md-content {
     background: var(--bg-page) !important;
     color: var(--text-primary);
     border-radius: var(--radius-md);
@@ -287,10 +287,10 @@ body.is-hub .md-main__inner {
     margin-bottom: 0 !important;
     padding: 0 !important;
     padding-bottom: 20px !important;
-  }
+  }*/
 
 /* --- CONTENT — FIXED --- */
-  /*.md-content {
+  .md-content {
     background: var(--bg-page) !important;
     color: var(--text-primary);
     border-radius: var(--radius-md);
@@ -304,7 +304,7 @@ body.is-hub .md-main__inner {
     margin-bottom: 0 !important;
     padding: 0 !important;
     padding-bottom: 20px !important;
-  }*/
+  }
 
   .md-content__inner {
     margin: 0 !important;
@@ -339,7 +339,7 @@ body.is-hub .md-main__inner {
 
 /* ============================================================
    SIDEBARS — FIXED
-   ============================================================ 
+   ============================================================*/
   
   .md-sidebar {
     position: fixed !important;
@@ -388,11 +388,11 @@ body.is-hub .md-main__inner {
     margin: 0 !important;
     padding: 0 !important;
     overflow: visible !important;
-  }*/
+  }
   
 /* ============================================================
    SIDEBARS — STICKY
-   ============================================================*/
+   ============================================================
   
   .md-sidebar {
     position: sticky !important;
@@ -403,7 +403,6 @@ body.is-hub .md-main__inner {
     margin-top: var(--sidebar-gap) !important; 
     z-index: 1;
     overflow-x: hidden !important;
-    transition: bottom 0.25s cubic-bezier(0.4, 0, 0.2, 1), height 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 
   .md-sidebar__inner {
@@ -435,7 +434,7 @@ body.is-hub .md-main__inner {
     padding: 0 !important;
     height: 100% !important; 
     overflow: visible !important;
-  }
+  }*/
 
 /* ============================================================
    SIDEBAR GAUCHE
