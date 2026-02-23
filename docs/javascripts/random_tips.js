@@ -46,52 +46,6 @@ document$.subscribe(function() {
     document.body.classList.remove("is-hub");
   }
 
-  // === JEUX ACTIFS (animation + sélection) ===
-  const games = document.querySelectorAll('.game-card');
-  const burgerItems = document.querySelectorAll('.burger-item');
-
-  // fonction pour définir le jeu actif
-  const setActiveGame = (slug) => {
-    games.forEach(card => {
-      const href = card.getAttribute('href');
-      if (href.includes(slug)) {
-        card.classList.add('active-game');
-        // animation visible
-        card.style.transform = 'translateY(-15px)';
-        card.style.transition = 'transform 0.5s ease-out';
-        setTimeout(() => card.style.transform = '', 500);
-      } else {
-        card.classList.remove('active-game');
-      }
-    });
-    burgerItems.forEach(item => {
-      const href = item.getAttribute('href');
-      if (href.includes(slug)) item.classList.add('active-game');
-      else item.classList.remove('active-game');
-    });
-  };
-
-  // === détecter page actuelle pour activer le jeu correspondant ===
-  const url = window.location.href;
-  let currentSlug = "fallout4"; // fallback par défaut
-  if (url.includes("fallout-london")) currentSlug = "fallout-london";
-  else if (url.includes("fnv")) currentSlug = "fnv";
-  else if (url.includes("ttw")) currentSlug = "ttw";
-  else if (url.includes("cyberpunk")) currentSlug = "cyberpunk";
-  else if (url.includes("fallout4")) currentSlug = "fallout4";
-
-  setActiveGame(currentSlug);
-
-  // === clic sur les cartes ===
-  games.forEach(card => {
-    card.addEventListener('click', () => {
-      const href = card.getAttribute('href');
-      // extraire slug du href
-      const slug = href.replace(/\/$/, '').split('/').pop();
-      setActiveGame(slug);
-    });
-  });
-
   // === BURGER HUB ===
   const burger = document.getElementById("hubBurgerToggle");
   const burgerMenu = document.getElementById("hubBurgerMenu");
