@@ -1013,7 +1013,6 @@ body.is-hub .md-footer {
   box-shadow: 0 10px 30px rgba(255,87,34,0.4) !important;
   border-color: var(--text-primary) !important;
   z-index: 10;
-  animation: slideUpSync 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
 
 .game-card.active-game .game-card-bg {
@@ -1073,6 +1072,11 @@ body.is-hub .md-footer {
     justify-content: center;
   }
 
+   .custom-hub-title {
+    font-size: 2.4rem;
+    margin-top: 10px;
+  }
+
   .hub-buttons-gap {
     flex-direction: column;
     gap: 20px;
@@ -1087,7 +1091,7 @@ body.is-hub .md-footer {
   }
 
   .hub-bot {
-    width: 300px;
+    width: 400px;
     max-width: 85%;
   }
 
