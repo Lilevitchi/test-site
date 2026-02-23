@@ -739,7 +739,7 @@ body.is-hub .md-footer {
   align-items: center;
   text-align: center;
   width: 100%;
-  margin-top: clamp(10px, 5vh, 50px);
+  margin-top: 50px;
 }
 
 .hub-content { 
@@ -826,7 +826,7 @@ body.is-hub .md-footer {
   visibility: visible !important;
   opacity: 1 !important;
   color: var(--text-primary) !important;
-  font-size: clamp(2rem, 3vw, 3rem);
+  font-size: 3rem;
   font-weight: 900 !important;
   text-align: center !important;
   text-shadow: 0 0 20px rgba(0,0,0,1), 0 0 10px rgba(255,255,255,0.2) !important;
@@ -1087,22 +1087,7 @@ body.is-hub .md-footer {
    Responsive
    ============================================================*/
 
-@media (max-width: 1024px) {
-   
-  .display-zone {
-     flex: 0 0 65vh;
-  }
-
-  .selection-zone {
-     flex: 0 0 35vh;
-  }
-
-  .hub-bot {
-     width: 450px;
-  }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
 
   .selection-zone {
     display: none;
