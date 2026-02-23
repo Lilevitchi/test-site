@@ -2,33 +2,25 @@ document$.subscribe(function() {
   const isHub = document.querySelector('.hub-wrapper');
   if (!isHub) return;
 
+  // Récupère le path de la page actuelle
   const pathname = window.location.pathname.toLowerCase();
 
+  // Liste des cartes et burger
   const games = document.querySelectorAll('.game-card');
   const burgerItems = document.querySelectorAll('#hubBurgerMenu .burger-item');
 
-  games.forEach(card => {
-    const href = card.getAttribute('href').toLowerCase();
+  // Détermine le jeu actif
+  const setActive = (elementList) => {
+    elementList.forEach(el => {
+      const href = el.getAttribute('href').toLowerCase();
+      if (pathname.endsWith(href) || pathname.includes(href)) {
+        el.classList.add('active-game');
+      } else {
+        el.classList.remove('active-game');
+      }
+    });
+  };
 
-    if (pathname.endsWith(href) || pathname.includes(href)) {
-      // Active la carte et laisse CSS gérer l'animation
-      card.classList.add('active-game');
-
-      // Si tu veux une entrée animée plus douce au chargement
-      card.style.transition = 'transform 0.5s ease-out, box-shadow 0.5s ease-out';
-    } else {
-      card.classList.remove('active-game');
-      card.style.transition = ''; // reset
-    }
-  });
-
-  // Active le burger correspondant
-  burgerItems.forEach(item => {
-    const href = item.getAttribute('href').toLowerCase();
-    if (pathname.endsWith(href) || pathname.includes(href)) {
-      item.classList.add('active-game');
-    } else {
-      item.classList.remove('active-game');
-    }
-  });
+  setActive(games);
+  setActive(burgerItems);
 });
