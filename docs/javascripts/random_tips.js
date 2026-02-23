@@ -9,9 +9,9 @@ document$.subscribe(function() {
     const tipElement = document.getElementById("lile-bot-tip");
     if (tipElement) {
       let category = "general";
-      const url = window.location.href.toLowerCase();
-      if (url.includes("fallout4")) category = "fo4";
-      else if (url.includes("fallout-london")) category = "london";
+      const url = window.location.href;
+      if (url.includes("fallout4")) category = "fallout4";
+      else if (url.includes("fallout-london")) category = "fallout-london";
       else if (url.includes("fnv")) category = "fnv";
       else if (url.includes("ttw")) category = "ttw";
       else if (url.includes("cyberpunk")) category = "cyberpunk";
@@ -23,12 +23,12 @@ document$.subscribe(function() {
           "Utilisez les profils sur Vortex pour tester des configurations sans risque.",
           "Évitez de désinstaller des mods scriptés en pleine partie."
         ],
-        fo4: [
+        fallout4: [
           "Pour Fallout 4, le Buffout 4 est indispensable pour stabiliser votre jeu.",
           "Attention au 'Previsibines' : modifier les décors peut casser vos FPS !",
           "Le script extender (F4SE) doit toujours être lancé en mode administrateur."
         ],
-        london: [
+        "fallout-london": [
           "Fallout London nécessite une version 'downgradée' de Fallout 4.",
           "Pensez à vider votre dossier de sauvegardes avant de commencer London."
         ],
@@ -46,41 +46,56 @@ document$.subscribe(function() {
     document.body.classList.remove("is-hub");
   }
 
-  // === JEUX ACTIFS (animation + selection) ===
+  // === JEUX ACTIFS (animation + sélection) ===
   const games = document.querySelectorAll('.game-card');
+  const burgerItems = document.querySelectorAll('.burger-item');
 
-  // Reset à l'ouverture
-  games.forEach(card => card.classList.remove('active-game'));
+  // fonction pour définir le jeu actif
+  const setActiveGame = (slug) => {
+    games.forEach(card => {
+      const href = card.getAttribute('href');
+      if (href.includes(slug)) {
+        card.classList.add('active-game');
+        // animation visible
+        card.style.transform = 'translateY(-15px)';
+        card.style.transition = 'transform 0.5s ease-out';
+        setTimeout(() => card.style.transform = '', 500);
+      } else {
+        card.classList.remove('active-game');
+      }
+    });
+    burgerItems.forEach(item => {
+      const href = item.getAttribute('href');
+      if (href.includes(slug)) item.classList.add('active-game');
+      else item.classList.remove('active-game');
+    });
+  };
 
-  // Défaut si tu veux mettre Fallout 4 actif
-  const defaultGame = document.querySelector('.game-card[href="fallout4/"]');
-  if (defaultGame) defaultGame.classList.add('active-game');
+  // === détecter page actuelle pour activer le jeu correspondant ===
+  const url = window.location.href;
+  let currentSlug = "fallout4"; // fallback par défaut
+  if (url.includes("fallout-london")) currentSlug = "fallout-london";
+  else if (url.includes("fnv")) currentSlug = "fnv";
+  else if (url.includes("ttw")) currentSlug = "ttw";
+  else if (url.includes("cyberpunk")) currentSlug = "cyberpunk";
+  else if (url.includes("fallout4")) currentSlug = "fallout4";
 
-  // Animation au clic
+  setActiveGame(currentSlug);
+
+  // === clic sur les cartes ===
   games.forEach(card => {
     card.addEventListener('click', () => {
-      const current = document.querySelector('.game-card.active-game');
-      if (current === card) return;
-
-      if (current) {
-        current.classList.remove('active-game');
-        // reset z-index après animation inverse
-        setTimeout(() => current.style.zIndex = '', 400);
-      }
-
-      card.style.zIndex = 10;
-      card.classList.add('active-game');
+      const href = card.getAttribute('href');
+      // extraire slug du href
+      const slug = href.replace(/\/$/, '').split('/').pop();
+      setActiveGame(slug);
     });
   });
 
   // === BURGER HUB ===
   const burger = document.getElementById("hubBurgerToggle");
   const burgerMenu = document.getElementById("hubBurgerMenu");
-
   if (burger && burgerMenu) {
-    // Affiche le burger sur mobile si jamais le style CSS le masque
-    burger.style.display = 'block';
-
     burger.addEventListener("click", () => {
       burgerMenu.classList.toggle("open");
     });
@@ -91,9 +106,6 @@ document$.subscribe(function() {
     if (window.innerWidth <= 768) {
       const copyright = document.querySelector('.md-footer-meta__inner .md-copyright');
       if (copyright) copyright.style.display = 'none';
-    } else {
-      const copyright = document.querySelector('.md-footer-meta__inner .md-copyright');
-      if (copyright) copyright.style.display = '';
     }
   };
   hideCopyrightMobile();
