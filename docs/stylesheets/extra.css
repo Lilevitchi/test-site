@@ -510,7 +510,7 @@ body.is-hub .md-footer {
   top: 50%;
   transform: translateY(-50%);
   width: 4px;
-  eight: 4px;
+  height: 4px;
   border-radius: 50%;
   background: var(--accent);
   opacity: 0.45;
@@ -572,7 +572,7 @@ body.is-hub .md-footer {
   align-items: center;
   padding: 0 20px;
   margin: 0;
-  ize: var(--text-size-footer);
+  font-size: var(--text-size-footer);
   color: var(--text-muted);
 }
 
@@ -694,7 +694,7 @@ body.is-hub .md-footer {
   width: 100vw !important;
   height: 100vh !important;
   display: flex !important;
-  lex-direction: column !important;
+  flex-direction: column !important;
   justify-content: flex-start !important;
   align-items: center !important;
   overflow: hidden !important; 
@@ -716,7 +716,7 @@ body.is-hub .md-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+}
 
 .custom-hub-title {
   white-space: nowrap;
@@ -943,8 +943,8 @@ body.is-hub .md-footer {
   height: auto;
 }
 
-[data-md-color-scheme] body:has(.game-grid) .game-grid {
-  grid-template-columns: repeat(5, minmax(200px, 1fr));
+.game-grid {
+  grid-template-columns: repeat(5, minmax(200px, 1fr)) !important;
 }
 
 /* Cartes de jeu */
