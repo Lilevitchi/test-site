@@ -9,7 +9,7 @@ document$.subscribe(function() {
     const tipElement = document.getElementById("lile-bot-tip");
     if (tipElement) {
       let category = "general";
-      const url = window.location.href;
+      const url = window.location.href.toLowerCase();
       if (url.includes("fallout4")) category = "fo4";
       else if (url.includes("fallout-london")) category = "london";
       else if (url.includes("fnv")) category = "fnv";
@@ -37,16 +37,9 @@ document$.subscribe(function() {
         cyberpunk: ["Cyberpunk 2077 : sauvegardez avant les mods scriptés."]
       };
 
-      const updateTip = () => {
-        const tips = allTips[category] || allTips.general;
-        tipElement.innerText = tips[Math.floor(Math.random() * tips.length)];
-      };
-
-      // Initial tip
-      updateTip();
-
-      // Rafraîchissement toutes les 15 secondes (optionnel)
-      setInterval(updateTip, 15000);
+      const tips = allTips[category] || allTips.general;
+      const randomTip = tips[Math.floor(Math.random() * tips.length)];
+      tipElement.innerText = randomTip;
     }
 
   } else {
@@ -55,28 +48,39 @@ document$.subscribe(function() {
 
   // === JEUX ACTIFS (animation + selection) ===
   const games = document.querySelectorAll('.game-card');
+
+  // Reset à l'ouverture
+  games.forEach(card => card.classList.remove('active-game'));
+
+  // Défaut si tu veux mettre Fallout 4 actif
+  const defaultGame = document.querySelector('.game-card[href="fallout4/"]');
+  if (defaultGame) defaultGame.classList.add('active-game');
+
+  // Animation au clic
   games.forEach(card => {
     card.addEventListener('click', () => {
       const current = document.querySelector('.game-card.active-game');
       if (current === card) return;
 
-      // Animation montée du cadre pour le jeu actif
       if (current) {
         current.classList.remove('active-game');
-        current.style.transform = "translateY(0)";
-        current.style.transition = "transform 0.3s ease";
+        // reset z-index après animation inverse
+        setTimeout(() => current.style.zIndex = '', 400);
       }
 
+      card.style.zIndex = 10;
       card.classList.add('active-game');
-      card.style.transform = "translateY(-10px)";
-      card.style.transition = "transform 0.3s ease";
     });
   });
 
   // === BURGER HUB ===
   const burger = document.getElementById("hubBurgerToggle");
   const burgerMenu = document.getElementById("hubBurgerMenu");
+
   if (burger && burgerMenu) {
+    // Affiche le burger sur mobile si jamais le style CSS le masque
+    burger.style.display = 'block';
+
     burger.addEventListener("click", () => {
       burgerMenu.classList.toggle("open");
     });
