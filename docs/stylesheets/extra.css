@@ -702,6 +702,21 @@ body.is-hub .md-main__inner {
     background: #000;
 }
 
+.hub-central-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hub-overlay-content {
+    position: absolute;   /* ← au lieu de relative */
+    bottom: 40px;         /* ajuste selon ton image */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 102;
+}
+
 /* Background dynamique */
 .hub-bg {
     position: absolute;
@@ -756,6 +771,7 @@ body.is-hub .md-main__inner {
 
 /* Robot */
 .hub-bot {
+  position: relative;
     width: 600px;
     max-width: 80vw;
     height: auto;
@@ -763,7 +779,7 @@ body.is-hub .md-main__inner {
     padding: 0; 
     transition: all 0.4s ease;
     object-fit: contain;
-    z-index: 101;
+    z-index: 1;
     animation: slideUpFade 1s ease-out forwards;
 }
 
