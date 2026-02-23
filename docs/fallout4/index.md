@@ -7,10 +7,8 @@ hide:
 
 <div class="hub-wrapper">
 
-  <!-- Background -->
   <div class="hub-bg" style="background-image: url('../assets/fo4.jpg');"></div>
 
-  <!-- BURGER MOBILE -->
   <div class="hub-burger">
     <button id="hubBurgerToggle">Choisir un jeu</button>
 
@@ -27,9 +25,6 @@ hide:
 
   <div class="split-layout">
 
-    <!-- =======================
-         HERO
-    ======================== -->
    <div class="display-zone">
 
   <div class="hub-central-content">
@@ -66,9 +61,6 @@ hide:
 
  </div> </div>
 
-    <!-- =======================
-         PARTIE BASSE
-    ======================== -->
 <div class="selection-zone">
 
    <div class="game-grid">
@@ -109,7 +101,6 @@ hide:
   </div>
 </div>
 
-<!-- JS BURGER -->
 <script>
 document.getElementById("hubBurgerToggle")?.addEventListener("click", function () {
   document.getElementById("hubBurgerMenu")?.classList.toggle("open");
