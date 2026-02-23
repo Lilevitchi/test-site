@@ -281,7 +281,23 @@ body.is-hub .md-footer {
    CONTENU CENTRAL
    ============================================================*/
 
+/* --- CONTENT — STICKY --- */
 [data-md-color-scheme] .md-content {
+   background: var(--bg-page);
+   color: var(--text-primary);
+   border-radius: var(--radius-md);
+   flex: 1;
+   min-width: 0;
+   position: relative;
+   height: auto;
+   margin: var(--sidebar-gap) var(--sidebar-gap) 0 var(--sidebar-gap);
+   margin-bottom: 0;
+   padding: 0;
+   padding-bottom: 20px;
+}
+
+/* --- CONTENT — FIXED --- */
+/*[data-md-color-scheme] .md-content {
   background: var(--bg-page);
   color: var(--text-primary);
   border-radius: var(--radius-md);
@@ -295,7 +311,7 @@ body.is-hub .md-footer {
   margin-bottom: 0;
   padding: 0;
   padding-bottom: 20px;
-}
+}*/
 
 .md-content__inner {
   margin: 0 !important;
@@ -329,8 +345,8 @@ body.is-hub .md-footer {
 }
 
 /* ============================================================
-   SIDEBARS
-   ============================================================*/
+   SIDEBARS FIXED
+   ============================================================
   
 [data-md-color-scheme] .md-sidebar {
   position: fixed !important;
@@ -379,6 +395,51 @@ body.is-hub .md-footer {
   margin: 0;
   padding: 0;
   overflow: visible;
+}*/
+
+/* ============================================================
+   SIDEBARS — STICKY
+   ============================================================*/
+
+[data-md-color-scheme] .md-sidebar {
+   position: sticky !important;
+   top: calc(var(--header-height) + var(--sidebar-gap)) !important;
+   height: calc(100vh - var(--header-height) - (var(--sidebar-gap) * 2) - var(--footer-visible-height, 0px)) !important;
+   padding: 0 !important;
+   margin: 0 !important;
+   margin-top: var(--sidebar-gap) !important; 
+   z-index: 1;
+   overflow-x: hidden !important;
+}
+
+[data-md-color-scheme] .md-sidebar__inner {
+   background-color: var(--bg-surface);
+   border-radius: var(--radius-md);
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+   padding: 10px;
+   height: 100%;
+   overflow-y: auto;
+   overflow-x: hidden;
+   will-change: auto; 
+   -webkit-font-smoothing: antialiased;
+   transform: translateZ(0);
+}
+
+[data-md-color-scheme] .md-sidebar--primary {
+   margin-left: var(--sidebar-gap); 
+   width: var(--sidebar-width-primary); 
+}
+
+[data-md-color-scheme] .md-sidebar--secondary {
+   margin-right: var(--sidebar-gap); 
+   width: var(--sidebar-width-secondary); 
+}
+
+.md-sidebar__scrollwrap {
+   margin: 0;
+   padding: 0;
+   height: 100%; 
+    overflow: visible;
 }
 
 /* ============================================================
