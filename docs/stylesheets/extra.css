@@ -100,14 +100,37 @@ body {
   display: none;
 }
 
-/* Cache absolument tout ce qui appartient à MkDocs Material sur la home */
+/* Tout est masqué par défaut */
+.md-header,
+.header-progress,
+.md-sidebar,
+.md-tabs,
+.md-footer {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* On montre seulement si c’est pas le hub */
+body:not(.is-hub) .md-header,
+body:not(.is-hub) .header-progress,
+body:not(.is-hub) .md-sidebar,
+body:not(.is-hub) .md-tabs,
+body:not(.is-hub) .md-footer {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Hub : tout reste masqué par défaut */
 body.is-hub .md-header,
 body.is-hub .header-progress,
 body.is-hub .md-sidebar,
-body.is-hub .md-tabs {
+body.is-hub .md-tabs,
+body.is-hub .md-footer {
   opacity: 0;
-  pointer-events: none;
   visibility: hidden;
+  pointer-events: none;
 }
 
 /* 2. Suppression du cadre gris (md-content) qui clignote au refresh */
