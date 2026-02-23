@@ -15,18 +15,27 @@ hide:
         <p id="lile-bot-tip">Chargement d'une astuce...</p>
     </div>
         <img src="../assets/lile-bot-fo4.png" class="hub-bot" alt="Robot Fallout 4">
-        <div class="custom-hub-title">Bienvenue dans le Commonwealth</div>
         
+  <div class="hub-overlay-content">
+          <div class="custom-hub-title">
+            Bienvenue dans le Commonwealth
+          </div>
+
   <div class="hub-buttons-gap">
-          <a href="intro/" class="btn-hub-large btn-orange">
-            Guide Écrit
-          </a>
-          <a href="https://youtu.be/m_CawhgGBGk?si=V8ovH2IEi1shkF6d" target="_blank" class="btn-hub-large btn-red">
-            Guide Vidéo
-          </a>
+            <a href="intro/" class="btn-hub-large btn-orange">
+              Guide Écrit
+            </a>
+
+  <a href="https://youtu.be/m_CawhgGBGk?si=V8ovH2IEi1shkF6d"
+               target="_blank"
+               class="btn-hub-large btn-red">
+              Guide Vidéo
+            </a>
+          </div>
         </div>
-      </div>
-    </div>
+
+  </div>
+</div>
 
   <div class="selection-zone">
       <div class="game-grid">
