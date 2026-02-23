@@ -238,12 +238,12 @@ body.is-hub .md-footer {
 }
 
 .md-logo img {
-  height: 60px;
-  transition: transform 187ms ease;
+  height: 60px !important;
+  transition: transform 187ms ease !important;
 }
 
 .md-logo img:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px) !important;
 }
 
 /* ============================================================
