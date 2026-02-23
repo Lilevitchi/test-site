@@ -711,7 +711,7 @@ body.is-hub .md-main__inner {
 
 .hub-overlay-content {
     position: relative;
-    margin-top: -60px; /* ajuste finement ici */
+    margin-top: 0; /* ajuste finement ici */
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -856,6 +856,7 @@ body.is-hub .md-main__inner {
 
 .md-typeset .btn-hub-large {
     width: 300px;
+    height: 72px;
     padding: 10px 10px;
     border-radius: 20px;
     font-weight: 800;
