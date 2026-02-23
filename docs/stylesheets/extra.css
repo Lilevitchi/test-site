@@ -20,7 +20,7 @@
 
   /* Layout Sizing */
   --header-height: 72px;
-  --footer-height: 30px;
+  --footer-height: 45px;
   --sidebar-width-primary: 216px;
   --sidebar-width-secondary: 226px;
   --sidebar-gap: 10px;
@@ -107,7 +107,6 @@ body {
 body.is-hub .md-header,
 body.is-hub .header-progress,
 body.is-hub .md-sidebar,
-body.is-hub .md-footer,
 body.is-hub .md-tabs {
     opacity: 0 !important;
     pointer-events: none !important;
@@ -125,9 +124,8 @@ body.is-hub .md-content__inner h1 {
 }
 
 body.is-hub {
-    overflow: hidden !important;
-    height: 100vh;
-    background-color: #000 !important; /* Fond noir de sécurité */
+    background-color: #000 !important;
+  overflow: hidden !important;
 }
 
 /* Reset du container MkDocs pour prendre 100% de la place */
@@ -137,15 +135,21 @@ body.is-hub .md-container {
 }
 
 body.is-hub .md-main {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    min-height: auto !important;
+    height: auto !important;
+    display: block !important;
+  padding-top: 0 !important;
 }
 
 body.is-hub .md-main__inner {
   height: 100%;
     max-width: none !important;
     margin: 0 !important;
+}
+
+body.is-hub .md-footer {
+    background-color: #000000 !important;
+    border-top: none !important;
 }
 
 [data-md-color-scheme] {
@@ -341,7 +345,7 @@ body.is-hub .md-main__inner {
 
 /* ============================================================
    SIDEBARS — FIXED
-   ============================================================ */
+   ============================================================*/
   
   .md-sidebar {
     position: fixed !important;
@@ -439,8 +443,9 @@ body.is-hub .md-main__inner {
 
 /* ============================================================
    SIDEBAR GAUCHE
-   ============================================================
+   ============================================================*/
 
+  /* Supprime le titre du site dans la sidebar gauche */
 .md-sidebar--primary .md-nav__title {
   display: none !important;
 }
@@ -449,6 +454,7 @@ body.is-hub .md-main__inner {
   padding-top: 0 !important;
 }
 
+/* Conteneur */
 .md-sidebar--primary {
   position: fixed !important;
   top: calc(var(--header-height) + 10px);
@@ -464,11 +470,13 @@ body.is-hub .md-main__inner {
   overflow-y: auto;
 }
 
+/* Liste */
 .md-sidebar--primary .md-nav__list {
   padding: 0 !important;
   margin: 0 !important;
 }
 
+/* Liens */
 .md-sidebar--primary .md-nav__link {
   position: relative;
   display: flex;
@@ -484,16 +492,19 @@ body.is-hub .md-main__inner {
   border-radius: 4px;
   transition: background 0.18s ease;
 }
-  
+
+/* Hover */
 .md-sidebar--primary .md-nav__link:hover {
   background: rgba(255, 255, 255, 0.06);
 }
 
+/* Page active */
 .md-sidebar--primary .md-nav__link--active {
   background: rgba(255, 255, 255, 0.08);
   font-weight: 500;
 }
 
+/* Barre verticale active */
 .md-sidebar--primary .md-nav__link--active::before {
   content: "";
   position: absolute;
@@ -504,10 +515,12 @@ body.is-hub .md-main__inner {
   border-radius: 8px;
 }
 
+/* Supprimer les flèches Material */
 .md-sidebar--primary .md-nav__link::after {
   display: none !important;
 }
 
+/* Séparateurs */
 .md-sidebar--primary .md-nav__item--section > .md-nav__link {
   margin-top: 8px;
 }
@@ -516,11 +529,11 @@ body.is-hub .md-main__inner {
   border-top: 1px solid rgba(255,255,255,0.12);
   margin-top: 8px;
   padding-top: 6px;
-}*/
+}
   
 /* ============================================================
    SIDEBAR DROITE
-   ============================================================ */
+   ============================================================
 
   .md-sidebar--secondary .md-nav__title,
   .md-sidebar--secondary label[for="__toc"] {
@@ -532,7 +545,6 @@ body.is-hub .md-main__inner {
     margin: 0 !important;
   }
 
-/* --- CHAPITRES (H2) --- */
   .md-sidebar--secondary
   .md-nav__item:not(.nav-item-card-h3)
   > .md-nav__link {
@@ -552,7 +564,6 @@ body.is-hub .md-main__inner {
     margin-top: 0;
   }
   
-/* ---SOUS-CHAPITRES (H3 – Custom cards) --- */
   .nav-item-card-h3 .md-nav__link {
     padding: 2px 10px 2px 30px !important;
     font-size: calc(var(--text-size-content) - 1.25px);
@@ -565,7 +576,6 @@ body.is-hub .md-main__inner {
     animation: sidebarSubFade 180ms ease-out;
   }
   
-/* Point visuel discret */
   .nav-item-card-h3 .md-nav__link::before {
     content: "";
     position: absolute;
@@ -579,7 +589,6 @@ body.is-hub .md-main__inner {
     opacity: 0.45;
   }
 
-/* --- INTERACTIONS --- */
   .md-sidebar--secondary .md-nav__link:hover {
     color: var(--accent) !important;
     opacity: 1;
@@ -600,8 +609,6 @@ body.is-hub .md-main__inner {
     display: none !important;
   }
 
-
-/* --- ANIMATION --- */
   @keyframes sidebarSubFade {
     from {
       opacity: 0;
@@ -611,7 +618,7 @@ body.is-hub .md-main__inner {
       opacity: 0.75;
       transform: translateX(0);
     }
-  }
+  }*/
   
 /* ============================================================
    FOOTER
@@ -726,13 +733,13 @@ body.is-hub .md-main__inner {
 
 /* ============================================================
    HUB WRAPPER
-   ============================================================ */
+   ============================================================*/
 
 .hub-wrapper {
-    position: fixed;
+    position: relative;
     inset: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: calc(100vh - var(--real-footer-height));
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -768,7 +775,7 @@ body.is-hub .md-main__inner {
 
 /* ============================================================
    SPLIT LAYOUT
-   ============================================================ */
+   ============================================================*/
 
 .split-layout {
     display: flex;
@@ -779,7 +786,7 @@ body.is-hub .md-main__inner {
 
 /* =========================
    PARTIE HAUTE
-   ========================= */
+   =========================*/
 
 .display-zone {
     flex: 2;
@@ -861,7 +868,7 @@ body.is-hub .md-main__inner {
 
 /* =========================
    BOUTONS
-   ========================= */
+   =========================*/
 
 .hub-buttons-gap {
     display: flex;
@@ -918,7 +925,7 @@ body.is-hub .md-main__inner {
 
 /* =========================
    PARTIE BASSE - GRID
-   ========================= */
+   =========================*/
 .selection-zone {
     flex: 1;
     display: flex;
@@ -1025,7 +1032,7 @@ body.is-hub .md-main__inner {
 
 /* ============================================================
    Responsive
-   ============================================================ */
+   ============================================================*/
 @media (max-width: 768px) {
     .hub-bot { width: 350px; }
     .hub-buttons-gap { gap: 40px; }
