@@ -716,10 +716,7 @@ body.is-hub .md-footer {
     align-items: center;
     overflow: hidden; 
     font-family: var(--font-main);
-    background: linear-gradient(to bottom, 
-        rgba(0,0,0,0) 0%, 
-        rgba(0,0,0,0.4) 60%, 
-        rgba(0,0,0,1) 100%); /* Finition noir pur */
+    background: #000;
 }
 
 .hub-central-content {
@@ -941,7 +938,6 @@ body.is-hub .md-footer {
     backface-visibility: hidden;    /* Évite les micro-clignotements */
     perspective: 1000px;            /* Donne de la profondeur pour la fluidité */
     overflow-y: auto; /* scroll si trop de contenu */
-    padding-bottom: 30px;
     /* Application de l'animation */
     animation: slideUpSync 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
