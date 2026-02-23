@@ -107,7 +107,6 @@ body {
 body.is-hub .md-header,
 body.is-hub .header-progress,
 body.is-hub .md-sidebar,
-body.is-hub .md-footer,
 body.is-hub .md-tabs {
   opacity: 0 !important;
   pointer-events: none !important;
@@ -146,6 +145,12 @@ body.is-hub .md-main__inner {
   height: 100%;
   max-width: none !important;
   margin: 0 !important;
+}
+
+/* 2. Forcer le footer en noir uniquement quand on est sur le Hub */
+body.is-hub .md-footer {
+    background-color: #000000 !important;
+    border-top: none !important;
 }
 
 [data-md-color-scheme] {
