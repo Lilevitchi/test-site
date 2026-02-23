@@ -638,11 +638,12 @@ body.is-hub .md-main__inner {
 
   .md-footer-meta {
     background-color: transparent;
-    margin-top: -3px; 
+    margin: 0 !important;
   }
 
   .md-footer-meta__inner {
-    height: calc(var(--footer-height) + 3px);
+    height: var(--footer-height) !important;
+    line-height: var(--footer-height) !important;
     display: flex;
     align-items: center;
     padding: 0 20px;
