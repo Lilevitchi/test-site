@@ -740,10 +740,10 @@ body.is-hub .md-main__inner {
    ============================================================ */
 
 .hub-wrapper {
-    position: relative !important;
+    position: fixed;
     inset: 0;
     width: 100vw;
-    height: auto !important;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
