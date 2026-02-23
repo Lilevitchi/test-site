@@ -1013,6 +1013,7 @@ body.is-hub .md-footer {
   box-shadow: 0 10px 30px rgba(255,87,34,0.4) !important;
   border-color: var(--text-primary) !important;
   z-index: 10;
+  animation: slideUpSync 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
 
 .game-card.active-game .game-card-bg {
